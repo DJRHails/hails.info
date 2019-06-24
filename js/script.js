@@ -18,15 +18,15 @@ $(document).ready(function() {
     var prefix = 'I work with ';
     var skills = [
         'Python',
-        'C#',
+        'C, C++ & C#',
         'x86 ASM',
-        'JavaScript',
-        'HTML & CSS',
-        'LESS',
-        'jQuery',
-        'Node.js',
-        'SQL',
-        'PHP & MySQL'
+        'Kotlin & Java',
+        'PHP & MySQL',
+        'TypeScript, JavaScript & jQuery',
+        'SASS, LESS & CSS',
+        'Swift',
+        'Flutter',
+        'People'
     ].map(function (s) { return s + "."; });
     var delay = 10;
     var step = 1;
@@ -40,26 +40,6 @@ $(document).ready(function() {
 
     var colors = [
       "#c0392b",
-        // "rgb(110,64,170)",
-        // "rgb(150,61,179)",
-        // "rgb(191,60,175)",
-        // "rgb(228,65,157)",
-        // "rgb(254,75,131)",
-        // "rgb(255,94,99)",
-        // "rgb(255,120,71)",
-        // "rgb(251,150,51)",
-        // "rgb(226,183,47)",
-        // "rgb(198,214,60)",
-        // "rgb(175,240,91)",
-        // "rgb(127,246,88)",
-        // "rgb(82,246,103)",
-        // "rgb(48,239,130)",
-        // "rgb(29,223,163)",
-        // "rgb(26,199,194)",
-        // "rgb(35,171,216)",
-        // "rgb(54,140,225)",
-        // "rgb(76,110,219)",
-        // "rgb(96,84,200)",
     ];
     function getRandomColor() {
         return colors[Math.floor(Math.random() * colors.length)];
@@ -86,6 +66,7 @@ $(document).ready(function() {
         skillP: 0,
         direction: 'forward',
         delay: delay,
+        finished: false,
         step: step
     };
     function render() {
@@ -111,20 +92,22 @@ $(document).ready(function() {
                         if (state.delay) {
                             state.delay--;
                         }
-                        else {
+                        else if (state.skillI < skills.length - 1) {
                             state.direction = 'backward';
                             state.delay = delay;
+                        } else {
+                          state.direction = 'finished';
                         }
                     }
                 }
-                else {
+                else if (state.direction === 'backward') {
                     if (state.skillP > 0) {
                         state.text = state.text.slice(0, -1);
                         state.skillP--;
                     }
                     else {
-                        state.skillI = (state.skillI + 1) % skills.length;
-                        state.direction = 'forward';
+                      state.skillI++;
+                      state.direction = 'forward';
                     }
                 }
             }
