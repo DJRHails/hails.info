@@ -21,7 +21,7 @@ $(document).ready(function() {
         'C, C++ & C#',
         'Kotlin & Java',
         'PHP & MySQL',
-        'TypeScript, JavaScript & jQuery',
+        'TypeScript & JavaScript',
         'SASS, LESS & CSS',
         'Swift',
         'Flutter',
