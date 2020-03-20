@@ -19,7 +19,6 @@ $(document).ready(function() {
     var skills = [
         'Python',
         'C, C++ & C#',
-        'x86 ASM',
         'Kotlin & Java',
         'PHP & MySQL',
         'TypeScript, JavaScript & jQuery',
