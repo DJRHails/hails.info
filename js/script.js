@@ -35,7 +35,6 @@ $(document).ready(function() {
     var prefix_e = document.createElement('span');
     prefix_e.className = "m-line";
     var postfix_e = document.createElement('span');
-    // postfix_e.className = "m-line";
 
     var colors = [
       "#c0392b",
