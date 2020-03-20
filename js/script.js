@@ -1,20 +1,4 @@
 $(document).ready(function() {
-
-    $('.content-23').each(function() {
-        if(! isMobile.any())
-            $(this).parallax('50%', 0.3, true);
-        else
-            $(this).css('background-attachment', 'initial');
-    });
-
-    $('.btn-next').on('click', function() {
-        $.scrollTo($(this).closest('section').next(), {
-            axis : 'y',
-            duration : 500
-        });
-        return false;
-    });
-
     var prefix = 'I work with ';
     var skills = [
         'Python',
