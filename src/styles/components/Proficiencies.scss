@@ -1,0 +1,33 @@
+.proficiencies {
+    padding-top: 140px;
+    padding-bottom: 140px;
+    text-align: center;
+    color: $gray;
+    background: $body-bg-inverse;
+
+    &.contrast {
+        color: $gray;
+        background: $pomegranate;
+    }
+
+    h2 {
+        font-size: 46px;
+        line-height: 55px;
+        margin: 0 0 60px;
+        letter-spacing: -2px;
+        color: #fff;
+        &.adapt-text {
+            position: absolute;
+            position: relative;
+            left: 50%;
+            width: 600px;
+            margin: 0 0 0 -190px;
+            text-align: left;
+            @media (max-width: 767px) {
+                top: -50px; // TODO: Find out what causes this to happen, or change back to relative.
+                width: 300px;
+                margin-left: -110px;
+            }
+        }
+    }
+}

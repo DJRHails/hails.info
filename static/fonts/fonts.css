@@ -1,0 +1,10 @@
+@font-face {
+  font-family: "Jaapokki Enchance";
+  src: url("jaapokki-enchance/regular.eot");
+  src: url("jaapokki-enchance/regular.eot?#iefix") format("embedded-opentype"),
+       url("jaapokki-enchance/regular.woff") format("woff"),
+       url("jaapokki-enchance/regular.ttf") format("truetype"),
+       url("jaapokki-enchance/regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,119 @@
+// Separator Styles //
+@mixin separator {
+  content: '';
+  position: absolute;
+  transition: ease all 10s;
+}
+
+// Separator Arrow //
+.separator-arrow {
+  &:before, &:after {
+    @include separator;
+    bottom: -1px;
+    width: 50%;
+    z-index: 4;
+    border-bottom: 100px solid $body-bg;
+    @include rotate(0.000001deg);
+  }
+
+  &:before {
+    right: 50%;
+    border-right: 1000px solid transparent;
+    border-left: 1000px solid;
+  }
+  &:after {
+    left: 50%;
+    border-right: 1000px solid;
+    border-left: 1000px solid transparent;
+  }
+
+  &.inverse:before, &.inverse:after {
+    border-bottom: 200px solid $body-bg-inverse !important
+  }
+}
+
+
+// Separator Zigzag Top and Bottom//
+@mixin separator-zigzag {
+  @include separator;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-size: 100px 100%;
+}
+
+.separator-zigzag-top::before
+{
+  @include separator-zigzag;
+  top: 0;
+  background-image: -webkit-gradient(linear, 0 0, 10% 100%, color-stop(0.5, $body-bg), color-stop(0.5, $body-bg-inverse));
+  background-image: linear-gradient(15deg, $body-bg-inverse 50%, $body-bg 50%);
+}
+.separator-zigzag-bottom::after
+{
+  @include separator-zigzag;
+  bottom: 0;
+  background-image: -webkit-gradient(linear, 0 0, 10% 100%, color-stop(0.5, $body-bg-inverse), color-stop(0.5, $body-bg));
+  background-image: linear-gradient(15deg, $body-bg 50%, $body-bg-inverse 50%);
+}
+
+// Folded Corner //
+@mixin separator-page {
+  @include separator;
+  bottom: 0;
+  width: 100px;
+  height: 100px;
+}
+.separator-page::before{
+  @include separator-page;
+  right: 0;
+  background-image: -webkit-linear-gradient(top left, lighten($body-bg, 10%) 50%, $body-bg 50%);
+  background-image: linear-gradient(315deg, $body-bg 50%, lighten($body-bg, 10%) 50%);
+}
+.separator-page::after{
+  @include separator-page;
+  right: 100px;
+  background-image: -webkit-linear-gradient(top left, transparent 50%, darken($body-bg-inverse, 10%) 50%);
+  background-image: linear-gradient(315deg, darken($body-bg-inverse, 10%) 50%, transparent 50%);
+}
+
+// Skew //
+@mixin separator-skew
+{
+    @include separator;
+    background: inherit;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+    left: 0;
+    right: 0;
+}
+.separator-skew-top-left::before
+{
+  @include separator-skew;
+  top:0;
+  transform-origin: right top;
+  transform: skewY(3deg);
+}
+.separator-skew-top-right::before
+{
+  @include separator-skew;
+  top:0;
+  transform-origin: left top;
+  transform: skewY(-3deg);
+}
+.separator-skew-bottom-left::after{
+  @include separator-skew;
+  z-index: 3;
+  bottom: 0;
+  transform-origin: right bottom;
+  transform: skewY(-3deg)
+}
+
+.separator-skew-bottom-right:after{
+  @include separator-skew;
+  z-index: 3;
+  bottom: 0;
+  transform-origin: left bottom;
+  transform: skewY(3deg);
+}

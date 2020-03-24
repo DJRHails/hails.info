@@ -1,0 +1,61 @@
+// Generic Sections //
+.section {
+  position: relative;
+  padding-top: 140px;
+  padding-bottom: 140px;
+  text-align: center;
+
+  // Colors //
+  &.dark {
+    color: $inverse;
+    background: $body-bg-inverse;
+  }
+
+  &.contrast {
+      color: $inverse;
+      background: $brand-primary;
+  }
+
+  h2 {
+      font-size: 46px;
+      line-height: 55px;
+      margin: 0 0 60px;
+      letter-spacing: -2px;
+      color: $inverse;
+      &.adapt-text {
+          position: absolute;
+          position: relative;
+          left: 50%;
+          width: 600px;
+          margin: 0 0 0 -190px;
+          text-align: left;
+          @media (max-width: 767px) {
+              top: -50px; // TODO: Find out what causes this to happen, or change back to relative.
+              width: 300px;
+              margin-left: -110px;
+          }
+      }
+      // @media (max-width: 767px){
+      //   padding-top: 70px;
+      //   padding-bottom: 170px;
+      // }
+  }
+  .btn {
+      font-size: 22px;
+      font-weight: 500;
+      margin: 0 0 55px;
+      padding: 15px 46px;
+  }
+  p {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 31px;
+      width: 48%;
+      margin: 0 auto;
+      @media (max-width: 767px) {
+          width: 80%;
+      }
+  }
+}
+
+@import 'Section.Separator';
