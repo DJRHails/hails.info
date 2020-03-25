@@ -18,16 +18,27 @@
     color: black;
     text-align: center;
     background: $body-bg;
+    overflow: hidden;
+
     .background {
+        position: absolute;
+        z-index: 0;
+
         width: 100%;
         height: 100%;
+        top: 0;
+        bottom: 0;
         right: -300px;
         left: initial;
+
+        background: 50% 50% no-repeat;
         background-image: url('../assets/index/HAILS.png');
         @include background-size(contain);
         background-position: bottom;
-        animation: fadein 5s ease-in-out;
         @include opacity(70);
+
+        animation: fadein 5s ease-in-out;
+
         @media (max-width: 767px) {
             right: 0;
             top: auto;
@@ -48,19 +59,20 @@
         border: 2px solid $body-bg-inverse;
         border-radius: 30px;
         @include opacity(30);
-    }
-    .mouse:after {
-        display: block;
-        content: "";
-        position: absolute;
-        left: 12px;
-        top: 10px;
-        width: 3px;
-        height: 4px;
-        margin-left: -3px;
-        background-color: $body-bg-inverse;
-        border-radius: 2px;
-        animation: mouse-wheel 5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+
+        &:after {
+          display: block;
+          content: "";
+          position: absolute;
+          left: 12px;
+          top: 10px;
+          width: 3px;
+          height: 4px;
+          margin-left: -3px;
+          background-color: $body-bg-inverse;
+          border-radius: 2px;
+          animation: mouse-wheel 5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+        }
     }
     @media (max-width: 991px) {
         padding-top: 100px;
@@ -114,17 +126,4 @@
             margin-top: 50px;
         }
     }
-}
-.mask {
-    z-index: 1000;
-    background-color: $body-bg;
-    @include opacity(90);
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    display: none;
 }
