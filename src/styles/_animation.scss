@@ -43,10 +43,10 @@
   }
   50% {
     transform: translateY(0);
-    height: 15px;
+    height: 10px;
   }
   70% {
-    transform: translateY(10px);
+    transform: translateY(5px);
     height: 4px;
     opacity: 1;
   }
@@ -54,7 +54,7 @@
     opacity: 0;
   }
   100% {
-    transform: translateY(10px);
+    transform: translateY(5px);
     opacity: 0;
   }
 }
