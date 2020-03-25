@@ -24,9 +24,9 @@ const HeroUnit: React.FC = () => {
                 </div>
             </div>
         </div>
-        <Link to="#proficiencies">
+        <a href="#proficiencies">
           <span className="mouse btn-next hidden-xs"/>
-        </Link>
+        </a>
     </Section>
   )
 }
