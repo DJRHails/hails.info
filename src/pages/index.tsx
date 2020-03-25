@@ -7,28 +7,6 @@ import SEO from '@components/SEO'
 
 import '@styles/main.scss'
 
-interface IndexPageProps {
-  data: {
-    site: {
-      siteMetadata: {
-        title: string;
-        description: string;
-      },
-    },
-  }
-}
-
-export const indexPageQuery = graphql`
-  query IndexPageQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`
-
 const HeroUnit: React.FC = () => {
   return (
     <Section id="intro" className="hero-sub inverse" arrow>
@@ -73,7 +51,7 @@ const Projects: React.FC = () => {
   )
 }
 
-const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
+const IndexPage: React.FC<IndexPageProps> = () => {
   return (
     <Layout
       nav={{}}
@@ -81,7 +59,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     >
       <>
         <SEO
-          title={data.site.siteMetadata.title}
+          title="Daniel Hails | hails.info"
           pathname="/"
         />
         <div className="page-wrapper">

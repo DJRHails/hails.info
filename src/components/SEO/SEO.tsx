@@ -17,16 +17,23 @@
  *
  */
 
+import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 
-interface HelmetProps {
+interface SiteMetadata {
+  siteName: string
+  siteDescription: string
+  siteRoot: string
+  twitter: string
+}
+
+interface PageMetadata {
   title: string
-  description?: string
   pathname: string
-  image?: string
-  url?: string
   canonical?: string
+  description?: string
+  image?: string
   contentType?: string
   published?: string
   updated?: string
@@ -36,20 +43,16 @@ interface HelmetProps {
   readingTime?: string
 }
 
-const seoURL = (path: string) => `https://hails.info${path}`
-
 // Twitter requires https to prepend any paths.
 const addHttps = (path: string) => {
   if (path.substring(0, 5) === 'https') return path
   return `https:${path}`
 }
 
-// TODO: Add seo description
-const seoDescription = ''
-
 const getMetaTags = ({
   title,
   description,
+  siteName,
   url,
   image,
   contentType,
@@ -59,7 +62,7 @@ const getMetaTags = ({
   tags,
   twitter,
   readingTime,
-}: HelmetProps) => {
+}) => {
   const metaTags = [
     { charset: 'utf-8' },
     { 'http-equiv': 'X-UA-Compatible', 'content': 'IE=edge' },
@@ -70,10 +73,10 @@ const getMetaTags = ({
     { name: 'description', content: description },
 
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:site', content: 'Hails' },
+    { name: 'twitter:site', content: siteName },
     { name: 'twitter:title', content: title },
     { name: 'twitter:description', content: description },
-    { name: 'twitter:creator', content: twitter || 'Daniel Hails' },
+    { name: 'twitter:creator', content: twitter },
 
     { name: 'msapplication-TileColor', content: '#e4ebee' },
     { name: 'msapplication-config', content: '/favicon/browserconfig.xml' },
@@ -83,7 +86,7 @@ const getMetaTags = ({
     { property: 'og:url', content: url },
     { property: 'og:image', content: image },
     { property: 'og:description', content: description },
-    { property: 'og:site_name', content: 'Hails' },
+    { property: 'og:site_name', content: siteName },
   ]
 
   if (image) {
@@ -124,41 +127,35 @@ const getFaviconLinks = () => {
   ]
 }
 
-const SEO: React.FC<HelmetProps> = ({
+const SEO: React.FC<PageMetadata> = ({
   children,
-  title,
-  description = seoDescription,
-  pathname,
-  canonical,
-  image,
-  contentType,
-  published,
-  updated,
-  category,
-  tags,
-  twitter,
-  readingTime,
+  ...pageMetadata
 }) => {
+
+  const { site } = useStaticQuery(
+    graphql`
+    query SiteMetadataQuery {
+      site {
+        siteMetadata {
+          siteName
+          description
+          siteRoot
+          twitter
+        }
+      }
+    }`)
+  const { title, canonical, pathname } = pageMetadata
+  const seoURL = (path) => `${site.siteMetadata.siteRoot}/${path.replace(/^\/+/g, '')}`
+
   const canonicalLink = {
     rel: 'canonical',
-    href: canonical
-      ? canonical
-      : `https://hails.info/${pathname.replace(/^\/+/g, '')}`,
+    href: canonical || seoURL(pathname),
   }
   const faviconLinks = getFaviconLinks()
   const metaTags = getMetaTags({
-    title,
-    description,
-    contentType,
-    pathname,
+    ...site.siteMetadata,
+    ...pageMetadata,
     url: seoURL(pathname),
-    image,
-    published,
-    updated,
-    category,
-    tags,
-    twitter,
-    readingTime,
   })
 
   return (
