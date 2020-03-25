@@ -38,6 +38,7 @@ const HeroUnit: React.FC = () => {
                 <div className="col-sm-12 col-md-6">
                     <div className="hero-unit">
                         <h1><strong>HAILS</strong>.info</h1>
+                        // TODO: Daniel Hails, ICL.
                         <span>My name is Daniel Hails and
                         I'm a Computing (Artificial Intelligence)
                         student at Imperial College London.</span>
