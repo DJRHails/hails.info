@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import * as React from 'react'
 
 import Layout from '@components/Layout'
@@ -45,7 +45,9 @@ const HeroUnit: React.FC = () => {
                 </div>
             </div>
         </div>
-        <a className="mouse btn-next hidden-xs" href="#proficiencies"/>
+        <Link to="#proficiencies">
+          <span className="mouse btn-next hidden-xs"/>
+        </Link>
     </Section>
   )
 }
