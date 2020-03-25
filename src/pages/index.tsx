@@ -32,7 +32,7 @@ export const indexPageQuery = graphql`
 const HeroUnit: React.FC = () => {
   return (
     <Section id="intro" className="hero-sub inverse" arrow>
-        <div className="background" id="">&nbsp;</div>
+        <div className="background"/>
         <div className="container">
             <div className="row">
                 <div className="col-sm-12 col-md-6">
