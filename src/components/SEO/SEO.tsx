@@ -21,20 +21,29 @@ import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 
+interface MetaImage {
+  src: string
+  height: number
+  width: number
+}
+
 interface SiteMetadata {
   siteName: string
-  siteDescription: string
-  siteRoot: string
+  siteUrl: string
+  title: string
+  description: string
+  author: string
+  keywords: string
   twitter: string
 }
 
 interface PageMetadata {
   title: string
   pathname: string
+  contentType: string
   canonical?: string
   description?: string
-  image?: string
-  contentType?: string
+  metaImage?: MetaImage
   published?: string
   updated?: string
   category?: string
@@ -55,6 +64,7 @@ const getMetaTags = ({
   siteName,
   url,
   image,
+  metaImage,
   contentType,
   published,
   updated,
@@ -62,6 +72,7 @@ const getMetaTags = ({
   tags,
   twitter,
   readingTime,
+  keywords,
 }) => {
   const metaTags = [
     { charset: 'utf-8' },
@@ -71,8 +82,8 @@ const getMetaTags = ({
     { itemprop: 'name', content: title },
     { itemprop: 'description', content: description },
     { name: 'description', content: description },
+    { name: 'keywords', content: keywords.join(',')},
 
-    { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:site', content: siteName },
     { name: 'twitter:title', content: title },
     { name: 'twitter:description', content: description },
@@ -84,14 +95,19 @@ const getMetaTags = ({
     { property: 'og:title', content: title },
     { property: 'og:type', content: contentType },
     { property: 'og:url', content: url },
-    { property: 'og:image', content: image },
     { property: 'og:description', content: description },
     { property: 'og:site_name', content: siteName },
   ]
 
   if (image) {
       metaTags.push({ itemprop: 'image', content: addHttps(image) })
+      metaTags.push({ property: 'og:image', content: image })
       metaTags.push({ name: 'twitter:image', content: addHttps(image) })
+      metaTags.push({ name: 'twitter:card', content: 'summary_large_image' })
+      metaTags.push({ property: 'og:image:width', content: metaImage.width })
+      metaTags.push({ property: 'og:image:height', content: metaImage.height })
+  } else {
+    metaTags.push({ name: 'twitter:card', content: 'summary' })
   }
 
   if (published) {
@@ -138,14 +154,17 @@ const SEO: React.FC<PageMetadata> = ({
       site {
         siteMetadata {
           siteName
+          siteUrl
+          title
           description
-          siteRoot
+          author
+          keywords
           twitter
         }
       }
     }`)
-  const { title, canonical, pathname } = pageMetadata
-  const seoURL = (path) => `${site.siteMetadata.siteRoot}/${path.replace(/^\/+/g, '')}`
+  const { title, canonical, pathname, metaImage } = pageMetadata
+  const seoURL = (path) => `${site.siteMetadata.siteUrl}/${path.replace(/^\/+/g, '')}`
 
   const canonicalLink = {
     rel: 'canonical',
@@ -155,6 +174,7 @@ const SEO: React.FC<PageMetadata> = ({
   const metaTags = getMetaTags({
     ...site.siteMetadata,
     ...pageMetadata,
+    image: metaImage && seoURL(metaImage.src),
     url: seoURL(pathname),
   })
 
@@ -162,6 +182,7 @@ const SEO: React.FC<PageMetadata> = ({
     <Helmet
       htmlAttributes={{ lang: 'en' }}
       title={title}
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
       link={[canonicalLink, ...faviconLinks]}
       meta={metaTags}
     >

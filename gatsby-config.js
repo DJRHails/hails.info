@@ -3,8 +3,11 @@ const currentJob = require("./src/assets/data/currentJob.json")
 
 exports.siteMetadata = {
   siteName: `Hails`,
+  title: `Daniel Hails | hails.info`,
   description: `Daniel Hails | ${currentJob.role} working @ ${currentJob.company}.`,
-  siteRoot: `https://hails.info`,
+  author: `Daniel Hails`,
+  keywords: [`technology`],
+  siteUrl: `https://hails.info`,
   twitter: `@_djrh`,
 }
 
