@@ -43,8 +43,8 @@ $brand-danger:    $darkness;
 $brand-info:      $peter-river;
 
 $text-color:       $brand-primary;
-$link-color:       $green-sea;
-$link-hover-color: $turquoise;
+$link-color:       $brand-primary;
+$link-hover-color: darken($brand-primary, 20%);
 
 // Font
 $font-family-base:          "Lato", Helvetica, Arial, sans-serif;
