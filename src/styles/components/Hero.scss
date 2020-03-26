@@ -16,7 +16,7 @@
     padding-top: 200px;
     padding-bottom: 270px;
     color: black;
-    text-align: center;
+    text-align: left;
     background: $body-bg;
     overflow: hidden;
 
@@ -82,9 +82,7 @@
         margin: 0;
         padding: 0;
         background: transparent;
-        font-size: 30px;
-        letter-spacing: -1px;
-        text-align: left;
+
         h1 {
             font-size: 100px;
             letter-spacing: -2px;
@@ -112,12 +110,15 @@
                 }
             }
         }
-        span {
-            font-weight: 300;
-            font-family: "Lato";
-            @media (max-width: 991px) {
-                display: block;
-            }
+        p {
+          font-size: 30px;
+          letter-spacing: -1px;
+          text-align: left;
+          font-weight: 300;
+          width: 100%;
+          @media (max-width: 991px) {
+              display: block;
+          }
         }
         @media (max-width: 991px) {
             text-align: center;
