@@ -7,7 +7,9 @@ date: "2017-08-10"
 <hero-unit>
 
 # **HAILS**.info
-Computing Student. Always open to new opportunities to develop.
+Studying Artificial Intelligence at [Imperial College London]().
+
+Always open to new opportunities to develop.
 
 </hero-unit>
 
