@@ -5,9 +5,11 @@ import Layout from '@components/Layout'
 import Section from '@components/Section'
 import SEO from '@components/SEO'
 
+import rehypeReact from 'rehype-react'
+
 import '@styles/main.scss'
 
-const HeroUnit: React.FC = () => {
+const HeroUnit: React.FC = ({ children }) => {
   return (
     <Section id="intro" className="hero-sub inverse" arrow>
         <div className="background"/>
@@ -15,11 +17,7 @@ const HeroUnit: React.FC = () => {
             <div className="row">
                 <div className="col-sm-12 col-md-6">
                     <div className="hero-unit">
-                        <h1><strong>HAILS</strong>.info</h1>
-                        // TODO: Daniel Hails, ICL.
-                        <span>My name is Daniel Hails and
-                        I'm a Computing (Artificial Intelligence)
-                        student at Imperial College London.</span>
+                        {children}
                     </div>
                 </div>
             </div>
@@ -51,7 +49,17 @@ const Projects: React.FC = () => {
   )
 }
 
-const IndexPage: React.FC<IndexPageProps> = () => {
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {
+    'hero-unit': HeroUnit,
+    'proficiencies': Proficiencies,
+    'project-snippet': Projects,
+  },
+}).Compiler
+
+const IndexPage: React.FC<IndexPageProps> = ({data}) => {
+  const indexNode = data.allMarkdownRemark.edges[0].node
   return (
     <Layout
       nav={{}}
@@ -59,17 +67,31 @@ const IndexPage: React.FC<IndexPageProps> = () => {
     >
       <>
         <SEO
-          title="Daniel Hails | hails.info"
+          title={indexNode.frontmatter.title}
           pathname="/"
         />
         <div className="page-wrapper">
-          <HeroUnit />
-          <Proficiencies />
-          <Projects />
+          {renderAst(indexNode.htmlAst)}
         </div>
       </>
     </Layout>
   )
 }
+
+export const pageQuery = graphql`
+{
+  allMarkdownRemark(filter: {fields: {slug: {eq: "/index/"}}}) {
+    edges {
+      node {
+        htmlAst
+        frontmatter {
+          title
+          date
+        }
+      }
+    }
+  }
+}
+`
 
 export default IndexPage

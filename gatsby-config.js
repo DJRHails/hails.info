@@ -28,6 +28,12 @@ exports.plugins = [
     }
   },
   {
+    resolve: "gatsby-transformer-remark",
+    options: {
+      plugins: ["gatsby-remark-component"]
+    }
+  },
+  {
     resolve: "gatsby-plugin-web-font-loader",
     options: {
       google: {
