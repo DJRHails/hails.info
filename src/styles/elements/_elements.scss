@@ -1,5 +1,7 @@
 // Generic Styles, no classnames or ids may occur here
 @import '_typography.scss';
+@import '_links.scss';
+
 
 html {
   scroll-behavior: smooth;
