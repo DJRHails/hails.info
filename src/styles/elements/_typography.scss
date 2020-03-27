@@ -16,10 +16,7 @@ textarea {
 a {
   color: $link-color;
   text-decoration: none;
-  -webkit-transition: color 0.25s, background 0.25s;
-  -moz-transition: color 0.25s, background 0.25s;
-  -o-transition: color 0.25s, background 0.25s;
-  transition: color 0.25s, background 0.25s;
+  @include transition(unquote("color 0.25s, background 0.25s"));
   &:hover {
     color: $link-hover-color;
     text-decoration: none;
