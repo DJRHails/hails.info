@@ -7,7 +7,7 @@ date: "2017-08-10"
 <hero-unit>
 
 # **HAILS**.info
-Studying Artificial Intelligence at [Imperial College London]().
+Studying [Artificial Intelligence](#ai) at Imperial College London.
 
 Always open to new opportunities to develop.
 
