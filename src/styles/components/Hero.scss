@@ -130,6 +130,9 @@
               display: block;
           }
         }
+        a {
+          @extend %boxed-link;
+        }
         @media (max-width: 991px) {
             text-align: center;
         }
