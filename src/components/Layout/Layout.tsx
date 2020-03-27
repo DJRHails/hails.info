@@ -1,5 +1,6 @@
 import React from 'react'
 
+import CookieConsent from '@components/CookieConsent'
 import Container from '@components/Layout/Layout.Container'
 
 interface LayoutProps {
@@ -23,6 +24,14 @@ const Layout: React.FC<LayoutProps> = ({ children, ...rest }) => {
 
   return (
     <>
+      <CookieConsent acceptOnScroll>
+        This website uses cookies{' '}
+        <span role="img" aria-label="cookies">
+          🍪
+        </span>
+        {' '}
+        so I can enhance the user experience. Hope thats cool with you!
+      </CookieConsent>
       <Container {...rest}>{children}</Container>
     </>
   )
