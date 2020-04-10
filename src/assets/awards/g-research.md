@@ -1,7 +1,7 @@
 ---
 title: The G-Research Prize
 associated_with: imperial-college-london
-date: 2019
+date: 2019-00-00
 ---
 
 # The G-Research Prize

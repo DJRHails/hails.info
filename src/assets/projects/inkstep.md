@@ -1,5 +1,5 @@
 ---
-date: 2019
+date: 2019-00-00
 title: inkstep.
 github: inkstep
 external: ""
@@ -9,7 +9,7 @@ tech:
   - Flutter
 description: >
   With you every step of the way
-highlight: false
+highlight: true
 ---
 
 # inkstep.

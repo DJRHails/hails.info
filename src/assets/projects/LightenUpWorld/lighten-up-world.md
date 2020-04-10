@@ -1,5 +1,5 @@
 ---
-date: 2018
+date: 2018-00-00
 title: Lighten Up, World
 github: Lighten-Up-World/c-client
 external: ""
@@ -7,7 +7,7 @@ tech:
   - TODO
 description: >
   Award winning multi-purpose data visualisation
-highlight: false
+highlight: true
 ---
 
 # Lighten Up World:

@@ -1,5 +1,5 @@
 ---
-date: 2018
+date: 2018-00-00
 title: Using AI & MRIs to diagnose Brain Tumours
 github: DJRHails/Topics-AI-Radiology
 external: ""

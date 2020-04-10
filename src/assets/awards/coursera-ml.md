@@ -1,6 +1,6 @@
 ---
 title: Machine Learning (Coursera)
-date: 2016-04
+date: 2016-04-00
 associated_with: ""
 ---
 

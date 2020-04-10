@@ -1,7 +1,7 @@
 ---
 title: The ARM11 Project Prize
 associated_with: imperial-college-london
-date: 2018-05
+date: 2018-05-00
 ---
 
 # The ARM11 Project Prize

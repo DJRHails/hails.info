@@ -1,5 +1,5 @@
 ---
-date: 2018-06
+date: 2018-06-00
 title: Flint Programming Language
 github: flintlang/fint
 external: https://arxiv.org/abs/1904.06534
@@ -9,7 +9,7 @@ tech:
 description: >
   As part of a UROP, I expanded Flint - a new type-safe, contract-oriented programming language designed for writing robust smart contracts on Ethereum - from a proof of concept. I co-authored the research paper ‘Flint for Safer Smart Contracts’.
 company: Imperial College London
-highlight: false
+highlight: true
 ---
 
 # The Flint Programming Language

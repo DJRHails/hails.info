@@ -1,7 +1,7 @@
 ---
 title: Barclays Bank Prize
 associated_with: habsboys
-date: 2016
+date: 2016-00-00
 ---
 
 # Barclays Bank Prize and Cup

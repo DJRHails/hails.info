@@ -1,7 +1,7 @@
 ---
 title: Palantir Forward Thinking
 associated_with: imperial-college-london
-date: 2020
+date: 2020-00-00
 ---
 
 # Palantir Forward Thinking Group Project Prize

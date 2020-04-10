@@ -1,6 +1,6 @@
 ---
-date: 2017
-title: WACC: Compiler
+date: 2017-00-00
+title: WACC - Compiler
 github: DJRHails/WACC
 external: ""
 tech:

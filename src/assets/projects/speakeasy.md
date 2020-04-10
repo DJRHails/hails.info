@@ -7,7 +7,7 @@ tech:
   - TODO
 description: >
   Slide generation as you speak
-highlight: false
+highlight: true
 ---
 
 # Speakeasy
