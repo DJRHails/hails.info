@@ -52,27 +52,31 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
     setVisible(false)
   }
 
+  const onDismiss = () => updateCookie('clicked')
+
   useScrollPosition(({ progress }) => {
     if (visible && acceptOnScroll && progress.y > 0.25) {
-      updateCookie("scrolled")
+      updateCookie('scrolled')
     }
   }, [setVisible])
 
   return (
     visible &&
-    <div
-      role="dialog"
-      aria-live="polite"
-      aria-label="cookieconsent"
-      aria-describedby="cookieconsent:desc"
-      className="cc-window"
-    >
-      <span id="cookieconsent:desc" className="cc-message">
-        {children}
-        <LearnMore/>
-      </span>
-      <ComplianceGroup onDismiss={() => updateCookie("clicked")}/>
-    </div>
+    (
+      <div
+        role="dialog"
+        aria-live="polite"
+        aria-label="cookieconsent"
+        aria-describedby="cookieconsent:desc"
+        className="cc-window"
+      >
+        <span id="cookieconsent:desc" className="cc-message">
+          {children}
+          <LearnMore/>
+        </span>
+        <ComplianceGroup onDismiss={onDismiss}/>
+      </div>
+    )
   )
 }
 
