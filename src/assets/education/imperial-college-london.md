@@ -1,7 +1,17 @@
-# Imperial College London
-## Master of Enginnering - MEng, Computing (Artificial Intelligence)
+---
+title: Imperial College London
+degree: MEng, Computing (Artificial Intelligence)
+period:
+  - from: 2017
+    to: 2021
+tags: []
+highlight: false
+---
 
-2017-2020
+# Imperial College London
+## Master of Engineering - MEng, Computing (Artificial Intelligence)
+
+2017-2021
 
 On track to a first class degree.
 

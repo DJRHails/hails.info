@@ -1,3 +1,17 @@
+---
+date: 2019
+title: inkstep.
+github: inkstep
+external: ""
+tech:
+  - Java
+  - Dart
+  - Flutter
+description: >
+  With you every step of the way
+highlight: false
+---
+
 # inkstep.
 Removing the conflict between the "I'll know when I see it" attitude and the artists' need for specificity in the tattoo industry while keeping the interaction personable.
 

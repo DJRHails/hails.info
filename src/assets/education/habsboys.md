@@ -1,3 +1,13 @@
+---
+title: The Haberdashers' Aske's Boys' School
+degree: ""
+period:
+  - from: 2006
+    to: 2017
+tags: []
+highlight: false
+---
+
 # The Haberdashers' Aske's Boys' School
 ## 2006 - 2017
 

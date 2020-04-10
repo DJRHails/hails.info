@@ -1,12 +1,20 @@
 ---
-role: "South-East Head Organiser & Alumnus"
-company: "European Youth Parliament (EYP)"
-location: "International"
-date: "02/2016 - 06/2019"
-tags: ["Public Speaking", "Gender Equality", "International", "Management", "Organisation"]
-url: "https://www.eypuk.co.uk/"
-featured: true
-volunteering: true
+role: South-East Head Organiser & Alumnus
+company: European Youth Parliament (EYP)
+location: International
+external: https://www.eypuk.co.uk/
+period:
+  - from: 2016-02
+    to: 2019-06
+tags:
+  - Public Speaking
+  - Gender Equality
+  - International
+  - Management
+  - Organisation
+  - Volunteering
+tech: []
+highlight: false
 ---
 
 Represented the UK internationally on the Gender Equality Committee.

@@ -1,12 +1,19 @@
 ---
-role: "Summer Intern"
-company: "Imagination Technologies"
-location: "..."
-date: "06/2015 - 07/2015"
-tags: ["Compilers", "Programming Languages", "Fuzzer", "MIPS"]
-url: "https://www.imgtec.com/"
-featured: false
-volunteering: false
+role: Summer Intern
+company: Imagination Technologies
+location: Kings Langley
+external: https://www.imgtec.com/
+period:
+  - from: 2015-06
+    to: 2015-07
+tags:
+  - Fuzzer
+  - Technical
+  - Compilers
+tech:
+  - MIPS
+  - Python
+highlight: false
 ---
 
 Went deeply technical with the Compilers and Tools Team.

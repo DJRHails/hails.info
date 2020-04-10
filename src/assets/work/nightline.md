@@ -1,12 +1,15 @@
 ---
-role: "Hotline Volunteer"
-company: "Nightline"
-location: "London"
-date: "01/2019 - 12/2019"
-tags: ["Customer Focus", "Volunteering", "Adaptive", "Non-judgemental", "Empathetic"]
-url: "https://nightline.org.uk/"
-featured: false
-volunteering: true
+role: Hotline Volunteer
+company: Nightline
+location: London
+external: https://nightline.org.uk/
+period:
+  - from: 2019-01
+    to: 2019-12
+tags:
+  - Volunteering
+tech: []
+highlight: false
 ---
 
 Provided emotional support and practical information to callers in distress anonymously and confidentially.

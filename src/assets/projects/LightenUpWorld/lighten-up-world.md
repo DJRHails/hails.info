@@ -1,3 +1,15 @@
+---
+date: 2018
+title: Lighten Up, World
+github: Lighten-Up-World/c-client
+external: ""
+tech:
+  - TODO
+description: >
+  Award winning multi-purpose data visualisation
+highlight: false
+---
+
 # Lighten Up World:
 ## ARM11 Project Extension
 

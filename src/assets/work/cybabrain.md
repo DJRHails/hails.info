@@ -1,12 +1,22 @@
 ---
-role: "Founder"
-company: "CybaBrain"
-location: "London"
-date: "01/2011 - 01/2018"
-tags: ["Rapid Prototyping", "Web Development", "JS", "PHP", "MySQL", "Linux", "Apache", "Nginx", "Adobe Suite", "Customer Focus", "Founding"]
-url: ""
-featured: true
-volunteering: false
+role: Founder
+company: CybaBrain
+location: London
+external: https://cybabrain.co.uk
+period:
+  - from: 2011-01
+    to: 2018-01
+tags:
+  - Rapid Prototyping
+  - Web Development
+  - Customer Focus
+tech:
+  - JS
+  - PHP
+  - MySQL
+  - Nginx
+  - Adobe Suite
+highlight: true
 ---
 
 First founding experience to support freelancing career in web development and video editing.

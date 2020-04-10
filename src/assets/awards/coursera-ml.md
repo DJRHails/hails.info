@@ -1,6 +1,7 @@
 ---
-title: "Machine Learning (Coursera)"
-date: "04/2016"
+title: Machine Learning (Coursera)
+date: 2016-04
+associated_with: ""
 ---
 
 # Machine Learning - Coursera

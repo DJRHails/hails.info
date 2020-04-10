@@ -1,12 +1,19 @@
 ---
-role: "Summer Intern"
-company: "Shell"
-location: "40 Bank Street"
-date: "08/2015 - 09/2015"
-tags: ["Trading", "Compliance", "Hackathon", "Big Data", "Video Editing", "Web Design", "Customer Focus"]
-url: "https://www.shell.co.uk/"
-featured: false
-volunteering: false
+role: Summer Intern
+company: Shell
+location: 40 Bank Street
+external: https://www.shell.co.uk
+period:
+  - from: 2015-08
+    to: 2015-09
+tags:
+  - Trading
+  - Hackathon
+  - Big Data
+  - Web Design
+  - Video Editing
+tech: []
+highlight: false
 ---
 
 Dived headfirst into Shell experience with the Consumer Data and Analytics Team.

@@ -1,7 +1,7 @@
 ---
-title: "The G-Research Prize"
-associated_with: "imperial-college-london"
-date: "2018-2019"
+title: The G-Research Prize
+associated_with: imperial-college-london
+date: 2019
 ---
 
 # The G-Research Prize

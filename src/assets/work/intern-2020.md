@@ -1,12 +1,12 @@
 ---
-role: "Summer Placement"
-company: "Technical"
-location: "London"
-date: "03/2020 - 08/2020"
-tags: ["Organisation", "Management"]
-url: ""
-featured: false
-volunteering: false
----
-
+role: Software Engineering
+company: ""
+location: ""
+external: https://TODO
+period:
+  - from: 2020-03
+    to: 2020-08
+tags: []
+tech: []
+highlight: false
 ---

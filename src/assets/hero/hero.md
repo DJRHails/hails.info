@@ -1,18 +1,9 @@
 ---
-title: "Daniel Hails"
-date: "2017-08-10"
+background_image: ./HAILS.png
 ---
 
-
-<hero-unit>
-
 # **HAILS**.info
+
 Studying [Artificial Intelligence](#ai) at Imperial College London.
 
 Always open to new opportunities to develop.
-
-</hero-unit>
-
-<proficiencies></proficiencies>
-
-<project-snippet></project-snippet>

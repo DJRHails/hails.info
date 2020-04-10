@@ -1,3 +1,15 @@
+---
+date: 2020-02-09
+title: Speakeasy
+github: Windjabber/speak-easy
+external: ""
+tech:
+  - TODO
+description: >
+  Slide generation as you speak
+highlight: false
+---
+
 # Speakeasy
 ## Slide generation as you speak.
 

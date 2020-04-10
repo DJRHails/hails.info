@@ -1,7 +1,7 @@
 ---
-title: "Best User Experience - American Express (3rd Place)"
-associated_with: "imperial-college-london"
-date: "02/2020"
+title: Best User Experience - American Express (3rd Place)
+associated_with: imperial-college-london
+date: 2020-02
 ---
 
 # 3rd Place: Best User Experience - American Express

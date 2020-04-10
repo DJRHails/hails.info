@@ -1,7 +1,7 @@
 ---
-title: "Barclays Bank Prize"
-associated_with: "habsboys"
-date: "2016"
+title: Barclays Bank Prize
+associated_with: habsboys
+date: 2016
 ---
 
 # Barclays Bank Prize and Cup

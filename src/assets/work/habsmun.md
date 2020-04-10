@@ -1,12 +1,21 @@
 ---
-role: "Volunteer Organiser"
-company: "HABSMUN"
-location: "London"
-date: "08/2015 - 09/2015"
-tags: ["Volunteering", "Web Design", "Organisation", "Management"]
-url: "https://www.habsmun.com/"
-featured: false
-volunteering: true
+role: Organiser & Head of Tech
+company: HABSMUN
+location: London
+external: https://www.habsmun.com/
+period:
+  - from: 2015-08
+    to: 2015-09
+tags:
+  - Volunteering
+  - Web Design
+  - Organisation
+  - Leading
+tech:
+  - JS
+  - PHP
+  - MySQL
+highlight: false
 ---
 
 Managed a team of 10 with responsibility for front-end and back-end systems for 5 separate sessions totalling 2,000+ delegates from 30 different countries over a 3 day weekends.

@@ -1,12 +1,17 @@
 ---
-role: "Summer Intern"
-company: "Entrepreneur First"
-location: "London"
-date: "07/2015 - 07/2015"
-tags: ["Founding", "Customer Focus", "Talent", "Organisation"]
-url: "https://www.joinef.com/"
-featured: true
-volunteering: false
+role: Summer Intern
+company: Entrepreneur First
+location: London
+external: https://www.joinef.com/
+period:
+  - from: 2015-07
+    to: 2015-07
+tags:
+  - Startup
+  - Customer Focus
+  - Organisation
+tech: []
+highlight: false
 ---
 
 Joined in the first cohort of interns at a Deep Technology talent investor, aiding in fundraising and new talent leads.

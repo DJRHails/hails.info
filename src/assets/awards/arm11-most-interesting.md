@@ -1,7 +1,7 @@
 ---
-title: "The ARM11 Project Prize"
-associated_with: "imperial-college-london"
-date: "05/2018"
+title: The ARM11 Project Prize
+associated_with: imperial-college-london
+date: 2018-05
 ---
 
 # The ARM11 Project Prize

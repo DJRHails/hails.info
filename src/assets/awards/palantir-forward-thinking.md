@@ -1,8 +1,9 @@
 ---
-title: "The ARM11 Project Prize"
-associated_with: "imperial-college-london"
-date: "01/2020"
+title: Palantir Forward Thinking
+associated_with: imperial-college-london
+date: 2020
 ---
+
 # Palantir Forward Thinking Group Project Prize
 
 Awarded to an outstanding third-year group project for software engineering excellence applied to solve an important real-world problem.
