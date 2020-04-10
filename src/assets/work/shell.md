@@ -1,0 +1,24 @@
+---
+role: "Summer Intern"
+company: "Shell"
+location: "40 Bank Street"
+date: "08/2015 - 09/2015"
+tags: ["Trading", "Compliance", "Hackathon", "Big Data", "Video Editing", "Web Design", "Customer Focus"]
+url: "https://www.shell.co.uk/"
+featured: false
+volunteering: false
+---
+
+Dived headfirst into Shell experience with the Consumer Data and Analytics Team.
+
+---
+
+Joined the Consumer Data and Analytics Team in TACIT which works on gaining insights from 'Big Data' to push competitive advantages. While there I dived into as many opportunities as possible taking part in:
+
+- Summarising data to get overall statistics used to present to stakeholders.
+- Gaining familiarity with the DEX trading platform
+- Acquiring techniques to identify potential compliance problems
+- Gaining knowledge of the new Point of Sale system
+- Creating a promotional video for the Lync system at Shell
+- Aiding the organisation a Shell Hackathon: _Crack the Shell_
+- Creating a web design for use by the ITConnect group
