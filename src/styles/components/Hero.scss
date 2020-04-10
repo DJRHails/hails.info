@@ -32,7 +32,7 @@
         left: initial;
 
         background: 50% 50% no-repeat;
-        background-image: url('../assets/index/HAILS.png');
+        background-image: url('../assets/hero/HAILS.png');
         @include background-size(contain);
         background-position: bottom;
         @include opacity(70);
