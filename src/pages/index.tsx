@@ -80,18 +80,46 @@ const IndexPage: React.FC<IndexPageProps> = ({data}) => {
 
 export const pageQuery = graphql`
 {
-  allMarkdownRemark(filter: {fields: {slug: {eq: "/index/"}}}) {
+  hero: allMarkdownRemark(
+    filter: {
+      fileAbsolutePath: {
+        regex: "/hero/"
+      }
+    }
+  ) {
     edges {
       node {
         htmlAst
+      }
+    }
+  }
+  projects: allMarkdownRemark(
+    filter: {
+      fileAbsolutePath: {
+        regex: "/assets.projects.[^_]/"
+      },
+      frontmatter: {
+        highlight: {ne: false}
+      }
+    },
+    sort: {
+      fields: [frontmatter___date],
+      order: DESC
+    },
+    limit: 5
+  ) {
+    edges {
+      node {
         frontmatter {
           title
-          date
+          date(formatString: "MMMM YYYY")
+          github
+          external
+          description
         }
       }
     }
   }
-}
-`
+}`
 
 export default IndexPage
