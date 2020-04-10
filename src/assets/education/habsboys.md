@@ -2,8 +2,8 @@
 title: The Haberdashers' Aske's Boys' School
 degree: ""
 period:
-  - from: 2006
-    to: 2017
+  - from: 2006-00-00
+    to: 2017-00-00
 tags: []
 highlight: false
 ---

@@ -2,8 +2,8 @@
 title: Imperial College London
 degree: MEng, Computing (Artificial Intelligence)
 period:
-  - from: 2017
-    to: 2021
+  - from: 2017-00-00
+    to: 2021-00-00
 tags: []
 highlight: false
 ---
