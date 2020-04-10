@@ -1,10 +1,7 @@
-
-const currentJob = require("./src/assets/data/currentJob.json")
-
 exports.siteMetadata = {
   siteName: `Hails`,
   title: `Daniel Hails | hails.info`,
-  description: `Daniel Hails | ${currentJob.role} working @ ${currentJob.company}.`,
+  description: `Daniel Hails ...`, // TODO: Update site description
   author: `Daniel Hails`,
   keywords: [`technology`],
   siteUrl: `https://hails.info`,
@@ -14,24 +11,12 @@ exports.siteMetadata = {
 exports.plugins = [
   `gatsby-plugin-typescript`,
   `gatsby-plugin-tslint`,
+  `gatsby-plugin-sharp`,
   {
     resolve: `gatsby-plugin-sass`,
     options: {
       precision: 6,
     },
-  },
-  {
-    resolve: "gatsby-source-filesystem",
-    options: {
-      name: "assets",
-      path: `${__dirname}/src/assets/`
-    }
-  },
-  {
-    resolve: "gatsby-transformer-remark",
-    options: {
-      plugins: ["gatsby-remark-component"]
-    }
   },
   {
     resolve: "gatsby-plugin-web-font-loader",
@@ -44,5 +29,19 @@ exports.plugins = [
         urls: ["fonts/fonts.css"],
       },
     },
+  },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: "assets",
+      path: `${__dirname}/src/assets/`
+    }
+  },
+  `gatsby-transformer-sharp`,
+  {
+    resolve: "gatsby-transformer-remark",
+    options: {
+      plugins: ["gatsby-remark-component"]
+    }
   }
 ]
