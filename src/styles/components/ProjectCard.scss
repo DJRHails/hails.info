@@ -1,0 +1,94 @@
+.project-card {
+  @extend .card;
+  background-color: transparent;
+  border: unset;
+  margin: 3em 0;
+
+  .project-card__wrapper {
+    @extend .row;
+    @extend .align-items-center;
+    transition: all .4s ease-in-out;
+
+    &:hover {
+      border-radius: 20px;
+      @include neumorphism($body-bg);
+      transform: scale(1.02);
+    }
+  }
+
+  &__body {
+    @extend .card-body;
+    @extend .col-md-6;
+    padding: 3em 1.5em 1em 1.5em;
+    text-align: left;
+
+    &:nth-of-type(odd) {
+      @include order(2);
+    }
+
+    @include media-breakpoint-down(sm) {
+      text-align: center;
+    }
+
+  }
+
+  &__img {
+    box-shadow: 4px 13px 30px 1px rgba(34, 35, 58, 0.2);
+    border-radius: 20px;
+    transform: translateX(-1.5em);
+    overflow: hidden;
+    padding: initial;
+    @extend .col-md-6;
+
+    &:nth-of-type(odd) {
+      @include order(1);
+      transform: translateX(1.5em);
+    }
+
+    @include media-breakpoint-down(md) {
+      width: 120%;
+      margin-left: -10%;
+      transform: translateY(-1.5em);
+    }
+  }
+
+  &__title {
+    @extend .card-title;
+    font-weight: 700;
+    margin-bottom: .5em;
+  }
+
+  &__subtitle {
+    @extend .card-subtitle;
+    font-size: 1em;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-top: unset;
+  }
+
+  &__text {
+    @extend .card-text;
+    line-height: 1.5;
+  }
+
+  &__footer {
+    @extend .card-footer;
+  }
+
+  &__link-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 10px;
+    margin-left: -10px;
+    color: $text-color;
+
+    a {
+      padding: 10px;
+      svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+}
