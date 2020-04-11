@@ -36,6 +36,7 @@ h6, .h6 {
 // H1—H6 specific styling
 h1 {
   font-weight: 700;
+  margin-bottom: 0.75rem;
 }
 
 h2 {
@@ -45,7 +46,7 @@ h2 {
 
 h3 {
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 1rem;
   margin-top: 2px;
 }
 
@@ -73,6 +74,12 @@ p {
   line-height: $line-height-base * 1.1895; /* 41px */
   font-weight: 300;
   margin-bottom: 20px;
+}
+
+.subtitle {
+  line-height: 1.5;
+  font-weight: 500;
+  color: $gray;
 }
 
 small {
