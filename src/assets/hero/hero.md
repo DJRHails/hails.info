@@ -1,5 +1,15 @@
 ---
-background_image: ./HAILS.png
+cover: ./HAILS.png
+skills:
+  - Python
+  - C, C++ & C#
+  - Kotlin & Java
+  - PHP & MySQL
+  - TypeScript & JavaScript
+  - SASS, LESS & CSS
+  - Swift
+  - Flutter
+  - People
 ---
 
 # **HAILS**.info
