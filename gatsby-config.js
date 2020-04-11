@@ -1,3 +1,5 @@
+const path = require(`path`)
+
 exports.siteMetadata = {
   siteName: `Hails`,
   title: `Daniel Hails | hails.info`,
@@ -34,7 +36,7 @@ exports.plugins = [
     resolve: "gatsby-source-filesystem",
     options: {
       name: "assets",
-      path: `${__dirname}/src/assets/`
+      path: path.join(__dirname, `src`, `assets`),
     }
   },
   `gatsby-transformer-sharp`,
