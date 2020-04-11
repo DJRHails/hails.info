@@ -123,13 +123,19 @@
           letter-spacing: -1px;
           text-align: left;
           font-weight: 300;
-          width: 100%;
+          margin: 0 auto;
           margin-bottom: .5em;
+          line-height: 31px;
+
+          @media (max-width: 767px) {
+              width: 80%;
+          }
 
           @media (max-width: 991px) {
               display: block;
           }
         }
+
         a {
           @extend %boxed-link;
         }
