@@ -9,7 +9,7 @@ tech:
 description: >
   As part of a UROP, I expanded Flint - a new type-safe, contract-oriented programming language designed for writing robust smart contracts on Ethereum - from a proof of concept. I co-authored the research paper ‘Flint for Safer Smart Contracts’.
 company: Imperial College London
-highlight: true
+highlight: false
 ---
 
 # The Flint Programming Language

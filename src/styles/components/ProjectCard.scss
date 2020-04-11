@@ -2,7 +2,7 @@
   @extend .card;
   background-color: transparent;
   border: unset;
-  margin: 6vw auto;
+  margin: 7vw auto;
 
   .project-card__wrapper {
     @include make-row();
@@ -16,15 +16,38 @@
     }
   }
 
+  &:nth-of-type(odd) {
+    .project-card__body {
+      @include order(2);
+    }
+    .project-card__media {
+      @include order(1);
+    }
+    @include media-breakpoint-down(md) {
+      .project-card__body {
+        @include order(1);
+      }
+      .project-card__media {
+        @include order(2);
+      }
+    }
+  }
+  &:nth-of-type(even) {
+    .project-card__body {
+      @include order(1);
+    }
+    .project-card__media {
+      @include order(2);
+    }
+  }
+
+
+
   &__body {
     @extend .card-body;
     @include make-col-ready();
     padding: 3em 1.5em 1em 1.5em;
     text-align: left;
-
-    &:nth-of-type(odd) {
-      @include order(2);
-    }
 
     @include media-breakpoint-up(md) {
       @include make-col(6)
@@ -41,10 +64,6 @@
     padding: initial;
     position: relative;
     @include make-col-ready();
-
-    &:nth-of-type(odd) {
-      @include order(1);
-    }
 
     .gatsby-image-wrapper {
       overflow: initial !important;
@@ -68,8 +87,6 @@
 
     @include media-breakpoint-down(md) {
       width: 120%;
-      margin-left: -10%;
-      transform: translateY(-1.5em);
       @include make-col(12);
     }
   }
