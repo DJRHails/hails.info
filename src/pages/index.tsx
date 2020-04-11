@@ -140,8 +140,8 @@ export const pageQuery = graphql`
           company
           cover {
             childImageSharp {
-              fluid(maxWidth: 700, quality: 90, traceSVG: { color: "#64ffda" }) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              fluid(maxWidth: 700, quality: 90) {
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
