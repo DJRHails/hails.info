@@ -3,6 +3,7 @@ date: 2019-00-00
 title: inkstep.
 github: inkstep
 external: ""
+cover: ./style-selection.png
 tech:
   - Java
   - Dart

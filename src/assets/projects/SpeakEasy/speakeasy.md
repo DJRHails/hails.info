@@ -7,6 +7,7 @@ tech:
   - TODO
 description: >
   Slide generation as you speak
+cover: ./we-are-speakeasy.png
 highlight: true
 ---
 
@@ -60,4 +61,4 @@ Negative Latency with predictive descriptions
 Improved speech recognition
 Embedded image lookup
 Improved slide transitions
-[Video Link](https://vimeo.com/user108442838/review/390280084/47726a7daa)
+[Video Link](https://www.youtube.com/watch?v=UDkzLdDV0h8&feature=youtu.be)
