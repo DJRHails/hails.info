@@ -24,7 +24,7 @@ exports.plugins = [
     resolve: "gatsby-plugin-web-font-loader",
     options: {
       google: {
-        families: ["Lato:300,500,700"]
+        families: ["Lato:400,500,600,700,800"]
       },
       custom: {
         families: ["Jaapokki Enchance"],
