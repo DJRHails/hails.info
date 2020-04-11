@@ -3,11 +3,16 @@ import * as React from 'react'
 
 import Layout from '@components/Layout'
 import Section from '@components/Section'
+import ProjectCard from '@components/ProjectCard'
 import SEO from '@components/SEO'
 
 import rehypeReact from 'rehype-react'
 
 import '@styles/main.scss'
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+}).Compiler
 
 const HeroUnit: React.FC = ({ children }) => {
   return (
@@ -29,7 +34,7 @@ const HeroUnit: React.FC = ({ children }) => {
   )
 }
 
-const Proficiencies: React.FC = () => {
+const Proficiencies: React.FC = ({ skills }) => {
   return (
     <Section id="proficiencies" className="dark" skew orientation={['bottom', 'left']}>
         <div className="container">
@@ -39,27 +44,22 @@ const Proficiencies: React.FC = () => {
   )
 }
 
-const Projects: React.FC = () => {
+
+const Projects: React.FC = ({ title, subtitle, projects }) => {
   return (
-    <Section id="projects" className="contrast" skew orientation={['bottom', 'right']}>
-        <div className="container">
-          <h2>Projects</h2>
-        </div>
+    <Section id="projects" title={title} subtitle={subtitle}>
+      {projects && projects.map(({ node }, i) => {
+        const { frontmatter } = node
+        return <ProjectCard key={i} data={frontmatter}/>
+      })}
     </Section>
   )
 }
 
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    'hero-unit': HeroUnit,
-    'proficiencies': Proficiencies,
-    'project-snippet': Projects,
-  },
-}).Compiler
-
 const IndexPage: React.FC<IndexPageProps> = ({data}) => {
-  const indexNode = data.allMarkdownRemark.edges[0].node
+  const heroNode = data.hero.edges[0].node
+  const projectEdges = data.featuredProjects.edges
+  const { title, description } = data.projectSection.edges[0].node.frontmatter
   return (
     <Layout
       nav={{}}
@@ -67,11 +67,14 @@ const IndexPage: React.FC<IndexPageProps> = ({data}) => {
     >
       <>
         <SEO
-          title={indexNode.frontmatter.title}
           pathname="/"
         />
         <div className="page-wrapper">
-          {renderAst(indexNode.htmlAst)}
+          <HeroUnit>
+            {renderAst(heroNode.htmlAst)}
+          </HeroUnit>
+          <Proficiencies skills={heroNode.frontmatter.skills} />
+          <Projects title={title} subtitle={description} projects={projectEdges} />
         </div>
       </>
     </Layout>
@@ -89,11 +92,29 @@ export const pageQuery = graphql`
   ) {
     edges {
       node {
+        frontmatter {
+          skills
+        }
         htmlAst
       }
     }
   }
-  projects: allMarkdownRemark(
+  projectSection: allMarkdownRemark(
+    filter: {
+      fileAbsolutePath: {
+        regex: "/projects._featured/"
+      }
+    }) {
+    edges {
+      node {
+        frontmatter {
+          title
+          description
+        }
+      }
+    }
+  }
+  featuredProjects: allMarkdownRemark(
     filter: {
       fileAbsolutePath: {
         regex: "/assets.projects.[^_]/"
@@ -116,6 +137,14 @@ export const pageQuery = graphql`
           github
           external
           description
+          company
+          cover {
+            childImageSharp {
+              fluid(maxWidth: 700, quality: 90, traceSVG: { color: "#64ffda" }) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
+          }
         }
       }
     }
