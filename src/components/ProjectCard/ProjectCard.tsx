@@ -2,6 +2,7 @@ import React from 'react'
 import Img from 'gatsby-image'
 import _ from 'lodash'
 import { IconExternal, IconGitHub } from '@components/Icon'
+import classNames from 'classnames'
 
 interface ProjectMetadata {
   date: string
@@ -16,22 +17,25 @@ interface ProjectMetadata {
 
 const ProjectCard: React.FC<{data: ProjectMetadata}> = ({ data }) => {
   const { date, title, github, external, tech, description, company, cover } = data
-  console.log(data)
   return (
     <div id={_.kebabCase(title)} className="project-card">
       <div className="project-card__wrapper">
         { cover && (
-          <div className="project-card__img">
-            <a
-              href={external ? external : github ? github : '#'}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >
-              <Img
-                fluid={cover.childImageSharp.fluid}
-                alt={title}
-              />
-            </a>
+          <div className="project-card__media">
+            <div className={classNames("asset", {
+              "vertical": cover.childImageSharp.fluid.aspectRatio < 1
+            })}>
+              <a
+                href={external ? external : github ? github : '#'}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+              >
+                <Img
+                  fluid={cover.childImageSharp.fluid}
+                  alt={title}
+                />
+              </a>
+            </div>
           </div>
         )}
         <div className="project-card__body">
