@@ -8,7 +8,7 @@ tech:
 description: >
   Slide generation as you speak
 cover: ./we-are-speakeasy.png
-highlight: true
+highlight: false
 ---
 
 # Speakeasy
