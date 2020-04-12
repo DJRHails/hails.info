@@ -1,7 +1,27 @@
 import throttle from 'lodash/throttle'
-import { useLayoutEffect, useRef } from 'react'
+import { useLayoutEffect, useEffect, useRef } from 'react'
 
 const isBrowser = typeof window !== undefined
+
+export function useInterval(callback, delay) {
+  const savedCallback = useRef();
+
+  // Remember the latest callback.
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
 
 export function getScrollPosition({ element, useWindow }) {
   if (!isBrowser) return { x: 0, y: 0 }

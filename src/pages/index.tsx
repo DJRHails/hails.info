@@ -1,10 +1,11 @@
 import { graphql, Link } from 'gatsby'
-import * as React from 'react'
+import React from 'react'
 
 import Layout from '@components/Layout'
 import Section from '@components/Section'
 import ProjectCard from '@components/ProjectCard'
 import SEO from '@components/SEO'
+import AdaptText from '@components/AdaptText'
 
 import rehypeReact from 'rehype-react'
 
@@ -38,12 +39,11 @@ const Proficiencies: React.FC = ({ skills }) => {
   return (
     <Section id="proficiencies" className="dark" skew orientation={['bottom', 'left']}>
         <div className="container">
-            <h2 className="adapt-text"/>
+            <AdaptText list={skills} />
         </div>
     </Section>
   )
 }
-
 
 const Projects: React.FC = ({ title, subtitle, projects }) => {
   return (
@@ -52,6 +52,11 @@ const Projects: React.FC = ({ title, subtitle, projects }) => {
         const { frontmatter } = node
         return <ProjectCard key={i} data={frontmatter}/>
       })}
+      <div className="col-12">
+        <Link to="/projects">
+          <button type="button" className="btn btn--outline btn--diagonal">See More</button>
+        </Link>
+      </div>
     </Section>
   )
 }
