@@ -2,12 +2,14 @@
   @extend .card;
   background-color: transparent;
   border: unset;
-  margin: 7vw auto;
+  // __media: ensures difference between card & media doesn't cause an overlap
+  margin: 6vw auto;
 
   .project-card__wrapper {
     @include make-row();
     @extend .align-items-center;
     transition: all .4s ease-in-out;
+    margin: 2em 0; // spaces cards out
 
     &:hover {
       border-radius: 20px;
