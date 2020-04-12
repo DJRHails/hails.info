@@ -35,16 +35,16 @@ $gray-light:      $silver;
 $inverse:         $clouds;
 
 // Brand colors
-$brand-primary:   $pomegranate;
-$brand-secondary: $turquoise;
-$brand-success:   $emerald;
-$brand-warning:   $sun-flower;
-$brand-danger:    $darkness;
-$brand-info:      $peter-river;
+$primary:   $pomegranate;
+$secondary: $turquoise;
+$success:   $emerald;
+$warning:   $sun-flower;
+$danger:    $darkness;
+$info:      $peter-river;
 
 $text-color:       $darkness;
-$link-color:       $brand-primary;
-$link-hover-color: darken($brand-primary, 20%);
+$link-color:       $primary;
+$link-hover-color: darken($primary, 20%);
 
 // Font
 $font-family-base:          "Lato", Helvetica, Arial, sans-serif;

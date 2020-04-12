@@ -123,17 +123,17 @@ blockquote {
 }
 
 @mixin swap-text-color($color) {
-  color: $color;
+  color: $color !important;
   a {
-    &:hover, &:focus { color: mix($color, black, 80%); }
+    &:hover, &:focus { color: mix($color, black, 80%) !important; }
   }
 }
 
 // Text colors
-.text-primary { @include swap-text-color($brand-secondary) }
-.text-success { @include swap-text-color($brand-success) }
-.text-danger  { @include swap-text-color($brand-danger) }
-.text-warning { @include swap-text-color($brand-warning) }
-.text-info    { @include swap-text-color($brand-info) }
+.text-primary { @include swap-text-color($primary) }
+.text-success { @include swap-text-color($success) }
+.text-danger  { @include swap-text-color($danger) }
+.text-warning { @include swap-text-color($warning) }
+.text-info    { @include swap-text-color($info) }
 .text-inverse { @include swap-text-color($inverse) }
 .muted        { @include swap-text-color($gray-light) }
