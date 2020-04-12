@@ -14,3 +14,43 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-base;
 }
+
+.btn {
+  $btn-color: $primary;
+  $btn-color-dark: shade($btn-color, 40%);
+  $btn-bg-color: $body-bg;
+  $btn-height: 80px !default;
+
+  &--outline {
+    color: tint($btn-color);
+    text-transform: uppercase;
+    border: 2px solid $btn-color;
+
+    &:focus, &.focus {
+      @include box-shadow(0 0 0 0.2rem rgba($btn-color, 0.3))
+    }
+  }
+  &--diagonal {
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+      content: '';
+      z-index: -1;
+      @include absolute(0,-50px,0,0);
+      transition: 0.5s ease-in-out;
+      border-right: 50px solid transparent;
+      border-bottom: $btn-height solid $btn-color;
+      transform: translateX(-100%);
+    }
+
+    &:hover {
+      color: $btn-bg-color;
+
+      &:before {
+        transform: translateX(0);
+      }
+    }
+
+  }
+}

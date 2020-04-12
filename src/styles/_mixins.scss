@@ -27,6 +27,34 @@
   margin-right: auto;
 }
 
+// Advanced positioning
+// --------------------
+@mixin position($type,
+								$top: $position-default,
+								$right: $position-default,
+								$bottom: $position-default,
+								$left: $position-default) {
+	position: $type;
+	$allowed_types: absolute relative fixed;
+	@if not index($allowed_types, $type) {
+		@warn "Unknown position: #{$type}.";
+	}
+	@each $data in top $top, right $right, bottom $bottom, left $left {
+		#{nth($data, 1)}: nth($data, 2);
+	}
+}
+@mixin absolute($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+	@include position(absolute, $top, $right, $bottom, $left);
+}
+@mixin relative($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+	@include position(relative, $top, $right, $bottom, $left);
+}
+@mixin fixed($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+	@include position(fixed, $top, $right, $bottom, $left);
+}
+
+
+
 
 // Make link color
 // ----------------------------------
@@ -429,6 +457,21 @@
      -moz-align-self: $align;
       -ms-align-self: $align;
           align-self: $align;
+}
+
+// Tint/Shade
+$mix-percent-default: 15% !default;
+
+// Mix white with another color
+// ----------------------------
+@function tint($color, $percent: $mix-percent-default){
+	@return mix(white, $color, $percent);
+}
+
+// Mix black with another color
+// ----------------------------
+@function shade($color, $percent: $mix-percent-default){
+	@return mix(black, $color, $percent);
 }
 
 @mixin neumorphism($background) {
