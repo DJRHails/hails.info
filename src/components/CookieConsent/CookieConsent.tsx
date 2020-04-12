@@ -1,10 +1,10 @@
-import { useScrollPosition } from '@utils'
-import React, { useEffect, useState } from 'react'
+import { useScrollPosition } from "@utils";
+import React, { useEffect, useState } from "react";
 
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 
 interface CookieConsentProps {
-  acceptOnScroll?: boolean
+  acceptOnScroll?: boolean;
 }
 
 const LearnMore: React.FC = () => {
@@ -17,8 +17,8 @@ const LearnMore: React.FC = () => {
     >
       Learn more
     </a>
-  )
-}
+  );
+};
 
 const ComplianceGroup: React.FC = ({ onDismiss }) => {
   return (
@@ -33,36 +33,38 @@ const ComplianceGroup: React.FC = ({ onDismiss }) => {
         Got it!
       </a>
     </div>
-  )
-}
+  );
+};
 
 const CookieConsent: React.FC<CookieConsentProps> = ({
   acceptOnScroll,
-  cookieName= 'CookieConsent',
+  cookieName = "CookieConsent",
   children,
 }) => {
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(Cookies.get(cookieName) === undefined)
-  }, [])
+    setVisible(Cookies.get(cookieName) === undefined);
+  }, []);
 
   const updateCookie = (reason) => {
-    Cookies.set(cookieName, reason)
-    setVisible(false)
-  }
+    Cookies.set(cookieName, reason);
+    setVisible(false);
+  };
 
-  const onDismiss = () => updateCookie('clicked')
+  const onDismiss = () => updateCookie("clicked");
 
-  useScrollPosition(({ progress }) => {
-    if (visible && acceptOnScroll && progress.y > 0.25) {
-      updateCookie('scrolled')
-    }
-  }, [setVisible])
+  useScrollPosition(
+    ({ progress }) => {
+      if (visible && acceptOnScroll && progress.y > 0.25) {
+        updateCookie("scrolled");
+      }
+    },
+    [setVisible]
+  );
 
   return (
-    visible &&
-    (
+    visible && (
       <div
         role="dialog"
         aria-live="polite"
@@ -72,12 +74,12 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       >
         <span id="cookieconsent:desc" className="cc-message">
           {children}
-          <LearnMore/>
+          <LearnMore />
         </span>
-        <ComplianceGroup onDismiss={onDismiss}/>
+        <ComplianceGroup onDismiss={onDismiss} />
       </div>
     )
-  )
-}
+  );
+};
 
-export default CookieConsent
+export default CookieConsent;

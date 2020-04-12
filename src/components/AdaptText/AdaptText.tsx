@@ -1,8 +1,9 @@
-import { useInterval } from '@utils'
-import React, { useState } from 'react'
-import _ from 'lodash'
+import { useInterval } from "@utils";
+import _ from "lodash";
+import React, { useState } from "react";
 
-const getRandomChar = () => String.fromCharCode(Math.random() * (127 - 33) + 33);
+const getRandomChar = () =>
+  String.fromCharCode(Math.random() * (127 - 33) + 33);
 
 const AdaptText: React.FC = ({
   list,
@@ -10,7 +11,7 @@ const AdaptText: React.FC = ({
   tail = 5,
   defaultDelay = 10,
   defaultStep = 1,
-  processingDelay = 50
+  processingDelay = 50,
 }) => {
   const [text, setText] = useState<string>("");
   const [prefixP, setPrefixP] = useState<number>(-5);
@@ -18,7 +19,7 @@ const AdaptText: React.FC = ({
   const [skillIndex, setSkillIndex] = useState<number>(0);
   const [step, setStep] = useState<number>(defaultStep);
   const [delay, setDelay] = useState<number>(defaultDelay);
-  const [direction, setDirection] = useState<string>('forward');
+  const [direction, setDirection] = useState<string>("forward");
   const [finished, setFinished] = useState<boolean>(false);
 
   const elem = list[index];
@@ -40,7 +41,7 @@ const AdaptText: React.FC = ({
     }
 
     // Add to the list as going forward
-    if (direction === 'forward') {
+    if (direction === "forward") {
       if (skillIndex < elem.length) {
         setText(text + elem[skillIndex]);
         setSkillIndex(skillIndex + 1);
@@ -53,30 +54,30 @@ const AdaptText: React.FC = ({
       }
 
       if (index < list.length - 1) {
-        setDirection('backward');
+        setDirection("backward");
         setDelay(defaultDelay);
         return;
       }
 
-      setDirection('finished');
+      setDirection("finished");
     }
 
     // Remove from the end as going backward
-    if (direction === 'backward') {
+    if (direction === "backward") {
       if (skillIndex > 0) {
         setText(text.slice(0, -1));
         setSkillIndex(skillIndex - 1);
-      }
-      else {
+      } else {
         setIndex(index + 1);
-        setDirection('forward');
+        setDirection("forward");
       }
     }
   }, processingDelay);
 
-  const sizeOfTail = prefixP < prefix.length ?
-        Math.min(tail, tail + prefixP) :
-        Math.min(tail, elem.length - skillIndex);
+  const sizeOfTail =
+    prefixP < prefix.length
+      ? Math.min(tail, tail + prefixP)
+      : Math.min(tail, elem.length - skillIndex);
   console.log(sizeOfTail);
   return (
     <div className="adapt-text">
@@ -89,6 +90,6 @@ const AdaptText: React.FC = ({
       </h2>
     </div>
   );
-}
+};
 
-export default AdaptText
+export default AdaptText;

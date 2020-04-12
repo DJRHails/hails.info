@@ -1,1 +1,1 @@
-export { default } from './AdaptText'
+export { default } from "./AdaptText";

@@ -1,87 +1,75 @@
-import { graphql, Link } from 'gatsby'
-import * as React from 'react'
+import { graphql, Link } from "gatsby";
+import * as React from "react";
 
-import Layout from '@components/Layout'
-import Section from '@components/Section'
-import ProjectCard from '@components/ProjectCard'
-import SEO from '@components/SEO'
+import Layout from "@components/Layout";
+import ProjectCard from "@components/ProjectCard";
+import Section from "@components/Section";
+import SEO from "@components/SEO";
 
-import rehypeReact from 'rehype-react'
+import rehypeReact from "rehype-react";
 
-import '@styles/main.scss'
+import "@styles/main.scss";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-}).Compiler
+}).Compiler;
 
-const ProjectsPage: React.FC<ProjectsPageProps> = ({data}) => {
-  const projects = data.projects.edges
-  const { frontmatter, htmlAst } = data.section.edges[0].node
+const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
+  const projects = data.projects.edges;
+  const projectCards =
+    projects &&
+    projects.map(({ node }, i) => (
+      <ProjectCard key={i} data={node.frontmatter} />
+    ));
+  const { frontmatter, htmlAst } = data.section.edges[0].node;
   return (
-    <Layout
-      nav={{}}
-      footer={{}}
-    >
+    <Layout nav={{}} footer={{}}>
       <>
-        <SEO
-          pathname="/"
-        />
+        <SEO pathname="/" />
         <div className="page-wrapper">
           <Section id="projects">
             {renderAst(htmlAst)}
-            {projects && projects.map(({ node }, i) => {
-              const { frontmatter } = node
-              return <ProjectCard key={i} data={frontmatter}/>
-            })}
+            {projectCards}
           </Section>
         </div>
       </>
     </Layout>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
-{
-  section: allMarkdownRemark(
-    filter: {
-      fileAbsolutePath: {
-        regex: "/projects._featured/"
-      }
-    }) {
-    edges {
-      node {
-        frontmatter {
-          title
-          description
+  {
+    section: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/projects._featured/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            description
+          }
+          htmlAst
         }
-        htmlAst
       }
     }
-  }
-  projects: allMarkdownRemark(
-    filter: {
-      fileAbsolutePath: {
-        regex: "/assets.projects.[^_]/"
-      }
-    },
-    sort: {
-      fields: [frontmatter___date],
-      order: DESC
-    }
-  ) {
-    edges {
-      node {
-        frontmatter {
-          title
-          date(formatString: "MMMM YYYY")
-          github
-          external
-          description
-          company
-          cover {
-            childImageSharp {
-              fluid(maxWidth: 700, quality: 90) {
-                ...GatsbyImageSharpFluid_withWebp
+    projects: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/assets.projects.[^_]/" } }
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date(formatString: "MMMM YYYY")
+            github
+            external
+            description
+            company
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 700, quality: 90) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
               }
             }
           }
@@ -89,6 +77,6 @@ export const pageQuery = graphql`
       }
     }
   }
-}`
+`;
 
-export default ProjectsPage
+export default ProjectsPage;

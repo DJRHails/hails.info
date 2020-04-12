@@ -1,1 +1,1 @@
-export { default } from './CookieConsent'
+export { default } from "./CookieConsent";

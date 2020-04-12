@@ -1,24 +1,20 @@
-import React from 'react'
+import React from "react";
 
 interface LayoutProps {
-  background?: string
+  background?: string;
   nav: {
-    fixed?: boolean
-    offset?: boolean
-    theme?: string,
-  }
+    fixed?: boolean;
+    offset?: boolean;
+    theme?: string;
+  };
   footer?: {
-    visible?: boolean
-    theme?: string,
-  }
+    visible?: boolean;
+    theme?: string;
+  };
 }
 
-const LayoutContainer: React.FC<LayoutProps> = ({children}) => {
-  return (
-    <>
-      {children}
-    </>
-  )
-}
+const LayoutContainer: React.FC<LayoutProps> = ({ children }) => {
+  return <>{children}</>;
+};
 
-export default LayoutContainer
+export default LayoutContainer;

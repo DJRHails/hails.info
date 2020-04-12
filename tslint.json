@@ -1,8 +1,9 @@
 {
   "defaultSeverity": "error",
   "extends": [
-    "tslint:recommended",
-    "tslint-react"
+    "tslint:latest",
+    "tslint-react",
+    "tslint-config-prettier"
   ],
   "jsRules": {},
   "linterOptions": {
@@ -11,15 +12,15 @@
     ]
   },
   "rules": {
+    "prettier": true,
     "interface-name": [false],
-    "semicolon": [true, "never"],
     "member-access": [false],
     "ordered-imports": [true],
     "no-console": [false],
+    "no-submodule-imports": false,
     "no-var-requires": true,
     "object-literal-sort-keys": false,
     "jsx-boolean-value": [false],
-    "quotemark": [true, "single", "jsx-double"],
     "curly": [false],
     "no-implicit-dependencies": [
       true,
@@ -34,5 +35,5 @@
       ]
     ]
   },
-  "rulesDirectory": []
+  "rulesDirectory": ["tslint-plugin-prettier"]
 }
