@@ -58,8 +58,15 @@
 
     .asset {
       margin: -6vw auto;
+      @include media-breakpoint-down(md) {
+        margin: auto -6vh;
+      }
       &.vertical {
         width: 70%;
+        @include media-breakpoint-down(md) {
+          margin: auto;
+          margin-bottom: -6vw;
+        }
       }
     }
 
@@ -73,7 +80,6 @@
     }
 
     @include media-breakpoint-down(md) {
-      width: 120%;
       @include make-col(12);
     }
   }
