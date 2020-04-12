@@ -20,24 +20,6 @@ const ProjectCard: React.FC<{data: ProjectMetadata}> = ({ data }) => {
   return (
     <div id={_.kebabCase(title)} className="project-card">
       <div className="project-card__wrapper">
-        { cover && (
-          <div className="project-card__media">
-            <div className={classNames("asset", {
-              "vertical": cover.childImageSharp.fluid.aspectRatio < 1
-            })}>
-              <a
-                href={external ? external : github ? github : '#'}
-                target="_blank"
-                rel="nofollow noopener noreferrer"
-              >
-                <Img
-                  fluid={cover.childImageSharp.fluid}
-                  alt={title}
-                />
-              </a>
-            </div>
-          </div>
-        )}
         <div className="project-card__body">
           <h6 className="project-card__subtitle mb-2 text-muted">
             {date} {company && <><span>·</span> {company}</>}
@@ -77,6 +59,24 @@ const ProjectCard: React.FC<{data: ProjectMetadata}> = ({ data }) => {
             )}
           </div>
         </div>
+        { cover && (
+          <div className="project-card__media">
+            <div className={classNames("asset", {
+              "vertical": cover.childImageSharp.fluid.aspectRatio < 1
+            })}>
+              <a
+                href={external ? external : github ? github : '#'}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+              >
+                <Img
+                  fluid={cover.childImageSharp.fluid}
+                  alt={title}
+                />
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
