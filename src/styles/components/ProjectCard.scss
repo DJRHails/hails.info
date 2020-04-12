@@ -48,7 +48,7 @@
   }
 
   &__media {
-    padding: initial;
+    padding: 1em 0;
     position: relative;
     @include make-col-ready();
 
