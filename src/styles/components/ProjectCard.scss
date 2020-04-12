@@ -102,12 +102,15 @@
   }
 
   &__link-wrapper {
-    display: flex;
+    @include flexbox();
     align-items: center;
     position: relative;
     margin-top: 10px;
     margin-left: -10px;
-    color: $text-color;
+
+    @include media-breakpoint-down(md) {
+      justify-content: center;
+    }
 
     a {
       padding: 10px;
