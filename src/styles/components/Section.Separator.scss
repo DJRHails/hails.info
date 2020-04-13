@@ -17,8 +17,8 @@
 
   &:before {
     right: 50%;
-    border-right: 1000px solid transparent;
-    border-left: 1000px solid;
+    border-right: 100vw solid transparent;
+    border-left: 100vw solid;
   }
   &:after {
     left: 50%;
@@ -82,7 +82,7 @@
     @include separator;
     background: inherit;
     width: 100%;
-    height: 20vh; // Sections have padding of 10vh
+    height: 40vh; // Sections have padding of 10vh, 40 assumes some content
     z-index: 1;
     left: 0;
     right: 0;
