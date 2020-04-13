@@ -12,7 +12,7 @@
 .section.hero-sub {
     z-index: 3;
     width: 100%;
-    height: 90vh;
+    height: 80vh;
     position: relative;
     padding-top: 20vh;
     color: black;
@@ -119,13 +119,13 @@
             }
         }
         p {
-          font-size: 30px;
+          font-size: 1em;
           letter-spacing: -1px;
           text-align: left;
           font-weight: 300;
           margin: 0 auto;
           margin-bottom: .5em;
-          line-height: 31px;
+          line-height: 1.3em;
 
           @media (max-width: 767px) {
               width: 80%;
