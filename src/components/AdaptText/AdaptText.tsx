@@ -78,7 +78,6 @@ const AdaptText: React.FC = ({
     prefixP < prefix.length
       ? Math.min(tail, tail + prefixP)
       : Math.min(tail, elem.length - skillIndex);
-  console.log(sizeOfTail);
   return (
     <div className="adapt-text">
       <h2>
