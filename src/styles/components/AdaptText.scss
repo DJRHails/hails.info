@@ -1,5 +1,5 @@
 .adapt-text {
-  width: 50%;
-  margin: auto;
-  text-align: left;
+  &__skills {
+    font-family: $font-family-monospace;
+  }
 }
