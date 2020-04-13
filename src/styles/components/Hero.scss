@@ -94,7 +94,7 @@
         h1 {
             font-size: 100px;
             letter-spacing: -2px;
-            font-family: "Lato";
+            font-family: "Lato",Helvetica,Arial,sans-serif;
             font-weight: lighter;
             @media (max-width: 991px) {
                 display: block;
@@ -107,7 +107,7 @@
             }
             strong {
                 font-size: 150px;
-                font-family: "Jaapokki Enchance";
+                font-family: "Jaapokki Enchance","Lato",Helvetica,Arial,sans-serif;
                 //font-weight: 800;
                 color: $pomegranate;
                 @media (max-width: 767px) {
