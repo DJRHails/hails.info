@@ -80,7 +80,9 @@ const AdaptText: React.FC = ({
       : Math.min(tail, elem.length - skillIndex);
   return (
     <div className="adapt-text">
-      <h3><span className="m-line">I work with</span></h3>
+      <h3>
+        <span className="m-line">I work with</span>
+      </h3>
       <h2 className="adapt-text__skills">
         <span>{text.slice(prefix.length, text.length)}</span>
         <span className="text-primary">
