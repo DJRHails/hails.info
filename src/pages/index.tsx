@@ -26,7 +26,11 @@ const HeroUnit: React.FC = ({ children }) => {
           </div>
         </div>
       </div>
-      <a href="#proficiencies">
+      <a
+        href="#proficiencies"
+        aria-label="scroll to proficiencies"
+        role="button"
+      >
         <span className="mouse btn-next hidden-xs" />
       </a>
     </Section>
@@ -41,9 +45,7 @@ const Proficiencies: React.FC = ({ skills }) => {
       skew
       orientation={["bottom", "left"]}
     >
-      <div className="adapt-text">
-        <AdaptText list={skills} />
-      </div>
+      <AdaptText list={skills} />
     </Section>
   );
 };
