@@ -39,12 +39,13 @@
 
         animation: fadein 5s ease-in-out;
 
-        @media (max-width: 767px) {
-            right: 0;
-            top: auto;
-            left: -50%;
-            width: 200%;
-            height: 130%;
+        @include media-breakpoint-down(md) {
+          right: 0;
+          top: auto;
+          left: -50%;
+          width: 200%;
+          height: 130%;
+          @include opacity(30);
         }
     }
     .mouse {
