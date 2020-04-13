@@ -1,4 +1,4 @@
-import { IconExternal, IconGitHub } from "@components/Icon";
+import { IconExternal, IconGitHub } from "@components/Icons";
 import Media from "@components/ProjectCard/ProjectCard.Media";
 import classNames from "classnames";
 import Img from "gatsby-image";
