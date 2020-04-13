@@ -1,0 +1,56 @@
+name: CI / CD
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+        
+      - name: Clean install dependencies
+        run: |
+          yarn install
+          rm -rf build
+          
+      - name: Lint
+        run: |
+          yarn lint:ts
+          yarn lint:js
+          yarn lint:md
+          
+      - run: yarn build --if-present
+
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH2 }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          port: ${{ secrets.PORT }}
+          source: "build"
+          target: "/var/www/hails.info"
+
+#       - name: Deploy
+#         uses: JamesIves/github-pages-deploy-action@releases/v3
+#         with:
+#           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+#           BRANCH: gh-pages
+#           FOLDER: 'build'
+      
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: build
+          path: build
