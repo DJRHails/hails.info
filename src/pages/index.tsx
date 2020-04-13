@@ -31,7 +31,7 @@ const HeroUnit: React.FC = ({ children }) => {
         aria-label="scroll to proficiencies"
         role="button"
       >
-        <span className="mouse btn-next hidden-xs" />
+        <span className="mouse btn-next d-none d-sm-block" />
       </a>
     </Section>
   );
