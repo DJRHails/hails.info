@@ -31,16 +31,19 @@ jobs:
           
       - run: yarn build --if-present
 
-      - name: copy file via ssh password
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: build
-          remote: /var/www/hails.info
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          privateKey: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          port: ${{ secrets.PORT }}
+      - name: Deploy
+        env:
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_port: ${{ secrets.DEPLOY_PORT }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
+          local_dir: "build/"
+          remote_dir: "/var/www/hails.info"
+        run: |
+          mkdir ~/.ssh
+          echo "$remote_key" > ~/.ssh/gh_actions_key
+          chmod 600 ~/.ssh/gh_actions_key
+          rsync -avzr --delete -e "ssh -p ${remote_port} -i ~/.ssh/gh_actions_key -o StrictHostKeyChecking=no" ${local_dir} ${remote_user}@${remote_host}:${remote_dir}
 
 #       - name: Deploy
 #         uses: JamesIves/github-pages-deploy-action@releases/v3
