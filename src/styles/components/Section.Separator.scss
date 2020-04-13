@@ -11,7 +11,7 @@
     bottom: -1px;
     width: 50%;
     z-index: 4;
-    border-bottom: 100px solid $body-bg;
+    border-bottom: 10vh solid $body-bg;
     @include rotate(0.000001deg);
   }
 
@@ -27,7 +27,7 @@
   }
 
   &.inverse:before, &.inverse:after {
-    border-bottom: 200px solid $body-bg-inverse !important
+    border-bottom: 20vh solid $body-bg-inverse !important
   }
 }
 
