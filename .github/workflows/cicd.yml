@@ -37,8 +37,8 @@ jobs:
           remote_port: ${{ secrets.DEPLOY_PORT }}
           remote_user: ${{ secrets.DEPLOY_USER }}
           remote_key: ${{ secrets.DEPLOY_KEY }}
-          local_dir: "build/"
-          remote_dir: "/var/www/hails.info"
+          local_dir: "public/"
+          remote_dir: "/var/www/hails.info/"
         run: |
           mkdir ~/.ssh
           echo "$remote_key" > ~/.ssh/gh_actions_key
