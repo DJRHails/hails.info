@@ -1,62 +1,64 @@
-.cc-window {
-  position: fixed;
-  overflow: hidden;
-  box-sizing: border-box;
-  font-family: Helvetica, Calibri, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5em;
-  @include flexbox();
-  @include flex-wrap(nowrap);
-  z-index: 9999;
+.cc {
+  &-window {
+    position: fixed;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: Helvetica, Calibri, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    @include flexbox();
+    @include flex-wrap(nowrap);
+    z-index: 9999;
 
-  padding: 2em;
-  max-width: 24em;
-  @include flex-direction(column)
+    padding: 2em;
+    max-width: 24em;
+    @include flex-direction(column)
 
-  opacity: 1;
-  transition: opacity 1s ease;
+    opacity: 1;
+    transition: opacity 1s ease;
 
-  bottom: 1em;
-  right: 1em;
+    bottom: 1em;
+    right: 1em;
 
-  background-color: $body-bg;
+    background-color: $body-bg;
 
-  @media print {
-    display: none
+    @media print {
+      display: none
+    }
   }
-}
-.cc-message {
-  color: $text-color;
+  &-message {
+    color: $text-color;
 
-  margin-bottom: 1em;
-}
-
-.cc-link {
-  @include opacity(80);
-  display: block;
-  padding: .2em;
-
-  &:hover {
-    @include opacity(100);
+    margin-bottom: 1em;
   }
-}
 
-.cc-compliance {
-  @include flexbox();
-  @include flex(1 0 auto);
-  @include align-content(space-between);
-  @include align-items(center);
-  &> .btn {
-    @include flex(1);
+  &-link {
+    @include opacity(80);
+    display: block;
+    padding: .2em;
+
+    &:hover {
+      @include opacity(100);
+    }
   }
-}
 
-.cc-dismiss {
-  color: $body-bg;
-  background: $primary;
-  display: block;
-  padding: .4em .8em;
-  font-size: .9em;
-  font-weight: 700;
-  text-align: center;
+  &-compliance {
+    @include flexbox();
+    @include flex(1 0 auto);
+    @include align-content(space-between);
+    @include align-items(center);
+    &> .btn {
+      @include flex(1);
+    }
+  }
+
+  &-dismiss {
+    color: $body-bg !important;
+    background: $primary;
+    display: block;
+    padding: .4em .8em;
+    font-size: .9em;
+    font-weight: 700;
+    text-align: center;
+  }
 }
