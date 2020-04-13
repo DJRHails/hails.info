@@ -22,8 +22,8 @@
   }
   &:after {
     left: 50%;
-    border-right: 1000px solid;
-    border-left: 1000px solid transparent;
+    border-right: 100vw solid;
+    border-left: 100vw solid transparent;
   }
 
   &.inverse:before, &.inverse:after {
