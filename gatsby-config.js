@@ -11,6 +11,21 @@ exports.siteMetadata = {
 };
 
 exports.plugins = [
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `Daniel Hails | hails.info`,
+      short_name: `Daniel Hails`,
+      start_url: `/`,
+      background_color: `#c0392b`,
+      theme_color: `#c0392b`,
+      // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
+      // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
+      display: `standalone`,
+      icon: `static/favicon/android-chrome-192x192.png`,
+    },
+  },
+  `gatsby-plugin-offline`,
   `gatsby-plugin-typescript`,
   `gatsby-plugin-tslint`,
   `gatsby-plugin-sharp`,
