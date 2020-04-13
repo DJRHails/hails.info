@@ -7,7 +7,7 @@ const getRandomChar = () =>
 
 const AdaptText: React.FC = ({
   list,
-  prefix = "I work with ",
+  prefix = "",
   tail = 5,
   defaultDelay = 10,
   defaultStep = 1,
@@ -80,8 +80,8 @@ const AdaptText: React.FC = ({
       : Math.min(tail, elem.length - skillIndex);
   return (
     <div className="adapt-text">
-      <h2>
-        <span className="m-line">{text.slice(0, prefix.length)}</span>
+      <h3><span className="m-line">I work with</span></h3>
+      <h2 className="adapt-text__skills">
         <span>{text.slice(prefix.length, text.length)}</span>
         <span className="text-primary">
           {_.range(sizeOfTail).reduce((acc, i) => acc + getRandomChar(), "")}
