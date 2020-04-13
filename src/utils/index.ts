@@ -1,7 +1,7 @@
 import throttle from "lodash/throttle";
 import { useEffect, useLayoutEffect, useRef } from "react";
 
-const isBrowser = typeof window !== undefined;
+const isBrowser = typeof window !== undefined && typeof document !== undefined;
 
 export function useInterval(callback, delay) {
   const savedCallback = useRef();
