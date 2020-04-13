@@ -35,9 +35,10 @@
         background-image: url('../assets/hero/HAILS.png');
         @include background-size(contain);
         background-position: bottom;
-        @include opacity(70);
 
-        animation: fadein 5s ease-in-out;
+
+        animation: fade-in-70 5s ease-in-out;
+        @include opacity(70);
 
         @include media-breakpoint-down(md) {
           right: 0;
@@ -45,6 +46,7 @@
           left: -50%;
           width: 200%;
           height: 130%;
+          animation: fade-in-30 5s ease-in-out;
           @include opacity(30);
         }
     }

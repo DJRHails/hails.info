@@ -1,32 +1,28 @@
-@keyframes fadein {
-    from { @include opacity(0) }
-    to   { @include opacity(70) }
+@mixin keyframe-fade-in($end) {
+  0%   { @include opacity(0) }
+  100% { @include opacity($end) }
 }
 
-/* Firefox < 16  */
-@-moz-keyframes fadein {
-  from { @include opacity(0) }
-  to   { @include opacity(70) }
+@mixin fadein($end-opacity) {
+  @-moz-keyframes fade-in-#{$end-opacity}{
+    @include keyframe-fade-in($end-opacity);
+  }
+  @-webkit-keyframes fade-in-#{$end-opacity}{
+    @include keyframe-fade-in($end-opacity);
+  }
+  @-o-keyframes fade-in-#{$end-opacity}{
+    @include keyframe-fade-in($end-opacity);
+  }
+  @-ms-keyframes fade-in-#{$end-opacity}{
+    @include keyframe-fade-in($end-opacity);
+  }
+  @keyframes fade-in-#{$end-opacity}{
+    @include keyframe-fade-in($end-opacity);
+  }
 }
 
-/* Safari, Chrome and Opera > 12.1  */
-@-webkit-keyframes fadein {
-  from { @include opacity(0) }
-  to   { @include opacity(70) }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-  from { @include opacity(0) }
-  to   { @include opacity(70) }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-  from { @include opacity(0) }
-  to   { @include opacity(70) }
-}
-
+@include fadein(70);
+@include fadein(30);
 
 @keyframes mouse-wheel {
   0% {
