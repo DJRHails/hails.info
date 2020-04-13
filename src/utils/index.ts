@@ -46,7 +46,7 @@ export function getScrollDimensions({ element }) {
 }
 
 export function useScrollPosition(effect, deps, element, useWindow, wait = 16) {
-  const position = useRef(getScrollPosition({ useWindow }));
+  const position = useRef({ x: 0, y: 0 });
 
   useLayoutEffect(() => {
     const handleScroll = throttle(() => {
