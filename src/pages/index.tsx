@@ -41,7 +41,7 @@ const Proficiencies: React.FC = ({ skills }) => {
       skew
       orientation={["bottom", "left"]}
     >
-      <div className="container">
+      <div className="adapt-text">
         <AdaptText list={skills} />
       </div>
     </Section>
