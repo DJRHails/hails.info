@@ -7,20 +7,21 @@ interface CookieConsentProps {
   acceptOnScroll?: boolean;
 }
 
-const LearnMore: React.FC = () => {
+const LearnMore: React.FC = ({ text }) => {
   return (
     <a
       aria-label="learn more about cookies"
       className="cc-link"
       href="https://www.cookiesandyou.com"
       target="_blank"
+      rel="noreferrer"
     >
-      Learn more
+      {text}
     </a>
   );
 };
 
-const ComplianceGroup: React.FC = ({ onDismiss }) => {
+const ComplianceGroup: React.FC = ({ onDismiss, dismissText }) => {
   return (
     <div class="cc-compliance">
       <a
@@ -30,7 +31,7 @@ const ComplianceGroup: React.FC = ({ onDismiss }) => {
         className="btn cc-dismiss"
         onClick={onDismiss}
       >
-        Got it!
+        {dismissText}
       </a>
     </div>
   );
@@ -38,6 +39,8 @@ const ComplianceGroup: React.FC = ({ onDismiss }) => {
 
 const CookieConsent: React.FC<CookieConsentProps> = ({
   acceptOnScroll,
+  learnMoreText = "More details!",
+  dismissText = "No worries!",
   cookieName = "CookieConsent",
   children,
 }) => {
@@ -74,9 +77,9 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       >
         <span id="cookieconsent:desc" className="cc-message">
           {children}
-          <LearnMore />
+          <LearnMore text={learnMoreText} />
         </span>
-        <ComplianceGroup onDismiss={onDismiss} />
+        <ComplianceGroup onDismiss={onDismiss} dismissText={dismissText} />
       </div>
     )
   );
