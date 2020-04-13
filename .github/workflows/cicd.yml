@@ -38,7 +38,7 @@ jobs:
           remote: /var/www/hails.info
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          privateKey: ${{ secrets.SSH2 }}
+          privateKey: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
           port: ${{ secrets.PORT }}
 
