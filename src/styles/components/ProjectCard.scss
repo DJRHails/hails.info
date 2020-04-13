@@ -59,7 +59,7 @@
     .asset {
       margin: -6vw auto;
       @include media-breakpoint-down(md) {
-        margin: auto -6vh;
+        margin: auto;
       }
       &.vertical {
         width: 70%;
