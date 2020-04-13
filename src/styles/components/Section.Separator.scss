@@ -2,7 +2,6 @@
 @mixin separator {
   content: '';
   position: absolute;
-  transition: ease all 10s;
 }
 
 // Separator Arrow //
@@ -83,7 +82,7 @@
     @include separator;
     background: inherit;
     width: 100%;
-    height: 50%;
+    height: 20vh; // Sections have padding of 10vh
     z-index: 1;
     left: 0;
     right: 0;
@@ -104,7 +103,7 @@
 }
 .separator-skew-bottom-left::after{
   @include separator-skew;
-  z-index: 3;
+  z-index: -1;
   bottom: 0;
   transform-origin: right bottom;
   transform: skewY(-3deg)
@@ -112,7 +111,7 @@
 
 .separator-skew-bottom-right:after{
   @include separator-skew;
-  z-index: 3;
+  z-index: -1;
   bottom: 0;
   transform-origin: left bottom;
   transform: skewY(3deg);
