@@ -31,4 +31,5 @@ Managed a gifted team of 10 individuals with responsibility for all the front-en
 The code base of over fifty thousand lines of code managed to reduce the cost of the conference by ~£2,000.
 
 ## Chair - Politics II
+
 Managed and facilitated debate of 52 delegates representing different countries from the United Nations over the course of two days including 51 speeches, and 116 Points of Information. All individually graded and given feedback.

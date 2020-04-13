@@ -1,15 +1,9 @@
 {
   "defaultSeverity": "error",
-  "extends": [
-    "tslint:latest",
-    "tslint-react",
-    "tslint-config-prettier"
-  ],
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "jsRules": {},
   "linterOptions": {
-    "exclude": [
-      "gatsby/**/*.js"
-    ]
+    "exclude": ["gatsby/**/*.js"]
   },
   "rules": {
     "prettier": true,

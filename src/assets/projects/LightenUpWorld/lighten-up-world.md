@@ -13,6 +13,7 @@ highlight: true
 ---
 
 # Lighten Up World:
+
 ## ARM11 Project Extension
 
 An LED World Map displaying data from a range of APIs and visual effects from across the planet.

@@ -12,6 +12,7 @@ highlight: false
 ---
 
 # Speakeasy
+
 ## Slide generation as you speak.
 
 We [vlogged](https://www.youtube.com/playlist?list=PLJ8AtA_9yvjj46mhBRofRCgl81HzPLoSY) the whole 24 hours.
@@ -36,6 +37,7 @@ From this we create an internal AST which contains the object types which are th
 We then hot-reload these files into Gatsby (a React based framework).
 
 ## Challenges we ran into
+
 - First time using Gatsby
 - Gatsby is not well documented when interacting with MDX
 - First time using Google Speech-to-text API
@@ -44,6 +46,7 @@ We then hot-reload these files into Gatsby (a React based framework).
 - And the joy of working with such funny teammates
 
 ## Accomplishments that we're proud of
+
 - Designed and executing an innovative idea in a short period of time.
 - Creating a joyful and engaging user experience
 - GIFs

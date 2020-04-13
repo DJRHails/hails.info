@@ -14,6 +14,7 @@ highlight: true
 ---
 
 # inkstep.
+
 Removing the conflict between the "I'll know when I see it" attitude and the artists' need for specificity in the tattoo industry while keeping the interaction personable.
 
 with you every step of the way.

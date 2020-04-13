@@ -22,7 +22,6 @@ Medium articles:
 
 Programming 2018! paper: [Writing Safe Smart Contracts in Flint](https://dl.acm.org/citation.cfm?doid=3191697.3213790)
 
-
 Current working paper: [Flint for Safer Smart Contracts](https://arxiv.org/abs/1904.06534)
 
 Flint has been developed as part of projects and summer work at [Imperial College Department of Computing](https://www.doc.ic.ac.uk) under the supervision of Professors Susan Eisenbach and Sophia Drossopoulou. Its original developer was Franklin Schrans for his MEng thesis and then continued.
@@ -60,9 +59,11 @@ Bank :: (any) {
 ```
 
 ### Type States
+
 [**Type States**](docs/language_guide.md#type-states) integrate a design pattern of stateful contracts into the language itself, which both require programmers to think about what state a function can be called in but also to prevent vulnerabilities (e.g. Parity Multi-Sig wallet) from mistakes with respect to administrating state. States are checked statically for internal calls (unlike Solidity modifiers), and at runtime for calls originating from external contracts.
 
 Example:
+
 ```swift
 // Enumeration of states.
 contract Auction (Preparing, InProgress) {}

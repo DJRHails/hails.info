@@ -8,9 +8,11 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "lint": "npx tslint -c tslint.json \"src/**/*.ts?(x)\"",
-    "lint:fix": "npx tslint -c tslint.json \"src/**/*.ts?(x)\" --fix",
-    "lint:check": "tslint-config-prettier-check ./tslint.json"
+    "lint:ts": "npx tslint -c tslint.json \"src/**/*.ts?(x)\"",
+    "lint:ts:fix": "npx tslint -c tslint.json \"src/**/*.ts?(x)\" --fix",
+    "lint:ts:check": "tslint-config-prettier-check ./tslint.json",
+    "lint:js": "prettier --write \"**/*.{js,json}\"",
+    "lint:md": "prettier --write \"**/*.md\""
   },
   "dependencies": {
     "@babel/core": "^7.5.5",

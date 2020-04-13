@@ -22,6 +22,7 @@ Represented the UK internationally on the Gender Equality Committee.
 ---
 
 Individually selected to represent the UK internationally on the Gender Equality Committee in Menden Germany. I have since remained an active member, representing the UK across some of the 40 countries EYP is involved with and taking a role in the management and organisation of other sections, including:
+
 - **UK** - Summer National Session 2019, Chair
 - **UK** - South East Regional Session I & II 2018, Solo Head Organiser
 - **UK** - South East Regional Session I & II 2017, Co-Head Organiser

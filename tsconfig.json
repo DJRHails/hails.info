@@ -6,7 +6,7 @@
     "public",
     "gatsby",
     "static",
-    "**/*.spec.ts",
+    "**/*.spec.ts"
   ],
   "compilerOptions": {
     "target": "es6",

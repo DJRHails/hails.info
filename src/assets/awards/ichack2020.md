@@ -5,6 +5,7 @@ date: 2020-02-00
 ---
 
 # 3rd Place: Best User Experience - American Express
+
 ## IC HACK 2020
 
 Awarded for the work on [Speakeasy]() with Will Burr, James Dalboth, and Joon Ho-Soon.

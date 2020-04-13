@@ -1,4 +1,4 @@
-const path = require(`path`)
+const path = require(`path`);
 
 exports.siteMetadata = {
   siteName: `Hails`,
@@ -8,7 +8,7 @@ exports.siteMetadata = {
   keywords: [`technology`],
   siteUrl: `https://hails.info`,
   twitter: `@_djrh`,
-}
+};
 
 exports.plugins = [
   `gatsby-plugin-typescript`,
@@ -24,7 +24,7 @@ exports.plugins = [
     resolve: "gatsby-plugin-web-font-loader",
     options: {
       google: {
-        families: ["Lato:400,500,600,700,800"]
+        families: ["Lato:400,500,600,700,800"],
       },
       custom: {
         families: ["Jaapokki Enchance"],
@@ -37,7 +37,7 @@ exports.plugins = [
     options: {
       name: "assets",
       path: path.join(__dirname, `src`, `assets`),
-    }
+    },
   },
   `gatsby-transformer-sharp`,
   {
@@ -54,7 +54,7 @@ exports.plugins = [
             maxWidth: 590,
           },
         },
-      ]
-    }
-  }
-]
+      ],
+    },
+  },
+];
