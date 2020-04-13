@@ -198,8 +198,7 @@ const SEO: React.FC<PageMetadata> = ({ children, ...pageMetadata }) => {
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={title || site.siteMetadata.title}
       link={[canonicalLink, ...faviconLinks]}
       meta={metaTags}
     >
