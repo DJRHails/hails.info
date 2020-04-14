@@ -1,0 +1,66 @@
+#experience .container {
+  text-align: left;
+}
+
+.experience {
+  list-style: none;
+  padding: 0;
+
+  &__elem {
+    padding: 1.5em 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    &:hover {
+      span {
+        @include opacity(100);
+      }
+    }
+  }
+
+  &__periods {
+    @include make-col(4);
+    margin-top: .45em;
+    text-align: right;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: rgba($body-bg, 0.7);
+  }
+
+  &__img {
+    @include make-col(4);
+  }
+
+  &__info {
+    @include make-col(8);
+
+    img {
+      width: 100%;
+      padding: 0 1em 1em;
+    }
+
+    h5 {
+      font-size: 1.5em;
+      line-height: 1.5;
+      font-weight: 700;
+    }
+    h6 {
+      font-size: 0.9em;
+      color: rgba($body-bg, 0.5);
+      font-weight: 600;
+      letter-spacing: -0.4px;
+      line-height: 1.5;
+      text-transform: uppercase;
+
+      span {
+        @include opacity(0);
+        transition: opacity 0.2s ease-in-out;
+      }
+    }
+  }
+  p {
+    font-size: 1em;
+    font-weight: 500;
+    margin-top: 0.3em;
+    line-height: 1.5;
+  }
+}
