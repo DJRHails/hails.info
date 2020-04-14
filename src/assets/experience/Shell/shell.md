@@ -14,12 +14,12 @@ tags:
   - Web Design
   - Video Editing
 tech: []
-highlight: false
+highlight: true
 ---
 
 Dived headfirst into Shell experience with the Consumer Data and Analytics Team.
 
----
+<!-- end -->
 
 Joined the Consumer Data and Analytics Team in TACIT which works on gaining insights from 'Big Data' to push competitive advantages. While there I dived into as many opportunities as possible taking part in:
 

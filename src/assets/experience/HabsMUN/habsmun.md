@@ -16,12 +16,12 @@ tech:
   - JS
   - PHP
   - MySQL
-highlight: false
+highlight: true
 ---
 
 Managed a team of 10 with responsibility for front-end and back-end systems for 5 separate sessions totalling 2,000+ delegates from 30 different countries over a 3 day weekends.
 
----
+<!-- end -->
 
 HABSMUN is a non-profit Model United Nations Conference that aims to simulate the real UN, where students can practise the arts of diplomacy, cooperation, and debate, therefore gaining valuable social skills and promoting social inclusion and tolerance. Students from underprivileged backgrounds receive grants from fundraising activities and sponsorship.
 

@@ -22,7 +22,7 @@ highlight: true
 
 First founding experience to support freelancing career in web development and video editing.
 
----
+<!-- end -->
 
 Harnessing my drive as a 12 year old for making spare pocket money lead to the founding of my first company. CybaBrain (supporting a freelancing career) provided me a tenacity, business awareness, and customer focus that is difficult to gain without making mistakes and putting real money on the line.
 

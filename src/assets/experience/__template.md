@@ -3,6 +3,7 @@ role: TODO
 company: TODO
 location: TODO
 external: https://TODO
+# cover: ./path-to-file.png
 period:
   - from: 2011-01
     to: 2018-01
@@ -13,4 +14,8 @@ tech:
 highlight: false
 ---
 
-Normal Content
+Excerpt
+
+<!-- end -->
+
+Content

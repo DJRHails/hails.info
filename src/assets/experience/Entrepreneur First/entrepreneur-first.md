@@ -12,12 +12,12 @@ tags:
   - Customer Focus
   - Organisation
 tech: []
-highlight: false
+highlight: true
 ---
 
 Joined in the first cohort of interns at a Deep Technology talent investor, aiding in fundraising and new talent leads.
 
----
+<!-- end -->
 
 EF is an pre-seed investment programme that helps technical founders build Deep Technology companies.
 

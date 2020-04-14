@@ -15,6 +15,6 @@ highlight: false
 
 Video editing for blue chip companies through market research.
 
----
+<!-- end -->
 
 Edited market research groups to refine insights for blue chip companies that McDonald Baily worked for.

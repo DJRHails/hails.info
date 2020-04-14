@@ -3,6 +3,7 @@ role: Research Assistant
 company: Imperial College London
 location: London
 external: https://arxiv.org/abs/1904.06534
+cover: ./flint.png
 period:
   - from: 2011-04
     to: 2018-06
@@ -14,12 +15,12 @@ tech:
   - Solidity
   - Ethereum
   - Swift
-highlight: false
+highlight: true
 ---
 
 Published research paper for implementation of Flint Programming Language.
 
----
+<!-- end -->
 
 As part of a UROP, I expanded the Flint Programming Language from a proof of concept.
 
