@@ -1,5 +1,5 @@
 ---
-date: 2018-01-01
+date: 2018-10-08
 title: Lighten Up, World
 github: Lighten-Up-World/c-client
 external: ""
