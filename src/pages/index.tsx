@@ -6,6 +6,7 @@ import Layout from "@components/Layout";
 import ProjectCard from "@components/ProjectCard";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
+import * as Home from "@sections/Home";
 
 import rehypeReact from "rehype-react";
 
@@ -15,78 +16,23 @@ const renderAst = new rehypeReact({
   createElement: React.createElement,
 }).Compiler;
 
-const HeroUnit: React.FC = ({ children }) => {
-  return (
-    <Section id="intro" className="hero-sub inverse" arrow>
-      <div className="background" />
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-12 col-md-6">
-            <div className="hero-unit">{children}</div>
-          </div>
-        </div>
-      </div>
-      <a
-        href="#proficiencies"
-        aria-label="scroll to proficiencies"
-        role="button"
-      >
-        <span className="mouse btn-next" />
-      </a>
-    </Section>
-  );
-};
-
-const Proficiencies: React.FC = ({ skills }) => {
-  return (
-    <Section
-      id="proficiencies"
-      className="dark"
-      skew
-      orientation={["bottom", "left"]}
-    >
-      <AdaptText list={skills} />
-    </Section>
-  );
-};
-
-const Projects: React.FC = ({ title, subtitle, projects }) => {
-  const projectCards =
-    projects &&
-    projects.map(({ node }, i) => {
-      const { frontmatter } = node;
-      return <ProjectCard key={i} data={frontmatter} />;
-    });
-  return (
-    <Section id="projects" title={title} subtitle={subtitle}>
-      {projectCards}
-      <div className="col-12">
-        <Link to="/projects">
-          <button type="button" className="btn btn--outline btn--diagonal">
-            See More
-          </button>
-        </Link>
-      </div>
-    </Section>
-  );
-};
-
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const heroNode = data.hero.edges[0].node;
   const projectEdges = data.featuredProjects.edges;
   const { title, description } = data.projectSection.edges[0].node.frontmatter;
   return (
-    <Layout nav={{}} footer={{}}>
+    <Layout nav={{}} footer={{visible: true, className: ""}}>
       <>
         <SEO pathname="/" />
         <div className="page-wrapper">
-          <HeroUnit>{renderAst(heroNode.htmlAst)}</HeroUnit>
-          <Proficiencies skills={heroNode.frontmatter.skills} />
-          <Projects
+          <Home.HeroUnit>{renderAst(heroNode.htmlAst)}</Home.HeroUnit>
+          <Home.Proficiencies skills={heroNode.frontmatter.skills} />
+          <Home.Projects
             title={title}
             subtitle={description}
             projects={projectEdges}
           />
+          <Home.Experience />
         </div>
       </>
     </Layout>
