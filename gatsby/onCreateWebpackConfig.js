@@ -10,6 +10,7 @@ module.exports = ({ actions, getConfig, stage }) => {
         "@styles": path.resolve(__dirname, "../src/styles/"),
         "@utils": path.resolve(__dirname, "../src/utils/"),
         "@typings": path.resolve(__dirname, "../src/typings/"),
+        "@sections": path.resolve(__dirname, "../src/sections/"),
       },
       extensions: [".js", ".json", ".ts", ".tsx"],
     },
