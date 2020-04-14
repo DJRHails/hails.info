@@ -1,6 +1,7 @@
 import { useInterval } from "@utils";
 import _ from "lodash";
 import React, { useState } from "react";
+import { useTrackVisibility } from 'react-intersection-observer-hook';
 
 const getRandomChar = () =>
   String.fromCharCode(Math.random() * (127 - 33) + 33);
@@ -11,26 +12,24 @@ const AdaptText: React.FC = ({
   tail = 5,
   defaultDelay = 10,
   defaultStep = 1,
-  processingDelay = 50,
+  processingDelay = 100,
 }) => {
   const [text, setText] = useState<string>("");
   const [prefixP, setPrefixP] = useState<number>(-5);
   const [index, setIndex] = useState<number>(0);
   const [skillIndex, setSkillIndex] = useState<number>(0);
-  const [step, setStep] = useState<number>(defaultStep);
   const [delay, setDelay] = useState<number>(defaultDelay);
   const [direction, setDirection] = useState<string>("forward");
   const [finished, setFinished] = useState<boolean>(false);
 
+  const [ref, { isVisible }] = useTrackVisibility();
+
   const elem = list[index];
 
   useInterval(() => {
-    if (step) {
-      setStep(step - 1);
+    if (!isVisible) {
       return;
     }
-    setStep(defaultStep);
-
     // Add to the prefix
     if (prefixP < prefix.length) {
       if (prefixP >= 0) {
@@ -79,7 +78,7 @@ const AdaptText: React.FC = ({
       ? Math.min(tail, tail + prefixP)
       : Math.min(tail, elem.length - skillIndex);
   return (
-    <div className="adapt-text">
+    <div ref={ref} className="adapt-text">
       <h3>
         <span className="m-line">I work with</span>
       </h3>

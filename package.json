@@ -38,6 +38,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-intersection-observer-hook": "^1.0.4",
     "rehype-react": "^5.0.0",
     "typescript": "^3.5.3",
     "webpack": "^4.36.1"
