@@ -40,7 +40,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
 export const pageQuery = graphql`
   {
     section: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/projects._featured/" } }
+      filter: { fileAbsolutePath: { regex: "/projects._index/" } }
     ) {
       edges {
         node {

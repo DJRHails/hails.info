@@ -106,7 +106,7 @@ export const pageQuery = graphql`
       }
     }
     projectSection: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/projects._featured/" } }
+      filter: { fileAbsolutePath: { regex: "/projects._index/" } }
     ) {
       edges {
         node {
