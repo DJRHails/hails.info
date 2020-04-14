@@ -3,6 +3,7 @@ role: Summer Intern
 company: Imagination Technologies
 location: Kings Langley
 external: https://www.imgtec.com/
+cover: ./imagination.png
 period:
   - from: 2015-06
     to: 2015-07

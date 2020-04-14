@@ -3,6 +3,7 @@ role: Founder
 company: CybaBrain
 location: London
 external: https://cybabrain.co.uk
+cover: ./cybabrain.png
 period:
   - from: 2011-01
     to: 2018-01

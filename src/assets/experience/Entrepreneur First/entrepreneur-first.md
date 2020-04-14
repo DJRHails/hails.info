@@ -3,6 +3,7 @@ role: Summer Intern
 company: Entrepreneur First
 location: London
 external: https://www.joinef.com/
+cover: ./ef.png
 period:
   - from: 2015-07
     to: 2015-07

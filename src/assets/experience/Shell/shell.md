@@ -3,6 +3,7 @@ role: Summer Intern
 company: Shell
 location: 40 Bank Street
 external: https://www.shell.co.uk
+cover: ./shell.png
 period:
   - from: 2015-08
     to: 2015-09

@@ -3,6 +3,7 @@ role: Organiser & Head of Tech
 company: HABSMUN
 location: London
 external: https://www.habsmun.com/
+cover: ./habsmun.png
 period:
   - from: 2015-08
     to: 2015-09
