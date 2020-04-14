@@ -1,7 +1,7 @@
 import { useInterval } from "@utils";
 import _ from "lodash";
 import React, { useState } from "react";
-import { useTrackVisibility } from 'react-intersection-observer-hook';
+import { useTrackVisibility } from "react-intersection-observer-hook";
 
 const getRandomChar = () =>
   String.fromCharCode(Math.random() * (127 - 33) + 33);
