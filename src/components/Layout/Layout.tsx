@@ -26,6 +26,7 @@ const Layout: React.FC<LayoutProps> = ({ children, footer, ...rest }) => {
 
   return (
     <>
+    {/* Removed till I actually use cookies for something
       <CookieConsent acceptOnScroll>
         This website uses cookies{" "}
         <span role="img" aria-label="cookies">
@@ -33,6 +34,7 @@ const Layout: React.FC<LayoutProps> = ({ children, footer, ...rest }) => {
         </span>{" "}
         so I can enhance the user experience. Hope thats cool with you!
       </CookieConsent>
+    */}
       <Container {...rest}>
         {children}
         <Footer className={className}/>
