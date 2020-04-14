@@ -1,16 +1,13 @@
-import React from "react";
-import Section from "@components/Section";
-import { IconGitHub } from "@components/Icons";
-import classNames from "classnames";
 import ConversationInvite from "@components/Footer/Footer.ConversationInvite";
+import { IconGitHub } from "@components/Icons";
+import Section from "@components/Section";
+import classNames from "classnames";
+import React from "react";
 
 const Footer: React.FC = ({ className }) => {
   return (
-    <Section
-      id="footer"
-      className={classNames("footer", className)}
-    >
-      <ConversationInvite/>
+    <Section id="footer" className={classNames("footer", className)}>
+      <ConversationInvite />
     </Section>
   );
 };

@@ -12,11 +12,7 @@ const Projects: React.FC = ({ title, subtitle, projects }) => {
       return <ProjectCard key={i} data={frontmatter} />;
     });
   return (
-    <Section
-      id="projects"
-      title={title}
-      subtitle={subtitle}
-    >
+    <Section id="projects" title={title} subtitle={subtitle}>
       {projectCards}
       <div className="col-12">
         <Link to="/projects">

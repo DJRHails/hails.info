@@ -12,6 +12,6 @@ const ConversationInvite: React.FC = () => {
       </h2>
     </>
   );
-}
+};
 
 export default ConversationInvite;

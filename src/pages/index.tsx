@@ -26,7 +26,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const experiences = data.experiences.edges;
 
   return (
-    <Layout nav={{}} footer={{visible: true, className: ""}}>
+    <Layout nav={{}} footer={{ visible: true, className: "" }}>
       <>
         <SEO pathname="/" />
         <div className="page-wrapper">
@@ -48,51 +48,101 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 };
 
 export const pageQuery = graphql`
-{
-  hero: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/hero/" } }) {
-    edges {
-      node {
-        frontmatter {
-          skills
+  {
+    hero: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/hero/" } }) {
+      edges {
+        node {
+          frontmatter {
+            skills
+          }
+          htmlAst
         }
-        htmlAst
       }
     }
-  }
 
-  projectSection: allMarkdownRemark(
-    filter: { fileAbsolutePath: { regex: "/projects._index/" } }
-  ) {
-    edges {
-      node {
-        frontmatter {
-          title
-          description
+    projectSection: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/projects._index/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            description
+          }
         }
       }
     }
-  }
-  featuredProjects: allMarkdownRemark(
-    filter: {
-      fileAbsolutePath: { regex: "/assets.projects.[^_]/" }
-      frontmatter: { highlight: { ne: false } }
+    featuredProjects: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/assets.projects.[^_]/" }
+        frontmatter: { highlight: { ne: false } }
+      }
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 5
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date(formatString: "MMMM YYYY")
+            github
+            external
+            description
+            company
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 700, quality: 90) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    sort: { fields: [frontmatter___date], order: DESC }
-    limit: 5
-  ) {
-    edges {
-      node {
-        frontmatter {
-          title
-          date(formatString: "MMMM YYYY")
-          github
-          external
-          description
-          company
-          cover {
-            childImageSharp {
-              fluid(maxWidth: 700, quality: 90) {
-                ...GatsbyImageSharpFluid_withWebp
+
+    experienceSection: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/experience._index/" } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
+    experiences: allMarkdownRemark(
+      filter: {
+        fileAbsolutePath: { regex: "/assets.experience.[^_]/" }
+        frontmatter: { highlight: { ne: false } }
+      }
+      sort: { fields: [frontmatter___period___to], order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt(format: PLAIN)
+          frontmatter {
+            role
+            company
+            location
+            external
+            period {
+              from(formatString: "MMM YY")
+              to(formatString: "MMM YY")
+            }
+            tags
+            tech
+            highlight
+            cover {
+              childImageSharp {
+                fluid(
+                  maxWidth: 700
+                  quality: 90
+                  traceSVG: { color: "rgb(255, 255, 255)" }
+                ) {
+                  tracedSVG
+                }
               }
             }
           }
@@ -100,52 +150,6 @@ export const pageQuery = graphql`
       }
     }
   }
-
-  experienceSection: allMarkdownRemark(
-    filter: { fileAbsolutePath: { regex: "/experience._index/" } }
-  ) {
-    edges {
-      node {
-        frontmatter {
-          title
-        }
-      }
-    }
-  }
-  experiences: allMarkdownRemark(
-    filter: {
-      fileAbsolutePath: { regex: "/assets.experience.[^_]/" },
-      frontmatter: { highlight: { ne: false } }
-    }
-    sort: { fields: [frontmatter___period___to], order: DESC }
-  ) {
-    edges {
-      node {
-        excerpt(format: PLAIN)
-        frontmatter {
-          role
-          company
-          location
-          external
-          period {
-            from(formatString:"MMM YY")
-            to(formatString:"MMM YY")
-          }
-          tags
-          tech
-          highlight
-          cover {
-            childImageSharp {
-              fluid(maxWidth: 700, quality: 90, traceSVG: { color: "rgb(255, 255, 255)"}) {
-                tracedSVG
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
 `;
 
 export default IndexPage;

@@ -1,6 +1,6 @@
-import React from "react";
 import ExperienceElement from "@components/ExperienceElement";
 import Section from "@components/Section";
+import React from "react";
 
 const Experience: React.FC = ({ title, experiences }) => {
   const experienceElements =
@@ -17,9 +17,7 @@ const Experience: React.FC = ({ title, experiences }) => {
       skew
       orientation={["top", "left"]}
     >
-      <ul className="experience">
-        {experienceElements}
-      </ul>
+      <ul className="experience">{experienceElements}</ul>
     </Section>
   );
 };
