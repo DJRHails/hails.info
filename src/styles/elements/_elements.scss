@@ -36,12 +36,17 @@ body {
 
     &:before {
       content: '';
-      z-index: -1;
+      z-index: 0;
       @include absolute(0,-50px,0,0);
       transition: 0.5s ease-in-out;
       border-right: 50px solid transparent;
       border-bottom: $btn-height solid $btn-color;
       transform: translateX(-100%);
+    }
+
+    span {
+      position: relative;
+      z-index: 1;
     }
 
     &:hover {

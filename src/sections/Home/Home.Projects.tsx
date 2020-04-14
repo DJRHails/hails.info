@@ -21,7 +21,7 @@ const Projects: React.FC = ({ title, subtitle, projects }) => {
       <div className="col-12">
         <Link to="/projects">
           <button type="button" className="btn btn--outline btn--diagonal">
-            See More
+            <span>See More</span>
           </button>
         </Link>
       </div>
