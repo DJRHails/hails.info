@@ -5,8 +5,8 @@ location: London
 external: https://arxiv.org/abs/1904.06534
 cover: ./flint.png
 period:
-  - from: 2011-04
-    to: 2018-06
+  - from: 2018-07
+    to: 2019-04
 tags:
   - Compilers
   - Research

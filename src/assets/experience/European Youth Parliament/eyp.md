@@ -6,7 +6,7 @@ external: https://www.eypuk.co.uk/
 cover: ./eyp.png
 period:
   - from: 2016-02
-    to: 2019-06
+    to: 2019-07
 tags:
   - Public Speaking
   - Gender Equality
