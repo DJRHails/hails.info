@@ -13,7 +13,7 @@ const Experience: React.FC = ({ data }) => {
     >
       <ul className="experience">
 
-      <ul>
+      </ul>
 
     </Section>
   );
