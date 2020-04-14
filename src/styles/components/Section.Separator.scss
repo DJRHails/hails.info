@@ -87,9 +87,15 @@
     left: 0;
     right: 0;
 }
+
+.separator-skew-top-left, .separator-skew-top-right {
+  margin-top: 20vh;
+}
+
 .separator-skew-top-left::before
 {
   @include separator-skew;
+  z-index: -1;
   top:0;
   transform-origin: right top;
   transform: skewY(3deg);
@@ -97,16 +103,23 @@
 .separator-skew-top-right::before
 {
   @include separator-skew;
+  z-index: -1;
   top:0;
   transform-origin: left top;
   transform: skewY(-3deg);
 }
+
+.separator-skew-bottom-left, .separator-skew-bottom-right {
+  margin-bottom: 20vh;
+}
+
 .separator-skew-bottom-left::after{
   @include separator-skew;
   z-index: -1;
   bottom: 0;
   transform-origin: right bottom;
-  transform: skewY(-3deg)
+  transform: skewY(-3deg);
+
 }
 
 .separator-skew-bottom-right:after{
