@@ -14,6 +14,6 @@ skills:
 
 # **HAILS**.info
 
-Studying [Artificial Intelligence](#ai) at Imperial College London.
+Studying [Artificial Intelligence](#) at Imperial College London.
 
-Always open to new opportunities to develop.
+Always looking for new opportunities to develop.
