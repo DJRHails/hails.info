@@ -5,11 +5,13 @@ github: artistic-cryptids/ARRtistry
 external: https://arrtistry.hails.info
 cover: ./rinkeby-homepage.png
 tech:
-  - JS
-  - React
-  - Blockchain
+  - ReactJS
+  - SASS
+  - Ethereum
+  - IPFS
+  - Arweave
 description: >
-  Distributed Art Registry with Automated Royalty Distribution
+  The first of its kind distributed art registry with integrated artists' resale rights. Built with a React front-end to interact with a series of blockchain technologies.
 highlight: true
 ---
 
