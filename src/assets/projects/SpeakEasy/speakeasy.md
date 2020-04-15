@@ -4,9 +4,11 @@ title: Speakeasy
 github: Windjabber/speak-easy
 external: ""
 tech:
-  - TODO
+  - ReactJS
+  - JS
+  - CSS
 description: >
-  Slide generation as you speak
+  Slide generation as you speak. This was a 24 hour hackathon project for ICHack.
 cover: ./we-are-speakeasy.png
 highlight: false
 ---
@@ -27,7 +29,7 @@ All of these bad habits are prevented with SpeakEasy. You can't rely on it as a 
 ## What it does
 We translate audio streams in real time and convert them to rapid visual slides. All while obeying The Top Ten Laws for Slideshows, always.
 
-The few second delay can be fun :).
+The few second delay can be fun :happy:.
 
 ## How we built it
 We created a sophisticated pipeline that passes raw audio to the Google Cloud Speech-to-text API, producing plaintext. We then take that text data and apply various natural language processing techniques (such as IBM Watson) to generate semantic analysis, from which we can extract key information to format our slides. Knowing for instance that subject of a sentence can provide a header and the bullet points beneath are the verb-noun pairs corresponding to that subject. We also do a level of emotive analysis for creating color choices for text.
@@ -55,13 +57,13 @@ We then hot-reload these files into Gatsby (a React based framework).
 - Making a genuinely useful tool
 
 ## What we learned
-Gatsby is super fast, and when not using interesting mdx-themes is an excellent tool.
-How to use Speech-to-text API in an endless stream.
-Additional free drinks at the bar night and no sleep is a poor choice of moves.
+- Gatsby is super fast, and when not using interesting mdx-themes is an excellent tool.
+- How to use Speech-to-text API in an endless stream.
+- No sleep is a poor choice of moves.
 
 ## What's next for Speakeasy
-Negative Latency with predictive descriptions
-Improved speech recognition
-Embedded image lookup
-Improved slide transitions
+- Negative Latency with predictive descriptions
+- Improved speech recognition
+- Embedded image lookup
+- Improved slide transitions
 [Video Link](https://www.youtube.com/watch?v=UDkzLdDV0h8&feature=youtu.be)
