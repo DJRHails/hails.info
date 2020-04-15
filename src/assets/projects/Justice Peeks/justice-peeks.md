@@ -1,12 +1,12 @@
 ---
-date: 2017-00-00
+date: 2017-01-01
 title: Justice Peeks
 github: ""
 external: ""
 tech:
   - Python
 description: >
-  Autonomous agent judicial decisions to reduce bias
+  Implemented fuzzy horn clause logic to make naive judicial decision based upon data extracted from prior case data using the Natural Language Tool-kit.
 highlight: false
 ---
 
