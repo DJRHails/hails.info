@@ -89,6 +89,7 @@ export const pageQuery = graphql`
             external
             description
             company
+            tech
             cover {
               childImageSharp {
                 fluid(maxWidth: 700, quality: 90) {
