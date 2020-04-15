@@ -1,7 +1,9 @@
 ---
 title: Featured Projects
 description: >
-  Some Things I've Built
+  Learn, Build, Share, Repeat
 ---
 
-# Projects
+<h1>
+  <a class="small" href="/">◄</a> Projects
+</h1>
