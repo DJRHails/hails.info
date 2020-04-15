@@ -3,7 +3,7 @@ import React from "react";
 const ConversationInvite: React.FC = () => {
   return (
     <>
-      <p className="footer__line text-muted">WHAT NEXT?</p>
+      <p className="footer__line text-muted">SO, WHAT NEXT?</p>
       <h2>Let's make the conversation less one sided:</h2>
       <h2>
         <a href="mailto:daniel@hails.info">
