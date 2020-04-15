@@ -3,7 +3,7 @@ date: 2018-10-08
 title: Lighten Up, World
 github: Lighten-Up-World/c-client
 external: ""
-cover: ./led-board.jpg
+cover: ./dark-led-board.jpg
 tech:
   - C
   - OpenGL
