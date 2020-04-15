@@ -4,7 +4,9 @@ title: WACC - Compiler
 github: DJRHails/WACC
 external: ""
 tech:
-  - TODO
+  - Kotlin
+  - ANTLR
+  - x86
 description: >
   Lexer, Parser and Semantic Analyser for WACC.
 highlight: false
