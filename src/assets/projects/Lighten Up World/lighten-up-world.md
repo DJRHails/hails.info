@@ -5,9 +5,11 @@ github: Lighten-Up-World/c-client
 external: ""
 cover: ./led-board.jpg
 tech:
-  - TODO
+  - C
+  - OpenGL
+  - Hardware
 description: >
-  Award winning multi-purpose data visualisation
+  Award-winning exhibited data visualisation tool for planet-wide data.
 company: Imperial College London
 highlight: true
 ---
