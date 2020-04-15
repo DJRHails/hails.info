@@ -57,13 +57,15 @@ We then hot-reload these files into Gatsby (a React based framework).
 - Making a genuinely useful tool
 
 ## What we learned
+
 - Gatsby is super fast, and when not using interesting mdx-themes is an excellent tool.
 - How to use Speech-to-text API in an endless stream.
 - No sleep is a poor choice of moves.
 
 ## What's next for Speakeasy
+
 - Negative Latency with predictive descriptions
 - Improved speech recognition
 - Embedded image lookup
 - Improved slide transitions
-[Video Link](https://www.youtube.com/watch?v=UDkzLdDV0h8&feature=youtu.be)
+  [Video Link](https://www.youtube.com/watch?v=UDkzLdDV0h8&feature=youtu.be)

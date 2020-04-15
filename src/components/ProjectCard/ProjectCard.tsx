@@ -74,7 +74,12 @@ const ProjectCard: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
           </h6>
           <h2 className="project-card__title">{linkedTitle}</h2>
           <p className="project-card__text">{description}</p>
-          {tech && tech.map((t) => <span class="badge">{t}</span>)}
+          {tech &&
+            tech.map((t, i) => (
+              <span key={i} class="badge">
+                {t}
+              </span>
+            ))}
           <div className="project-card__link-wrapper text-muted">
             {github && githubLink}
             {external && externalLink}
