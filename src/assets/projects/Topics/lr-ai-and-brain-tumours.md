@@ -6,6 +6,7 @@ external: ""
 tech: []
 description: >
   Imperial First Year Topics Project
+cover: ./brain_slice.png
 highlight: false
 ---
 
