@@ -7,9 +7,10 @@ cover: ./style-selection.png
 tech:
   - Java
   - Dart
+  - Firebase
   - Flutter
 description: >
-  With you every step of the way
+  A user-centric Flutter companion app for the tattoo journey. I lead a small team, and together we focused on fulfilling a real need in the tattoo industry for specificity and clients need for comfort and visualisation.
 highlight: true
 ---
 
