@@ -23,7 +23,9 @@ const ProjectCardMedia: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
     <div className="project-card__media">
       <div className={assetClassName}>
         <a
-          href={external ? external : github ? `https://github.com/${github}` : "#"}
+          href={
+            external ? external : github ? `https://github.com/${github}` : "#"
+          }
           target="_blank"
           rel="nofollow noopener noreferrer"
         >

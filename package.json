@@ -12,7 +12,8 @@
     "lint:ts:fix": "npx tslint -c tslint.json \"src/**/*.ts?(x)\" --fix",
     "lint:ts:check": "tslint-config-prettier-check ./tslint.json",
     "lint:js": "prettier --write \"**/*.{js,json}\"",
-    "lint:md": "prettier --write \"**/*.md\""
+    "lint:md": "prettier --write \"**/*.md\"",
+    "lint:fix": "yarn lint:ts:fix && yarn lint:js && yarn lint:md"
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
