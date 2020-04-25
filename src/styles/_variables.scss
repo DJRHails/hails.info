@@ -36,11 +36,9 @@ $inverse:         $clouds;
 
 // Brand colors
 $primary:   $pomegranate;
-$secondary: $turquoise;
-$success:   $emerald;
-$warning:   $sun-flower;
-$danger:    $darkness;
-$info:      $peter-river;
+$theme-colors: (
+  "primary": $primary
+);
 
 $text-color:       $darkness;
 $link-color:       $primary;
@@ -49,19 +47,6 @@ $link-hover-color: darken($primary, 20%);
 // Font
 $font-family-base:          "Lato", Helvetica, Arial, sans-serif;
 $font-family-monospace:     Monaco, Menlo, Consolas, "Courier New", monospace;
-$font-size-base:            18px;
 
-$font-size-h1:              3.875em;
-$font-size-h2:              2.889em;
-$font-size-h3:              1.66em;
-$font-size-h4:              1.611em;
-$font-size-h5:              1.556em;
-$font-size-h6:              1.333em;
-
-$line-height-base:          1.72222; // 31/18
-$line-height-computed:      floor($font-size-base * $line-height-base); // ~31px
-
-$headings-font-family:      inherit;
-$headings-font-weight:      700;
-$headings-line-height:      1.1;
-$headings-color:            inherit;
+$enable-shadows: true;
+$enable-responsive-font-sizes: true;

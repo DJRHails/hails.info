@@ -92,7 +92,7 @@
 
   &__subtitle {
     @extend .card-subtitle;
-    font-size: 1em;
+    @include font-size(1em);
     font-weight: 500;
     text-transform: uppercase;
     margin-top: unset;

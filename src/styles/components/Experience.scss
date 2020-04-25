@@ -21,7 +21,7 @@
     @include make-col(4);
     margin-top: .45em;
     text-align: right;
-    font-size: 1.15em;
+    @include font-size(1.15em);
     font-weight: 700;
     color: rgba($body-bg, 0.7);
   }
@@ -39,12 +39,12 @@
     }
 
     h5 {
-      font-size: 1.5em;
+      @include font-size(1.5em);
       line-height: 1.5;
       font-weight: 700;
     }
     h6 {
-      font-size: 0.9em;
+      @include font-size(0.9em);
       color: rgba($body-bg, 0.5);
       font-weight: 600;
       letter-spacing: -0.4px;
@@ -58,7 +58,7 @@
     }
   }
   p {
-    font-size: 1em;
+    @include font-size(1em);
     font-weight: 500;
     margin-top: 0.3em;
     line-height: 1.5;

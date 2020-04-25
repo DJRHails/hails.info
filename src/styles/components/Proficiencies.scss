@@ -11,7 +11,7 @@
     }
 
     h2 {
-        font-size: 46px;
+        @include font-size(46px);
         line-height: 55px;
         margin: 0 0 60px;
         letter-spacing: -2px;

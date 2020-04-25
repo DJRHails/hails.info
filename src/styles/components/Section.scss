@@ -41,7 +41,7 @@
       }
   }
   .btn {
-      font-size: 22px;
+      @include font-size(22px);
       font-weight: 500;
       margin: 0 0 55px;
       padding: 15px 46px;

@@ -4,7 +4,7 @@
     overflow: hidden;
     box-sizing: border-box;
     font-family: Helvetica, Calibri, Arial, sans-serif;
-    font-size: 16px;
+    @include font-size(16px);
     line-height: 1.5em;
     @include flexbox();
     @include flex-wrap(nowrap);
@@ -57,7 +57,7 @@
     background: $primary;
     display: block;
     padding: .4em .8em;
-    font-size: .9em;
+    @include font-size(.9em);
     font-weight: 700;
     text-align: center;
   }
