@@ -11,7 +11,11 @@ const HeroUnit: React.FC = ({ children }) => {
       <picture>
         <source type="image/webp" srcSet={HeroWebp} />
         <source type="image/png" srcSet={HeroPng} />
-        <img src={HeroPng} className="background" alt="Silhouette profile image" />
+        <img
+          src={HeroPng}
+          className="background"
+          alt="Silhouette profile image"
+        />
       </picture>
       <div className="container">
         <div className="row">

@@ -28,6 +28,12 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
         <SEO pathname="/" />
         <div className="page-wrapper">
           <Section id="projects">
+            <h1>
+              <Link to="/">
+                <span class="small">◄</span>
+              </Link>
+              {frontmatter.title}
+            </h1>
             {renderAst(htmlAst)}
             {projectCards}
           </Section>
