@@ -15,7 +15,6 @@
     position: relative;
     padding-top: 20vh;
     color: black;
-    text-align: left;
     background: $body-bg;
     overflow: hidden;
 
@@ -42,8 +41,10 @@
         }
 
         img {
-          max-width: 100%;
           max-height: 100%;
+          @include media-breakpoint-down(md) {
+            margin-left: -50%;
+          }
         }
     }
     .mouse {
@@ -89,32 +90,21 @@
         margin: 0;
         padding: 0;
         background: transparent;
+        text-align: left;
 
         h1 {
-            font-size: 100px;
             letter-spacing: -2px;
-            font-family: "Lato",Helvetica,Arial,sans-serif;
-            font-weight: lighter;
+            font-family: "Jaapokki Enchance", $font-family-base;
+            color: $primary;
+
             @media (max-width: 991px) {
                 display: block;
             }
-            @media (max-width: 767px) {
-                font-size: 70px;
-            }
-            @media (max-width: 375px) {
-                font-size: 40px;
-            }
-            strong {
-                font-size: 150px;
-                font-family: "Jaapokki Enchance","Lato",Helvetica,Arial,sans-serif;
-                //font-weight: 800;
-                color: $pomegranate;
-                @media (max-width: 767px) {
-                    font-size: 100px;
-                }
-                @media (max-width: 375px) {
-                    font-size: 60px;
-                }
+
+            .small {
+              font-family: $font-family-base;
+              font-weight: lighter;
+              color: $body-bg-inverse;
             }
         }
         p {
