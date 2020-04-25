@@ -1,11 +1,18 @@
 import React from "react";
 
+import HeroPng from "@assets/hero/HAILS.png";
+import HeroWebp from "@assets/hero/HAILS.webp";
+
 import Section from "@components/Section";
 
 const HeroUnit: React.FC = ({ children }) => {
   return (
     <Section id="intro" className="hero-sub inverse" arrow>
-      <div className="background" />
+      <picture className="background">
+        <source type="image/webp" srcSet={HeroWebp} />
+        <source type="image/png" srcSet={HeroPng} />
+        <img src={HeroPng} />
+      </picture>
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-6">
