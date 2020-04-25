@@ -41,12 +41,12 @@ $theme-colors: (
 );
 
 $text-color:       $darkness;
-$link-color:       $primary;
-$link-hover-color: darken($primary, 20%);
 
 // Font
 $font-family-base:          "Lato", Helvetica, Arial, sans-serif;
 $font-family-monospace:     Monaco, Menlo, Consolas, "Courier New", monospace;
+$h1-font-size:              3.8rem;
+
 
 $enable-shadows: true;
 $enable-responsive-font-sizes: true;
