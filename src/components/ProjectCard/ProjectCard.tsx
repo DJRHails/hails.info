@@ -1,4 +1,4 @@
-import { IconExternal, IconGitHub } from "@components/Icons";
+import * as Icons from "@components/Icons";
 import Media from "@components/ProjectCard/ProjectCard.Media";
 import classNames from "classnames";
 import Img from "gatsby-image";
@@ -47,7 +47,7 @@ const ProjectCard: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
       rel="nofollow noopener noreferrer"
       aria-label="GitHub Link"
     >
-      <IconGitHub />
+      <Icons.Github />
     </a>
   );
   const externalLink = (
@@ -57,7 +57,7 @@ const ProjectCard: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
       rel="nofollow noopener noreferrer"
       aria-label="External Link"
     >
-      <IconExternal />
+      <Icons.External />
     </a>
   );
   return (
@@ -76,7 +76,7 @@ const ProjectCard: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
           <p className="project-card__text">{description}</p>
           {tech &&
             tech.map((t, i) => (
-              <span key={i} class="badge">
+              <span key={i} className="badge">
                 {t}
               </span>
             ))}
