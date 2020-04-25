@@ -30,7 +30,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
           <Section id="projects">
             <h1>
               <Link to="/">
-                <span class="small">◄</span>
+                <span className="p-3">‹</span>
               </Link>
               {frontmatter.title}
             </h1>
