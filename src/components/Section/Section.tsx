@@ -12,12 +12,14 @@ interface SectionProps {
   orientation?: string[];
 }
 
-const EntryTitle: React.FC<{ title: string; subtitle: string }> = ({
+const EntryTitle: React.FC<{ id: string, title: string; subtitle: string }> = ({
+  id,
   title,
   subtitle,
 }) => {
   return title ? (
     <header className="entry-title">
+      <a name={id}></a>
       <h1>{title}</h1>
       <h3 className="subtitle">{subtitle}</h3>
     </header>
@@ -44,7 +46,7 @@ const Section: React.FC<SectionProps> = ({
   return (
     <section id={id} className={sectionClass}>
       <div className="container">
-        <EntryTitle title={title} subtitle={subtitle} />
+        <EntryTitle id={id} title={title} subtitle={subtitle} />
         {children}
       </div>
     </section>
