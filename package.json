@@ -8,12 +8,12 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "lint:fix": "yarn lint:ts:fix && yarn lint:js && yarn lint:md",
     "lint:ts": "npx tslint -c tslint.json \"src/**/*.ts?(x)\"",
     "lint:ts:fix": "npx tslint -c tslint.json \"src/**/*.ts?(x)\" --fix",
     "lint:ts:check": "tslint-config-prettier-check ./tslint.json",
-    "lint:js": "prettier --write \"**/*.{js,json}\"",
-    "lint:md": "prettier --write \"**/*.md\"",
-    "lint:fix": "yarn lint:ts:fix && yarn lint:js && yarn lint:md"
+    "lint:js": "prettier --ignore-path .gitignore --write \"**/*.{js,json}\"",
+    "lint:md": "prettier --ignore-path .gitignore --write \"**/*.md\""
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
@@ -22,8 +22,10 @@
     "classnames": "^2.2.6",
     "gatsby": "^2.13.28",
     "gatsby-image": "^2.3.2",
+    "gatsby-link": "^2.3.3",
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-offline": "^3.1.2",
+    "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sass": "^2.1.3",
     "gatsby-plugin-sharp": "^2.5.4",
     "gatsby-plugin-typescript": "^2.1.2",
