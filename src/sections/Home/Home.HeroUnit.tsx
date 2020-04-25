@@ -8,10 +8,10 @@ import Section from "@components/Section";
 const HeroUnit: React.FC = ({ children }) => {
   return (
     <Section id="intro" className="hero-sub inverse" arrow>
-      <picture className="background">
+      <picture>
         <source type="image/webp" srcSet={HeroWebp} />
         <source type="image/png" srcSet={HeroPng} />
-        <img src={HeroPng} alt="Silhouette profile image" />
+        <img src={HeroPng} className="background" alt="Silhouette profile image" />
       </picture>
       <div className="container">
         <div className="row">
