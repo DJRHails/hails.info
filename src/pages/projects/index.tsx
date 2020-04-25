@@ -29,7 +29,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
         <div className="page-wrapper">
           <Section id="projects">
             <h1>
-              <Link to="/">
+              <Link to="/#experience">
                 <span className="p-3">‹</span>
               </Link>
               {frontmatter.title}
