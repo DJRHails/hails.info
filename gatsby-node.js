@@ -1,5 +1,11 @@
-"use strict";
+const { onCreateNode } = require("./gatsby/onCreateNode");
+const { createPages } = require("./gatsby/createPages");
+const { onCreateWebpackConfig } = require("./gatsby/onCreateWebpackConfig");
+const {
+  createSchemaCustomization,
+} = require("./gatsby/createSchemaCustomization");
 
-exports.onCreateNode = require("./gatsby/onCreateNode");
-exports.createPages = require("./gatsby/createPages");
-exports.onCreateWebpackConfig = require("./gatsby/onCreateWebpackConfig");
+exports.onCreateNode = onCreateNode;
+exports.createPages = createPages;
+exports.onCreateWebpackConfig = onCreateWebpackConfig;
+exports.createSchemaCustomization = createSchemaCustomization;

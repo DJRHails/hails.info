@@ -1,6 +1,9 @@
 ---
-title: The ARM11 Project Prize
-associated_with: imperial-college-london
+title: ARM11 Project Prize
+type: award
+ribbon:
+  icon: microchip
+  theme: primary
 date: 2018-05-00
 ---
 

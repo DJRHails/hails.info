@@ -1,10 +1,15 @@
-import { IconExternal, IconGitHub } from "@components/Icon";
+import React from "react";
+
+import * as Icons from "@components/Icons";
+import Flags from "@components/ProjectCard/ProjectCard.Flags";
 import classNames from "classnames";
 import Img from "gatsby-image";
 import _ from "lodash";
-import React from "react";
 
-const ProjectCardMedia: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
+const Media: React.FC<{ data: ProjectMetadata; alternate?: true }> = ({
+  data,
+  alternate,
+}) => {
   const {
     date,
     title,
@@ -14,14 +19,21 @@ const ProjectCardMedia: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
     description,
     company,
     cover,
+    recognition,
   } = data;
   const assetClassName = classNames({
     asset: true,
     vertical: cover.childImageSharp.fluid.aspectRatio < 1,
   });
+
+  const recognitionFrontmatter =
+    recognition && recognition.map((r) => r.frontmatter);
   return (
     <div className="project-card__media">
       <div className={assetClassName}>
+        {recognitionFrontmatter && (
+          <Flags recognition={recognitionFrontmatter} alternate={alternate} />
+        )}
         <a
           href={
             external ? external : github ? `https://github.com/${github}` : "#"
@@ -36,4 +48,4 @@ const ProjectCardMedia: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
   );
 };
 
-export default ProjectCardMedia;
+export default Media;

@@ -57,6 +57,7 @@
     }
 
     .asset {
+      position: relative;
       margin: -6vw auto;
       @include media-breakpoint-down(md) {
         margin: auto;
@@ -108,7 +109,7 @@
   }
 
   &__link-wrapper {
-    @include flexbox();
+    @include d-flex;
     align-items: center;
     position: relative;
     margin-top: 10px;

@@ -1,3 +1,15 @@
+# # Yarn Zero-Install
+# .yarn/*
+# !.yarn/cache
+# !.yarn/releases
+# !.yarn/plugins
+
+# Yarn No-Zero-Install
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
+
 # Logs
 logs
 *.log

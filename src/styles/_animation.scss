@@ -1,5 +1,5 @@
 @mixin keyframe-fade-in($end) {
-  0%   { @include opacity(0) }
+  0%   { @include opacity(0); visibility: visible; }
   100% { @include opacity($end) }
 }
 
@@ -21,8 +21,31 @@
   }
 }
 
+@include fadein(100);
 @include fadein(70);
 @include fadein(30);
+
+@mixin keyframe-fade-out() {
+  0%   { @include opacity(100); visibility: visible; }
+  99%  { @include opacity(0) }
+  100% { @include opacity(0); visibility: hidden; }
+}
+
+@-moz-keyframes fade-out{
+  @include keyframe-fade-out;
+}
+@-webkit-keyframes fade-out{
+  @include keyframe-fade-out;
+}
+@-o-keyframes fade-out{
+  @include keyframe-fade-out;
+}
+@-ms-keyframes fade-out{
+  @include keyframe-fade-out;
+}
+@keyframes fade-out{
+  @include keyframe-fade-out;
+}
 
 @keyframes mouse-wheel {
   0% {

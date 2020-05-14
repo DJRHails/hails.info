@@ -9,6 +9,9 @@ const Projects: React.FC = ({ title, subtitle, projects }) => {
     projects &&
     projects.map(({ node }, i) => {
       const { frontmatter } = node;
+      if (i % 2 === 1) {
+        return <ProjectCard key={i} data={frontmatter} alternate />;
+      }
       return <ProjectCard key={i} data={frontmatter} />;
     });
   return (

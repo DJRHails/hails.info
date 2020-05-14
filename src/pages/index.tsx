@@ -82,22 +82,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          frontmatter {
-            title
-            date(formatString: "MMMM YYYY")
-            github
-            external
-            description
-            company
-            tech
-            cover {
-              childImageSharp {
-                fluid(maxWidth: 700, quality: 90) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
+          ...ProjectFrontmatter
         }
       }
     }
@@ -123,30 +108,7 @@ export const pageQuery = graphql`
       edges {
         node {
           excerpt(format: PLAIN)
-          frontmatter {
-            role
-            company
-            location
-            external
-            period {
-              from(formatString: "MMM YY")
-              to(formatString: "MMM YY")
-            }
-            tags
-            tech
-            highlight
-            cover {
-              childImageSharp {
-                fluid(
-                  maxWidth: 700
-                  quality: 90
-                  traceSVG: { color: "rgb(255, 255, 255)" }
-                ) {
-                  tracedSVG
-                }
-              }
-            }
-          }
+          ...ExperienceFrontmatter
         }
       }
     }

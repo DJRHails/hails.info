@@ -1,0 +1,46 @@
+name: Staging Deploy
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Install Surge
+        run: npm install -g surge
+
+      - name: Clean install dependencies
+        run: |
+          yarn install
+          rm -rf build
+
+      - name: Lint
+        run: |
+          yarn lint:ts
+          yarn lint:js
+          yarn lint:md
+
+      - run: yarn build --if-present
+
+      - name: Deploy location
+        run: echo "Deploying to ${HEAD_BRANCH}.hails.surge.sh"
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+        if: github.event_name == 'pull_request'
+
+      - name: Deploy
+        run: surge ./public `echo "${HEAD_BRANCH}.hails.surge.sh" | tr '/' '-'` --token ${{ secrets.SURGE_API_KEY }}
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+        if: github.event_name == 'pull_request'

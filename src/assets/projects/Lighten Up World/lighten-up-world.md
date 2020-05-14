@@ -4,6 +4,8 @@ title: Lighten Up, World
 github: Lighten-Up-World/c-client
 external: ""
 cover: ./dark-led-board.jpg
+recognition:
+  - ARM11 Project Prize
 tech:
   - C
   - OpenGL

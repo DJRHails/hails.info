@@ -1,6 +1,9 @@
 ---
 title: Palantir Forward Thinking
-associated_with: imperial-college-london
+type: award
+ribbon:
+  icon: palantir
+  theme: secondary
 date: 2020-00-00
 ---
 

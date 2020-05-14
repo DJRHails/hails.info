@@ -1,4 +1,5 @@
 const path = require(`path`);
+require("ts-node").register({ files: true });
 
 exports.siteMetadata = {
   siteName: `Hails`,
@@ -8,6 +9,16 @@ exports.siteMetadata = {
   keywords: [`technology`],
   siteUrl: `https://hails.info`,
   twitter: `@_djrh`,
+};
+
+const sourceCollection = (name) => {
+  return {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: name,
+      path: path.join(__dirname, `src`, `assets`, name),
+    },
+  };
 };
 
 exports.plugins = [
@@ -33,7 +44,7 @@ exports.plugins = [
   {
     resolve: `gatsby-plugin-sass`,
     options: {
-      precision: 6,
+      implementation: require("sass"),
     },
   },
   {
@@ -48,13 +59,11 @@ exports.plugins = [
       },
     },
   },
-  {
-    resolve: "gatsby-source-filesystem",
-    options: {
-      name: "assets",
-      path: path.join(__dirname, `src`, `assets`),
-    },
-  },
+  sourceCollection("awards"),
+  sourceCollection("education"),
+  sourceCollection("experience"),
+  sourceCollection("hero"),
+  sourceCollection("projects"),
   `gatsby-transformer-sharp`,
   {
     resolve: "gatsby-transformer-remark",

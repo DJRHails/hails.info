@@ -11,12 +11,16 @@ interface ProjectMetadata {
   github: string;
   external: string;
   tech: string[];
+  recognition: string[];
   description: string;
   company: string;
   cover: any;
 }
 
-const ProjectCard: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
+const ProjectCard: React.FC<{ data: ProjectMetadata; alternate?: true }> = ({
+  data,
+  alternate,
+}) => {
   const {
     date,
     title,
@@ -42,6 +46,7 @@ const ProjectCard: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
   );
   const githubLink = (
     <a
+      className="text-dark"
       href={`https://github.com/${github}`}
       target="_blank"
       rel="nofollow noopener noreferrer"
@@ -52,6 +57,7 @@ const ProjectCard: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
   );
   const externalLink = (
     <a
+      className="text-dark"
       href={external}
       target="_blank"
       rel="nofollow noopener noreferrer"
@@ -80,12 +86,12 @@ const ProjectCard: React.FC<{ data: ProjectMetadata }> = ({ data }) => {
                 {t}
               </span>
             ))}
-          <div className="project-card__link-wrapper text-muted">
+          <div className="project-card__link-wrapper">
             {github && githubLink}
             {external && externalLink}
           </div>
         </div>
-        {cover && <Media data={data} />}
+        {cover && <Media data={data} alternate={alternate} />}
       </div>
     </div>
   );
