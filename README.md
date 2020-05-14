@@ -1,66 +1,83 @@
-![Logo Header](https://i.imgur.com/MzaxQpN.png?1)
+<div align="center">
 
-<br />
+  ![Logo Header](https://i.imgur.com/MzaxQpN.png?1)
 
-# hails.info
+</div>
 
-<!-- Right now I study _Computing (Artificial Intelligence)_ and have been nominated to join the Imperial-MIT Academic Exchange. I've been delighted to receive [several awards]() for academic achievement and project work.
+<h1 align="center">
+  <strong>HAILS</strong>.info
+</h1>
 
-I've worked for [Shell](#blog-shell), [Entrepreneur First](#blog-ef), [HMG](#blog-hmg) and for [myself](#blog-cybabrain).
+<h4 align="center">
 
-CALL TO ACTION HERE... -->
+[![Stars](https://img.shields.io/github/stars/DJRHails/hails.info.svg?style=plasticr)](https://github.com/DJRHails/hails.info/stargazers)
+[![Last Commit](https://img.shields.io/github/last-commit/DJRHails/hails.info.svg?style=plasticr)](https://github.com/DJRHails/hails.info/commits/master)
+[![Production Deploy](https://github.com/DJRHails/hails.info/workflows/Production%20Deploy/badge.svg)](https://github.com/DJRHails/hails.info/actions?query=workflow%3A"Production+Deploy")
+[![GitHub issues](https://img.shields.io/github/issues-raw/DJRHails/hails.info?style=flat)](https://github.com/DJRHails/hails.info/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/DJRHails/hails.info)](https://github.com/DJRHails/hails.info/pulls)
+</h4>
 
-#### Technology
+<h3 align="center">
+  <a href="https://hails.info/">Visit the site</a> |
+  <a href="https://github.com/DJRHails/hails.info/issues/new">Leave feedback</a>
+</h3>
 
-hails.info is powered by [Gatsby](gatsbyjs.org) and is hosted on a custom barebones server.
+## Technology
 
-#### Installation
+hails.info is powered by [Gatsby], coded with [React], with [Bootstrap] and [SASS] styling. It is deployed statically to a custom bare-metal server, with [surge.sh] for staging.
+
+### Installation
 
 ```sh
 # Go to your favourite directory and clone
 git clone git@github.com:DJRHails/hails.info.git && cd hails.info
 
 # Install all depedencies
-yarn
+yarn install
 
 # 🎉 that’s it, you've installed repo locally. One last step!
 ```
 
-<!-- ### Enviroment Variables
-
-This project uses [Contentful](https://www.contentful.com) to pull in some copy and images. To get this variables you can go to a couple different locations. First, you can log directly into Narative's Contentful account and look for the API keys. Second, you can check [Netlify's](https://netlify.com) deploy settings for the variables. -->
-
-#### Running the code locally
+### Running the code locally
 
 ```sh
 yarn start
 ```
 
-#### Building the website
+### Building the website
 
 ```sh
 yarn build
 ```
 
-#### Deploying the website
+### Deploying the website
 
-<!-- Deployments are done using [Netlify](https://app.netlify.com/). You must be added to the Narative Netlify organization to deploy. -->
+#### Staging
+```sh
+surge ./public
+```
+
+#### Production
 
 ```sh
 # To deploy, commit and push to master
-git push
+git push master
 ```
 
-### Branching
+## Branching
 
-#### `feature/[feature-name]`
+### `feature/[feature-name]`
 
 Working on your feature branch can be previewed after every push.
 
-#### `staging`
+If you have a Pull Request open then it will be automaticatly deployed to `feature-feature-name.hails.surge.sh`.
 
-Before deploying to hails.info, double check your code on `staging` branch. This is published to staging.hails.info.
-
-#### `master`
+### `master`
 
 To deploy to hails.info merge your code into master.
+
+[Gatsby]:https://www.gatsbyjs.org/
+[React]:https://www.reactjs.org/
+[Bootstrap]:https://getbootstrap.com/
+[SASS]:https://sass-lang.com/
+[surge.sh]:https://surge.sh/

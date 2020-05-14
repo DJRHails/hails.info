@@ -6,6 +6,7 @@ import { useTrackVisibility } from "react-intersection-observer-hook";
 const getRandomChar = () =>
   String.fromCharCode(Math.random() * (127 - 33) + 33);
 
+// TODO(DJRHails): Needs some optimisation as straight import from js.
 const AdaptText: React.FC = ({
   list,
   prefix = "",
