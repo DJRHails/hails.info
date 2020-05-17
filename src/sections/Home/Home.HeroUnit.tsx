@@ -4,6 +4,7 @@ import HeroPng from "@assets/hero/HAILS.png";
 import HeroWebp from "@assets/hero/HAILS.webp";
 
 import Section from "@components/Section";
+import Logo from "@components/Logo";
 
 const HeroUnit: React.FC = ({ children }) => {
   return (
@@ -20,7 +21,10 @@ const HeroUnit: React.FC = ({ children }) => {
       <div className="container">
         <div className="row">
           <div className="p-0 col-sm-12 col-md-6">
-            <div className="hero-unit">{children}</div>
+            <div className="hero-unit">
+              <Logo className="display-1" />
+              {children}
+            </div>
           </div>
         </div>
       </div>

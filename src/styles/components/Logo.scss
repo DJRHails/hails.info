@@ -1,0 +1,20 @@
+.logo {
+  @include font-size(10rem);
+  letter-spacing: -2px;
+  font-family: "Jaapokki Enchance", $font-family-base;
+  @include themed() {
+    color: t($pop);
+  }
+
+  @media (max-width: 991px) {
+      display: block;
+  }
+
+  .small {
+    font-family: $font-family-base;
+    font-weight: lighter;
+    @include themed() {
+      color: t($text-color);
+    }
+  }
+}
