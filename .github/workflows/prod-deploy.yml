@@ -21,13 +21,12 @@ jobs:
           yarn install
           rm -rf build
 
-      - name: Lint
+      - name: Lint & Type check
         run: |
-          yarn lint:ts
-          yarn lint:js
-          yarn lint:md
+          yarn lint
+          yarn type
 
-      - run: yarn build --if-present
+      - run: yarn build
 
       - name: Deploy
         env:

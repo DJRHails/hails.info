@@ -5,7 +5,7 @@ export interface Ribbon {
   theme: string;
 }
 
-export interface AwardFrontmatter {
+export interface Award {
   title: string;
   type: string;
   ribbon: Ribbon;

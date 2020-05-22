@@ -4,10 +4,22 @@ import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
 interface CookieConsentProps {
-  acceptOnScroll?: boolean;
+  acceptOnScroll?: false;
+  learnMoreText?: string;
+  dismissText?: string;
+  cookieName?: string;
 }
 
-const LearnMore: React.FC = ({ text }) => {
+interface LearnMoreProps {
+  text: string;
+}
+
+interface ComplianceGroupProps {
+  onDismiss: VoidFunction;
+  dismissText: string;
+}
+
+const LearnMore: React.FC<LearnMoreProps> = ({ text }) => {
   return (
     <a
       aria-label="learn more about cookies"
@@ -21,13 +33,15 @@ const LearnMore: React.FC = ({ text }) => {
   );
 };
 
-const ComplianceGroup: React.FC = ({ onDismiss, dismissText }) => {
+const ComplianceGroup: React.FC<ComplianceGroupProps> = ({
+  onDismiss,
+  dismissText,
+}) => {
   return (
-    <div class="cc-compliance">
+    <div className="cc-compliance">
       <a
-        aria-label="dismiss cookie message"
+        araia-describedby="dismiss cookie message"
         role="button"
-        tabindex="0"
         className="btn cc-dismiss"
         onClick={onDismiss}
       >
@@ -50,7 +64,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
     setVisible(Cookies.get(cookieName) === undefined);
   }, []);
 
-  const updateCookie = (reason) => {
+  const updateCookie = (reason: string) => {
     Cookies.set(cookieName, reason);
     setVisible(false);
   };
@@ -66,23 +80,21 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
     [setVisible]
   );
 
-  return (
-    visible && (
-      <div
-        role="dialog"
-        aria-live="polite"
-        aria-label="cookieconsent"
-        aria-describedby="cookieconsent:desc"
-        className="cc-window"
-      >
-        <span id="cookieconsent:desc" className="cc-message">
-          {children}
-          <LearnMore text={learnMoreText} />
-        </span>
-        <ComplianceGroup onDismiss={onDismiss} dismissText={dismissText} />
-      </div>
-    )
-  );
+  return visible ? (
+    <div
+      role="dialog"
+      aria-live="polite"
+      aria-label="cookieconsent"
+      aria-describedby="cookieconsent:desc"
+      className="cc-window"
+    >
+      <span id="cookieconsent:desc" className="cc-message">
+        {children}
+        <LearnMore text={learnMoreText} />
+      </span>
+      <ComplianceGroup onDismiss={onDismiss} dismissText={dismissText} />
+    </div>
+  ) : null;
 };
 
 export default CookieConsent;

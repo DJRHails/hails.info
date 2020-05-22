@@ -10,6 +10,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ act
         "@utils": path.resolve(__dirname, "../src/utils/"),
         "@assets": path.resolve(__dirname, "../src/assets/"),
         "@sections": path.resolve(__dirname, "../src/sections/"),
+        "@queries": path.resolve(__dirname, "../src/queries/"),
       },
       extensions: [".js", ".json", ".ts", ".tsx"],
     },

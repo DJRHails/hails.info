@@ -1,20 +1,31 @@
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import React from "react";
 
-import AdaptText from "@components/AdaptText";
 import Layout from "@components/Layout";
-import ProjectCard from "@components/ProjectCard";
-import Section from "@components/Section";
 import SEO from "@components/SEO";
 import * as Home from "@sections/Home";
 
 import rehypeReact from "rehype-react";
 
+import { Frontmatter, MarkdownMetadata, MarkdownRemark } from "@queries";
+import { Experience } from "@queries/experience";
+import { Hero } from "@queries/hero";
+import { Project } from "@queries/projects";
 import "@styles/main.scss";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
 }).Compiler;
+
+interface IndexPageProps {
+  data: {
+    hero: MarkdownRemark<Frontmatter<Hero> & { htmlAst: any }>;
+    projectSection: MarkdownMetadata<{ title: string; description: string }>;
+    featuredProjects: MarkdownMetadata<Project>;
+    experienceSection: MarkdownMetadata<{ title: string }>;
+    experiences: MarkdownRemark<Frontmatter<Experience> & { excerpt: string }>;
+  };
+}
 
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const heroNode = data.hero.edges[0].node;
@@ -28,7 +39,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   return (
     <Layout nav={{}} footer={{ visible: true, className: "" }}>
       <>
-        <SEO pathname="/" />
+        <SEO pathname="/" contentType="website" />
         <div className="page-wrapper">
           <Home.HeroUnit>{renderAst(heroNode.htmlAst)}</Home.HeroUnit>
           <Home.Proficiencies skills={heroNode.frontmatter.skills} />

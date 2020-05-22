@@ -1,8 +1,18 @@
 import ExperienceElement from "@components/ExperienceElement";
 import Section from "@components/Section";
+import { Frontmatter, GraphqlNode } from "@queries";
+import { Experience } from "@queries/experience";
 import React from "react";
 
-const Experience: React.FC = ({ title, experiences }) => {
+interface ExperienceSectionProps {
+  title: string;
+  experiences: [GraphqlNode<Frontmatter<Experience> & { excerpt: string }>];
+}
+
+const ExperienceSection: React.FC<ExperienceSectionProps> = ({
+  title,
+  experiences,
+}) => {
   const experienceElements =
     experiences &&
     experiences.map(({ node }, i) => {
@@ -22,4 +32,4 @@ const Experience: React.FC = ({ title, experiences }) => {
   );
 };
 
-export default Experience;
+export default ExperienceSection;

@@ -1,12 +1,12 @@
 import React from "react";
 
-import * as Icons from "@components/Icons";
 import Flags from "@components/ProjectCard/ProjectCard.Flags";
+import { Project } from "@queries/projects";
 import classNames from "classnames";
 import Img from "gatsby-image";
 import _ from "lodash";
 
-const Media: React.FC<{ data: ProjectMetadata; alternate?: true }> = ({
+const Media: React.FC<{ data: Project; alternate?: true }> = ({
   data,
   alternate,
 }) => {

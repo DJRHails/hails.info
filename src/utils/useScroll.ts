@@ -1,9 +1,39 @@
 import throttle from "lodash/throttle";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 const isBrowser = typeof window !== undefined && typeof document !== undefined;
 
-export function getScrollPosition({ element, useWindow }) {
+export interface ScrollPosition {
+  x: number;
+  y: number;
+}
+
+export interface ScrollDimensions {
+  width: number;
+  height: number;
+}
+
+export interface ScrollEffectProps {
+  prev: ScrollPosition;
+  curr: ScrollPosition;
+  progress: ScrollPosition;
+  max: ScrollDimensions;
+}
+
+export type ScrollEffect = (props: ScrollEffectProps) => void;
+export type Element = React.MutableRefObject<HTMLElement>;
+
+export interface ScrollHookProps {
+  element?: Element;
+  useWindow?: boolean;
+  deps?: readonly any[];
+  wait?: number;
+}
+
+export function getScrollPosition({
+  element,
+  useWindow,
+}: ScrollHookProps): ScrollPosition {
   if (!isBrowser) return { x: 0, y: 0 };
 
   const target = element ? element.current : document.body;
@@ -14,7 +44,9 @@ export function getScrollPosition({ element, useWindow }) {
     : { x: Math.abs(position.left), y: Math.abs(position.top) };
 }
 
-export function getScrollDimensions({ element }) {
+export function getScrollDimensions({
+  element,
+}: ScrollHookProps): ScrollDimensions {
   if (!isBrowser) return { width: 0, height: 0 };
 
   const target = element ? element.current : document.body;
@@ -25,8 +57,14 @@ export function getScrollDimensions({ element }) {
   };
 }
 
-export function useScrollPosition(effect, deps, element, useWindow, wait = 16) {
-  const position = useRef({ x: 0, y: 0 });
+export const useScrollPosition = (
+  effect: ScrollEffect,
+  deps?: ScrollHookProps["deps"],
+  element?: ScrollHookProps["element"],
+  useWindow?: ScrollHookProps["useWindow"],
+  wait = 16
+) => {
+  const position = useRef<ScrollPosition>({ x: 0, y: 0 });
 
   useLayoutEffect(() => {
     const handleScroll = throttle(() => {
@@ -36,14 +74,13 @@ export function useScrollPosition(effect, deps, element, useWindow, wait = 16) {
         x: currPos.x / currDimensions.width,
         y: currPos.y / currDimensions.height,
       };
-      effect({
-        prevX: position.current.x,
-        prevY: position.current.y,
-        x: currPos.x,
-        y: currPos.y,
+      const effectProps: ScrollEffectProps = {
+        prev: position.current,
+        curr: currPos,
         progress,
         max: currDimensions,
-      });
+      };
+      effect(effectProps);
       position.current = {
         x: currPos.x,
         y: currPos.y,
@@ -56,4 +93,4 @@ export function useScrollPosition(effect, deps, element, useWindow, wait = 16) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, deps);
-}
+};

@@ -1,23 +1,10 @@
 import * as Icons from "@components/Icons";
 import Media from "@components/ProjectCard/ProjectCard.Media";
-import classNames from "classnames";
-import Img from "gatsby-image";
+import { Project } from "@queries/projects";
 import _ from "lodash";
 import React from "react";
 
-interface ProjectMetadata {
-  date: string;
-  title: string;
-  github: string;
-  external: string;
-  tech: string[];
-  recognition: string[];
-  description: string;
-  company: string;
-  cover: any;
-}
-
-const ProjectCard: React.FC<{ data: ProjectMetadata; alternate?: true }> = ({
+const ProjectCard: React.FC<{ data: Project; alternate?: true }> = ({
   data,
   alternate,
 }) => {

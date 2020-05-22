@@ -1,18 +1,20 @@
 import React, { useRef, useState } from "react";
 
 import * as Icons from "@components/Icons";
+import { Award } from "@queries/awards";
 import classNames from "classnames";
+import _ from "lodash";
 import { usePopper } from "react-popper";
 
 const TYPE_HEADERS = {
   award: "Prize winning",
 };
 
-interface FlagProps extends AwardFrontmatter {
+interface FlagProps extends Award {
   alternate?: true;
 }
 
-const Flag: React.FC<AwardFrontmatter> = ({
+const Flag: React.FC<FlagProps> = ({
   title,
   external,
   date,
@@ -80,7 +82,9 @@ const Flag: React.FC<AwardFrontmatter> = ({
         {...attributes.popper}
       >
         <div>
-          <div className="flag-tooltip__header">{TYPE_HEADERS[type]}</div>
+          <div className="flag-tooltip__header">
+            {_.get(TYPE_HEADERS, type)}
+          </div>
           <div className="flag-tooltip__info">
             {external ? <a href={external}>{title}</a> : title}
             <span>
@@ -105,7 +109,7 @@ const Flag: React.FC<AwardFrontmatter> = ({
 //
 
 const Flags: React.FC<{
-  recognition: AwardFrontmatter[];
+  recognition: Award[];
   alternate?: true;
 }> = ({ recognition, alternate }) => {
   return (

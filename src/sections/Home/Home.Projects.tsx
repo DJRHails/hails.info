@@ -3,8 +3,16 @@ import React from "react";
 
 import ProjectCard from "@components/ProjectCard";
 import Section from "@components/Section";
+import { Frontmatter, GraphqlNode } from "@queries";
+import { Project } from "@queries/projects";
 
-const Projects: React.FC = ({ title, subtitle, projects }) => {
+interface ProjectsProps {
+  title: string;
+  subtitle: string;
+  projects: [GraphqlNode<Frontmatter<Project>>];
+}
+
+const Projects: React.FC<ProjectsProps> = ({ title, subtitle, projects }) => {
   const projectCards =
     projects &&
     projects.map(({ node }, i) => {

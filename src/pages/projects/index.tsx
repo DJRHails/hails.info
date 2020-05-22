@@ -8,11 +8,22 @@ import SEO from "@components/SEO";
 
 import rehypeReact from "rehype-react";
 
+import { Frontmatter, MarkdownMetadata, MarkdownRemark } from "@queries";
+import { Project } from "@queries/projects";
 import "@styles/main.scss";
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
 }).Compiler;
+
+interface ProjectsPageProps {
+  data: {
+    section: MarkdownRemark<
+      Frontmatter<{ title: string; description: string }> & { htmlAst: any }
+    >;
+    projects: MarkdownMetadata<Project>;
+  };
+}
 
 const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
   const projects = data.projects.edges;
@@ -25,7 +36,11 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
   return (
     <Layout nav={{}} footer={{}}>
       <>
-        <SEO pathname="/" />
+        <SEO
+          pathname="/projects"
+          title="Projects | hails.info"
+          contentType="website"
+        />
         <div className="page-wrapper">
           <Section id="projects">
             <h1>

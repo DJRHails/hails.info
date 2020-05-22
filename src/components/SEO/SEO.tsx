@@ -19,7 +19,7 @@
 
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 
 interface MetaImage {
   src: string;
@@ -33,14 +33,14 @@ interface SiteMetadata {
   title: string;
   description: string;
   author: string;
-  keywords: string;
+  keywords: [string];
   twitter: string;
 }
 
 interface PageMetadata {
-  title: string;
   pathname: string;
   contentType: string;
+  title?: string;
   canonical?: string;
   description?: string;
   metaImage?: MetaImage;
@@ -51,6 +51,12 @@ interface PageMetadata {
   twitter?: string;
   readingTime?: string;
 }
+
+type MetaTags = SiteMetadata &
+  PageMetadata & {
+    imageUrl: string;
+    url: string;
+  };
 
 // Twitter requires https to prepend any paths.
 const addHttps = (path: string) => {
@@ -63,7 +69,7 @@ const getMetaTags = ({
   description,
   siteName,
   url,
-  image,
+  imageUrl,
   metaImage,
   contentType,
   published,
@@ -73,7 +79,7 @@ const getMetaTags = ({
   twitter,
   readingTime,
   keywords,
-}) => {
+}: MetaTags) => {
   const metaTags = [
     { charset: "utf-8" },
     { "http-equiv": "X-UA-Compatible", content: "IE=edge" },
@@ -99,13 +105,19 @@ const getMetaTags = ({
     { property: "og:site_name", content: siteName },
   ];
 
-  if (image) {
-    metaTags.push({ itemprop: "image", content: addHttps(image) });
-    metaTags.push({ property: "og:image", content: image });
-    metaTags.push({ name: "twitter:image", content: addHttps(image) });
+  if (imageUrl && metaImage) {
+    metaTags.push({ itemprop: "image", content: addHttps(imageUrl) });
+    metaTags.push({ property: "og:image", content: imageUrl });
+    metaTags.push({ name: "twitter:image", content: addHttps(imageUrl) });
     metaTags.push({ name: "twitter:card", content: "summary_large_image" });
-    metaTags.push({ property: "og:image:width", content: metaImage.width });
-    metaTags.push({ property: "og:image:height", content: metaImage.height });
+    metaTags.push({
+      property: "og:image:width",
+      content: metaImage.width.toString(),
+    });
+    metaTags.push({
+      property: "og:image:height",
+      content: metaImage.height.toString(),
+    });
   } else {
     metaTags.push({ name: "twitter:card", content: "summary" });
   }
@@ -180,7 +192,7 @@ const SEO: React.FC<PageMetadata> = ({ children, ...pageMetadata }) => {
     `
   );
   const { title, canonical, pathname, metaImage } = pageMetadata;
-  const seoURL = (path) =>
+  const seoURL = (path: string) =>
     `${site.siteMetadata.siteUrl}/${path.replace(/^\/+/g, "")}`;
 
   const canonicalLink = {
@@ -191,7 +203,7 @@ const SEO: React.FC<PageMetadata> = ({ children, ...pageMetadata }) => {
   const metaTags = getMetaTags({
     ...site.siteMetadata,
     ...pageMetadata,
-    image: metaImage && seoURL(metaImage.src),
+    imageUrl: metaImage && seoURL(metaImage.src),
     url: seoURL(pathname),
   });
 

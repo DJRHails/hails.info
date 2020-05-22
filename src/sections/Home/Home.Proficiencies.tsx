@@ -3,7 +3,11 @@ import React from "react";
 import AdaptText from "@components/AdaptText";
 import Section from "@components/Section";
 
-const Proficiencies: React.FC = ({ skills }) => {
+interface ProficienciesProps {
+  skills: [string];
+}
+
+const Proficiencies: React.FC<ProficienciesProps> = ({ skills }) => {
   return (
     <Section
       id="proficiencies"

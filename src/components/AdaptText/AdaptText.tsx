@@ -6,22 +6,27 @@ import { useTrackVisibility } from "react-intersection-observer-hook";
 const getRandomChar = () =>
   String.fromCharCode(Math.random() * (127 - 33) + 33);
 
+interface AdaptTextProps {
+  list: [string];
+  prefix?: string;
+  tail?: number;
+  defaultDelay?: number;
+  processingDelay?: number;
+}
+
 // TODO(DJRHails): Needs some optimisation as straight import from js.
-const AdaptText: React.FC = ({
+const AdaptText: React.FC<AdaptTextProps> = ({
   list,
   prefix = "",
   tail = 5,
   defaultDelay = 10,
-  defaultStep = 1,
   processingDelay = 100,
 }) => {
-  const [text, setText] = useState<string>("");
   const [prefixP, setPrefixP] = useState<number>(-5);
   const [index, setIndex] = useState<number>(0);
   const [skillIndex, setSkillIndex] = useState<number>(0);
   const [delay, setDelay] = useState<number>(defaultDelay);
   const [direction, setDirection] = useState<string>("forward");
-  const [finished, setFinished] = useState<boolean>(false);
 
   const [ref, { isVisible }] = useTrackVisibility();
 
@@ -33,9 +38,6 @@ const AdaptText: React.FC = ({
     }
     // Add to the prefix
     if (prefixP < prefix.length) {
-      if (prefixP >= 0) {
-        setText(text + prefix[prefixP]);
-      }
       setPrefixP(prefixP + 1);
       return;
     }
@@ -43,7 +45,6 @@ const AdaptText: React.FC = ({
     // Add to the list as going forward
     if (direction === "forward") {
       if (skillIndex < elem.length) {
-        setText(text + elem[skillIndex]);
         setSkillIndex(skillIndex + 1);
         return;
       }
@@ -65,7 +66,6 @@ const AdaptText: React.FC = ({
     // Remove from the end as going backward
     if (direction === "backward") {
       if (skillIndex > 0) {
-        setText(text.slice(0, -1));
         setSkillIndex(skillIndex - 1);
       } else {
         setIndex(index + 1);
@@ -84,9 +84,12 @@ const AdaptText: React.FC = ({
         <span className="m-line">I work with</span>
       </h3>
       <h2 className="adapt-text__skills">
-        <span>{text.slice(prefix.length, text.length)}</span>
+        <span>
+          {prefix.slice(0, prefixP)}
+          {elem.slice(0, skillIndex)}
+        </span>
         <span className="text-primary">
-          {_.range(sizeOfTail).reduce((acc, i) => acc + getRandomChar(), "")}
+          {_.range(sizeOfTail).reduce((acc) => acc + getRandomChar(), "")}
         </span>
       </h2>
     </div>

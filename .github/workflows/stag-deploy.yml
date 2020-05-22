@@ -25,13 +25,12 @@ jobs:
           yarn install
           rm -rf build
 
-      - name: Lint
+      - name: Lint & Type Check
         run: |
-          yarn lint:ts
-          yarn lint:js
-          yarn lint:md
+          yarn lint
+          yarn type
 
-      - run: yarn build --if-present
+      - run: yarn build
 
       - name: Deploy location
         run: echo "Deploying to ${HEAD_BRANCH}.hails.surge.sh"

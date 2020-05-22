@@ -1,24 +1,23 @@
-import { FluidObject, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import { FluidObject } from "gatsby-image";
 
 export interface Period {
   from: string;
   to: string;
 }
 
-export interface IExperienceFrontmatter {
-  frontmatter: {
-    role: string;
-    company: string;
-    location: string;
-    external: string;
-    period: Period[];
-    tags: string[];
-    tech: string[];
-    highlight: boolean;
-    cover: {
-      childImageSharp: {
-        fluid: FluidObject;
-      };
+export interface Experience {
+  role: string;
+  company: string;
+  location: string;
+  external: string;
+  period: Period[];
+  tags: string[];
+  tech: string[];
+  highlight: boolean;
+  cover: {
+    childImageSharp: {
+      fluid: FluidObject;
     };
   };
 }

@@ -1,20 +1,9 @@
+import { Experience } from "@queries/experience";
 import React from "react";
-
-interface ExperienceMetadata {
-  role: string;
-  company: string;
-  location: string;
-  external: string;
-  period: Array<{ from: string; to: string }>;
-  tags: string[];
-  tech: string[];
-  highlight: boolean;
-  cover: any;
-}
 
 interface ExperienceElementProps {
   data: {
-    frontmatter: ExperienceMetadata;
+    frontmatter: Experience;
     excerpt: string;
   };
 }
