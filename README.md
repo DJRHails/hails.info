@@ -22,11 +22,11 @@
   <a href="https://github.com/DJRHails/hails.info/issues/new">Leave feedback</a>
 </h3>
 
-## Technology
+## :wrench: Technology
 
 hails.info is powered by [Gatsby], coded with [React], with [Bootstrap] and [SASS] styling. It is deployed statically to a custom bare-metal server, with [surge.sh] for staging.
 
-### Installation
+### :heavy_check_mark: Installation
 
 ```sh
 # Go to your favourite directory and clone
