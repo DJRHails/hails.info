@@ -26,7 +26,7 @@
 
 hails.info is powered by [Gatsby], coded with [React], with [Bootstrap] and [SASS] styling. It is deployed statically to a custom bare-metal server, with [surge.sh] for staging.
 
-### :heavy_check_mark: Installation
+## :gear: Installation
 
 ```sh
 # Go to your favourite directory and clone
@@ -50,21 +50,21 @@ yarn start
 yarn build
 ```
 
-### Deploying the website
+## :rocket: Deploying the website
 
-#### Staging
+### Staging
 ```sh
 surge ./public
 ```
 
-#### Production
+### Production
 
 ```sh
 # To deploy, commit and push to master
 git push master
 ```
 
-## Branching
+## :palm_tree: Branching
 
 ### `feature/[feature-name]`
 
