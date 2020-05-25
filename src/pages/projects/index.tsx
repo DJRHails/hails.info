@@ -34,7 +34,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
     ));
   const { frontmatter, htmlAst } = data.section.edges[0].node;
   return (
-    <Layout nav={{}} footer={{}}>
+    <Layout footer={{}}>
       <>
         <SEO
           pathname="/projects"

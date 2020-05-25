@@ -15,9 +15,9 @@
     "lint:ts": "npx tslint -c tslint.json \"src/**/*.ts?(x)\"",
     "lint:ts:fix": "npx tslint -c tslint.json \"src/**/*.ts?(x)\" --fix",
     "lint:ts:check": "tslint-config-prettier-check ./tslint.json",
-    "lint:js": "prettier --ignore-path .gitignore \"*.{js,json}\"",
+    "lint:js": "prettier --ignore-path .gitignore --check \"*.{js,json}\"",
     "lint:js:fix": "prettier --ignore-path .gitignore --write \"*.{js,json}\"",
-    "lint:md": "prettier --ignore-path .gitignore \"src/**/*.md\"",
+    "lint:md": "prettier --ignore-path .gitignore --check \"src/**/*.md\"",
     "lint:md:fix": "prettier --ignore-path .gitignore --write \"src/**/*.md\""
   },
   "dependencies": {
@@ -51,7 +51,7 @@
     "react-intersection-observer-hook": "^1.0.4",
     "react-popper": "^2.2.3",
     "rehype-react": "^5.0.0",
-    "typescript": "^3.5.3",
+    "typescript": "^3.9.3",
     "webpack": "^4.36.1"
   },
   "devDependencies": {

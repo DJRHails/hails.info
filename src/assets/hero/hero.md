@@ -5,7 +5,7 @@ skills:
   - C, C++ & C#
   - Kotlin & Java
   - PHP & MySQL
-  - TypeScript & JavaScript
+  - TypeScript & JS
   - SASS, LESS & CSS
   - Swift
   - Flutter

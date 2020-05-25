@@ -37,7 +37,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const experiences = data.experiences.edges;
 
   return (
-    <Layout nav={{}} footer={{ visible: true, className: "" }}>
+    <Layout footer={{ className: "" }}>
       <>
         <SEO pathname="/" contentType="website" />
         <div className="page-wrapper">

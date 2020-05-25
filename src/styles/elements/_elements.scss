@@ -7,24 +7,34 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background: $body-bg;
-  color: $text-color;
+// TODO(DJRHails): Popper.js is causing overflow-x when not visible initially
+// https://github.com/popperjs/popper-core/issues/630
+.page-wrapper {
+  overflow-x: hidden;
+}
+
+// Custom styling to remove separator exposing body bg.
+@each $theme, $map in $themes {
+  body.-t-#{$theme} {
+    background: map-get(map-get($themes, $theme), $bg);
+  }
 }
 
 .btn {
-  $btn-color: $primary;
-  $btn-color-dark: shade($btn-color, 40%);
-  $btn-bg-color: $body-bg;
   $btn-height: 80px !default;
 
   &--outline {
-    color: tint($btn-color);
+    @include themed() {
+      color: tint(t($pop));
+      border: 2px solid t($pop);
+    }
+
     text-transform: uppercase;
-    border: 2px solid $btn-color;
 
     &:focus, &.focus {
-      @include box-shadow(0 0 0 0.2rem rgba($btn-color, 0.3))
+      @include themed() {
+        @include box-shadow(0 0 0 0.2rem rgba(t($pop), 0.3))
+      }
     }
   }
   &--diagonal {
@@ -37,8 +47,11 @@ body {
       @include absolute(0,-50px,0,0);
       transition: 0.5s ease-in-out;
       border-right: 50px solid transparent;
-      border-bottom: $btn-height solid $btn-color;
       transform: translateX(-100%);
+
+      @include themed() {
+        border-bottom: $btn-height solid t($pop);
+      }
     }
 
     span {
@@ -47,7 +60,9 @@ body {
     }
 
     &:hover {
-      color: $btn-bg-color;
+      @include themed() {
+        color: t($bg);
+      }
 
       &:before {
         transform: translateX(0);

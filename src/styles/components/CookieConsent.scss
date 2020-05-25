@@ -20,14 +20,18 @@
     bottom: 1em;
     right: 1em;
 
-    background-color: $body-bg;
+    @include themed() {
+      background-color: t($bg);
+    }
 
     @media print {
       display: none
     }
   }
   &-message {
-    color: $text-color;
+    @include themed {
+      color: t($text-color);
+    }
 
     margin-bottom: 1em;
   }
@@ -53,8 +57,10 @@
   }
 
   &-dismiss {
-    color: $body-bg !important;
-    background: $primary;
+    @include themed {
+      color: t($bg) !important;
+      background: t($pop);
+    }
     display: block;
     padding: .4em .8em;
     @include font-size(.9em);

@@ -1,5 +1,8 @@
 // Increased specififity section footer
 .section.footer {
+  @include themed() {
+    color: t($text-color);
+  }
   .container {
     padding-top: 30vh;
     padding-bottom: 15vh;
@@ -8,5 +11,8 @@
 .footer {
   &__line {
     font-weight: 600;
+    @include themed() {
+      color: t($muted-color);
+    }
   }
 }

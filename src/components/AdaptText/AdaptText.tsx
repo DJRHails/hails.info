@@ -38,19 +38,19 @@ const AdaptText: React.FC<AdaptTextProps> = ({
     }
     // Add to the prefix
     if (prefixP < prefix.length) {
-      setPrefixP(prefixP + 1);
+      setPrefixP((p) => p + 1);
       return;
     }
 
     // Add to the list as going forward
     if (direction === "forward") {
       if (skillIndex < elem.length) {
-        setSkillIndex(skillIndex + 1);
+        setSkillIndex((idx) => idx + 1);
         return;
       }
 
       if (delay) {
-        setDelay(delay - 1);
+        setDelay((d) => d - 1);
         return;
       }
 
@@ -66,9 +66,9 @@ const AdaptText: React.FC<AdaptTextProps> = ({
     // Remove from the end as going backward
     if (direction === "backward") {
       if (skillIndex > 0) {
-        setSkillIndex(skillIndex - 1);
+        setSkillIndex((idx) => idx - 1);
       } else {
-        setIndex(index + 1);
+        setIndex((idx) => idx + 1);
         setDirection("forward");
       }
     }
@@ -80,9 +80,9 @@ const AdaptText: React.FC<AdaptTextProps> = ({
       : Math.min(tail, elem.length - skillIndex);
   return (
     <div ref={ref} className="adapt-text">
-      <h3>
+      <p className="adapt-text__lead">
         <span className="m-line">I work with</span>
-      </h3>
+      </p>
       <h2 className="adapt-text__skills">
         <span>
           {prefix.slice(0, prefixP)}

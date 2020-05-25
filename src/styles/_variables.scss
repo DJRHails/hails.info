@@ -19,26 +19,19 @@ $carrot:          #e67e22;
 $pumpkin:         #d35400;
 $alizarin:        #fb544d;
 $pomegranate:     #c0392b;
-$clouds:          #e4ebee;
+$pale:            #fefefe;
+$clouds:          #ededed;
 $silver:          #bdc3c7;
 $concrete:        #95a5a6;
 $asbestos:        #7f8c8d;
+$smoke:           #5a6465;
 $darkness:        #1b1f23;
 $darkblue:        #1c202b;
-
-// Body
-$body-bg:         $clouds;
-$body-bg-inverse: $darkblue;
-
-// Grays
-$gray:            #5a6465; // To meet AAAA critera on background
-$gray-light:      $asbestos;
-$inverse:         $clouds;
 
 // Brand colors
 $primary:   $pomegranate;
 $theme-colors: (
-  "primary": $primary
+  "primary": $pomegranate
   // secondary
   // success
   // info
@@ -48,7 +41,6 @@ $theme-colors: (
   // dark
 );
 
-$text-color:       $darkblue;
 
 // Font
 $font-family-base:          "Lato", Helvetica, Arial, sans-serif;

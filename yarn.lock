@@ -9467,7 +9467,7 @@ fsevents@~2.1.2:
     tslint-loader: ^3.5.4
     tslint-plugin-prettier: ^2.3.0
     tslint-react: ^4.0.0
-    typescript: ^3.5.3
+    typescript: ^3.9.3
     webpack: ^4.36.1
   languageName: unknown
   linkType: soft
@@ -18809,23 +18809,23 @@ is-whitespace@latest:
   languageName: node
   linkType: hard
 
-typescript@^3.5.3:
-  version: 3.5.3
-  resolution: "typescript@npm:3.5.3"
+typescript@^3.9.3:
+  version: 3.9.3
+  resolution: "typescript@npm:3.9.3"
   bin:
-    tsc: ./bin/tsc
-    tsserver: ./bin/tsserver
-  checksum: 3/4971be7355f07f517a03fc0dc5f78851d2824e48c79130ee3b12d6aada332d5c66097f1da41d97b91f57e84c952b56e00178bf9c2297cfa3471500e6008cfcd2
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 3/f05e6f1c50c635bd7afc95fbc9eb704042b5bec9a77b9c86ddc0c56650c928617d608b9ec9aa468d7b4cf14ac1ea5f540c540c725005a179b54a86665abd9a55
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^3.5.3#builtin<compat/typescript>":
-  version: 3.5.3
-  resolution: "typescript@patch:typescript@npm%3A3.5.3#builtin<compat/typescript>::version=3.5.3&hash=8cac75"
+"typescript@patch:typescript@^3.9.3#builtin<compat/typescript>":
+  version: 3.9.3
+  resolution: "typescript@patch:typescript@npm%3A3.9.3#builtin<compat/typescript>::version=3.9.3&hash=8cac75"
   bin:
-    tsc: ./bin/tsc
-    tsserver: ./bin/tsserver
-  checksum: 3/4abb70b875a4441ea9912a0b608e27c2023b0c90db317f227ec0e3f7e9a74fe9c842e680f49fc22bd024a8f09e38ada20f34edcfb0d11dd66083837e19522e40
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 3/a3780f6fdf0502bb152a3ad56cd004db46f70496f1b8317657d9e89dd93c911483625fd25867d6aec1cd2854ccf036ecc614989c9f1b36bec2d5daffa9bfc230
   languageName: node
   linkType: hard
 

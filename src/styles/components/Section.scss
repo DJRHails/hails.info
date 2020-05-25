@@ -1,7 +1,10 @@
 // Generic Sections //
 .section {
   position: relative;
-  background: $body-bg;
+  @include themed() {
+    background: t($bg);
+    color: t($text-color);
+  }
 
   > .container {
     padding-top: 10vh;
@@ -11,19 +14,24 @@
 
   // Colors //
   &.dark {
-    color: $inverse;
-    background: $body-bg-inverse;
-  }
-
-  &.contrast {
-      color: $inverse;
-      background: $primary;
+    @include themed() {
+      color: t($text-color-secondary);
+      background: t($bg-secondary);
+    }
   }
 
   h2 {
       letter-spacing: -2px;
-      &.dark, &.contast {
-        color: $inverse;
+      &.dark {
+        @include themed() {
+          color: t($bg);
+        }
+      }
+
+      &.contrast {
+        @include themed() {
+          color: t($pop-text);
+        }
       }
 
       &.adapt-text {

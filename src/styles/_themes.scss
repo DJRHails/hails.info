@@ -1,40 +1,54 @@
-// $themes: (
-//   default: (
-//     bg: $bg--light,
-//     bg-invert: $bg--,
-//     text: $text--light,
-//     text-secondary: $text--2--light,
-//     link: $brand--blue--light,
-//     hover: $hover--light,
-//     border: $border--light
-//   ),
-//   dark: (
-//     logo: url("../images/brand/logo_vertical--invert.svg"),
-//     bg: linear-gradient($bg--dark--top, $bg--dark--bottom),
-//     card-bg: $bg--card--dark,
-//     text: $text--dark,
-//     text-secondary: $text--2--dark,
-//     link: $brand--blue--dark,
-//     hover: $hover--dark,
-//     border: $border--dark
-//   ),
-// );
-//
-//
-// @mixin themed() {
-//   @each $theme, $map in $themes {
-//     .theme--#{$theme} & {
-//       $theme-map: () !global;
-//       @each $key, $submap in $map {
-//         $value: map-get(map-get($themes, $theme), '#{$key}');
-//         $theme-map: map-merge($theme-map, ($key: $value)) !global;
-//       }
-//       @content;
-//       $theme-map: null !global;
-//     }
-//   }
-// }
-//
-// @function t($key) {
-//   @return map-get($theme-map, $key);
-// }
+$themes: (
+  default: (
+    bg: $clouds,
+    bg-secondary: #212529,
+    text-color: #212529,
+    text-color-secondary: #fff,
+    muted-color: $smoke,
+    link-color: $pomegranate,
+    link-hover-color: darken($pomegranate, 10%),
+    pop: $pomegranate,
+    pop-text: $darkness,
+  ),
+  dark: (
+    bg: $darkness,
+    bg-secondary: #3f4346,
+    text-color: $clouds,
+    text-color-secondary: $clouds,
+    muted-color: $silver,
+    link-color: $pomegranate,
+    link-hover-color: lighten($pomegranate, 10%),
+    pop: $pomegranate,
+    pop-text: #333333,
+  ),
+);
+$theme-dark: 'dark';
+$theme-default: 'default';
+
+$bg: 'bg';
+$bg-secondary: 'bg-secondary';
+$text-color: 'text-color';
+$text-color-secondary: 'text-color-secondary';
+$muted-color: 'muted-color';
+$link-color: 'link-color';
+$link-hover-color: 'link-hover-color';
+$pop: 'pop';
+$pop-text: 'pop-text';
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .-t-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

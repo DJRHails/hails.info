@@ -1,36 +1,25 @@
 import React from "react";
 
 import classNames from "classnames";
+import EntryTitle from "./Section.EntryTitle";
 
 interface SectionProps {
   id: string;
   title?: string;
   subtitle?: string;
   className?: string;
+  containerClass?: string;
   skew?: boolean;
   arrow?: boolean;
   orientation?: string[];
 }
-
-const EntryTitle: React.FC<{
-  id: string;
-  title?: string;
-  subtitle?: string;
-}> = ({ id, title, subtitle }) => {
-  return title ? (
-    <header className="entry-title">
-      <a id={id} />
-      {title && <h1>{title}</h1>}
-      {subtitle && <h3 className="subtitle">{subtitle}</h3>}
-    </header>
-  ) : null;
-};
 
 const Section: React.FC<SectionProps> = ({
   id,
   title,
   subtitle,
   className,
+  containerClass,
   skew,
   arrow,
   orientation,
@@ -45,7 +34,7 @@ const Section: React.FC<SectionProps> = ({
 
   return (
     <section id={id} className={sectionClass}>
-      <div className="container">
+      <div className={classNames("container", containerClass)}>
         <EntryTitle id={id} title={title} subtitle={subtitle} />
         {children}
       </div>

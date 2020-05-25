@@ -1,7 +1,6 @@
 import throttle from "lodash/throttle";
 import { useLayoutEffect, useRef } from "react";
-
-const isBrowser = typeof window !== undefined && typeof document !== undefined;
+import { isBrowser } from "./browser";
 
 export interface ScrollPosition {
   x: number;
@@ -34,7 +33,7 @@ export function getScrollPosition({
   element,
   useWindow,
 }: ScrollHookProps): ScrollPosition {
-  if (!isBrowser) return { x: 0, y: 0 };
+  if (!isBrowser()) return { x: 0, y: 0 };
 
   const target = element ? element.current : document.body;
   const position = target.getBoundingClientRect();
@@ -47,7 +46,7 @@ export function getScrollPosition({
 export function getScrollDimensions({
   element,
 }: ScrollHookProps): ScrollDimensions {
-  if (!isBrowser) return { width: 0, height: 0 };
+  if (!isBrowser()) return { width: 0, height: 0 };
 
   const target = element ? element.current : document.body;
 

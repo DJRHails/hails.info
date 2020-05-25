@@ -17,11 +17,14 @@ $max-flags: 10;
 $tooltip-arrow-size: 8px;
 $tooltip-time: 0.2s;
 .flag-tooltip {
+  @include themed() {
+    background-color: t($bg);
+    color: t($text-color);
+  }
+
   padding: 10px;
-  background-color: #fff;
   border-radius: 3px;
   box-shadow: 0 2px 8px rgba(25, 25, 25, 0.3);
-  color: #191919;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
@@ -39,10 +42,12 @@ $tooltip-time: 0.2s;
   }
 
   &__header {
+    @include themed() {
+      color: t($muted-color);
+    }
     font-family: inherit;
     font-size: 11px;
     font-weight: bold;
-    color: dimgray;
     line-height: 2;
     padding: 5px 0;
     text-transform: uppercase;
@@ -50,7 +55,9 @@ $tooltip-time: 0.2s;
   }
 
   &__info {
-    color: dimgray;
+    @include themed() {
+      color: t($muted-color);
+    }
     white-space: nowrap;
     width: 100%;
   }
@@ -65,7 +72,9 @@ $tooltip-time: 0.2s;
   &__arrow:before {
     content: '';
     transform: rotate(45deg);
-    background: #fff;
+    @include themed() {
+      background: t($bg);
+    }
   }
 }
 
@@ -161,7 +170,20 @@ $tooltip-time: 0.2s;
   }
 }
 
-.project-card__wrapper:hover .ribbon {
-  opacity: 1;
-  transform: translateY(0);
+// Work with hovering
+// TODO(DJRHails): Abstract with Project Card (maybe ABEM modifiers will work?)
+// I hate that I'm referring to .project-card here
+
+// If we are on a device with hovering and a mouse. Then hover to reveal ribbons
+@media(hover: hover) and (pointer: fine) {
+  .project-card__wrapper:hover .ribbon {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media(pointer: coarse) {
+  .project-card__wrapper .ribbon {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

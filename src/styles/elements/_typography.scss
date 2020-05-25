@@ -13,16 +13,8 @@ h1 {
 .subtitle {
   line-height: 1.5;
   font-weight: 500;
-  color: $gray-600;
-}
-
-a {
-  color: $link-color;
-  text-decoration: none;
-  @include transition(unquote("color 0.25s, background 0.25s"));
-  &:hover {
-    color: $link-hover-color;
-    text-decoration: none;
+  @include themed {
+    color: t($muted-color);
   }
 }
 

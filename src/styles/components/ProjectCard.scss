@@ -1,21 +1,19 @@
 .project-card {
   @extend .card;
+  @include themed() {
+    color: t($text-color);
+  }
   background-color: transparent;
   border: unset;
   // __media: ensures difference between card & media doesn't cause an overlap
   margin: 6vw auto;
 
-  .project-card__wrapper {
+  &__wrapper {
     @include make-row();
     @extend .align-items-center;
     transition: all .4s ease-in-out;
     margin: 2em 0; // spaces cards out
-
-    &:hover {
-      border-radius: 20px;
-      @include neumorphism($body-bg);
-      transform: scale(1.02);
-    }
+    border-radius: 20px;
   }
 
   &:nth-of-type(even) {
@@ -94,6 +92,10 @@
   &__subtitle {
     @extend .card-subtitle;
     @include font-size(1em);
+    @include themed() {
+      color: t($muted-color);
+    }
+    margin-bottom: 0.5rem;
     font-weight: 500;
     text-transform: uppercase;
     margin-top: unset;
@@ -120,6 +122,9 @@
     }
 
     a {
+      @include themed() {
+        color: t($muted-color);
+      }
       padding: 10px;
       svg {
         width: 22px;
@@ -128,3 +133,30 @@
     }
   }
 }
+
+// If we are on a device with hovering and a mouse. Then hover support cards
+@media(hover: hover) and (pointer: fine) {
+  .project-card__wrapper:hover {
+    @include themed() {
+      @include neumorphism(t($bg));
+    }
+    transform: scale(1.02);
+  }
+  // Darkmode should change background to denote elevation
+  .-t-#{$theme-dark} .project-card__wrapper:hover {
+    background: map-get(map-get($themes, 'dark'), $bg-secondary);
+  }
+}
+@media(pointer: coarse) {
+  .project-card__wrapper {
+    @include themed() {
+      @include neumorphism(t($bg));
+    }
+  }
+  // Darkmode should change background to denote elevation
+  .-t-#{$theme-dark} .project-card__wrapper {
+    background: map-get(map-get($themes, 'dark'), $bg-secondary);
+  }
+}
+
+// Emphasise

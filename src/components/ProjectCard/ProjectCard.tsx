@@ -33,7 +33,6 @@ const ProjectCard: React.FC<{ data: Project; alternate?: true }> = ({
   );
   const githubLink = (
     <a
-      className="text-dark"
       href={`https://github.com/${github}`}
       target="_blank"
       rel="nofollow noopener noreferrer"
@@ -44,7 +43,6 @@ const ProjectCard: React.FC<{ data: Project; alternate?: true }> = ({
   );
   const externalLink = (
     <a
-      className="text-dark"
       href={external}
       target="_blank"
       rel="nofollow noopener noreferrer"
@@ -57,7 +55,7 @@ const ProjectCard: React.FC<{ data: Project; alternate?: true }> = ({
     <div id={_.kebabCase(title)} className="project-card">
       <div className="project-card__wrapper">
         <div className="project-card__body">
-          <h6 className="project-card__subtitle mb-2 text-muted">
+          <h6 className="project-card__subtitle">
             {date}{" "}
             {company && (
               <>

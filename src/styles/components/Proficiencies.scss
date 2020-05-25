@@ -2,12 +2,15 @@
     padding-top: 140px;
     padding-bottom: 140px;
     text-align: center;
-    color: $gray;
-    background: $body-bg-inverse;
+    @include themed() {
+      color: t($muted-color);
+      background: t($bg-secondary);
+    }
 
     &.contrast {
-        color: $gray;
-        background: $pomegranate;
+      @include themed() {
+        background: t($pop);
+      }
     }
 
     h2 {

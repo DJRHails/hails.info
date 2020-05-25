@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import CookieConsent from "@components/CookieConsent";
 import Footer from "@components/Footer";
 import Container from "@components/Layout/Layout.Container";
+import { useDarkMode } from "@utils";
+import { controlOrMetaKey } from "@utils/keyboard";
+import {
+  DARK_THEME_CLASS_NAME,
+  DEFAULT_THEME_CLASS_NAME,
+  THEME_CLASSES,
+} from "@utils/useDarkMode";
+import useShortcut from "@utils/useShortcut";
 
 interface LayoutProps {
-  nav: {
-    fixed?: boolean;
-    offset?: boolean;
-    theme?: string;
-  };
   footer: {
-    visible?: boolean;
     className?: string;
   };
 }
@@ -21,8 +23,33 @@ interface LayoutProps {
  * and the main structure of each page. Within Layout we have the <Container />
  * which hides a lot of the mess we need to create our Desktop and Mobile experiences.
  */
-const Layout: React.FC<LayoutProps> = ({ children, footer, ...rest }) => {
-  const { visible, className } = footer;
+const Layout: React.FC<LayoutProps> = ({ children, footer }) => {
+  const { className } = footer;
+  const [darkMode, setDarkMode] = useDarkMode();
+
+  useShortcut(
+    () => {
+      setDarkMode((mode: boolean) => !mode);
+    },
+    {
+      name: "Toggle Dark Mode",
+      keys: [controlOrMetaKey(), "D"],
+    }
+  );
+
+  useEffect(
+    () => {
+      const element = window.document.body;
+      if (darkMode) {
+        element.classList.remove(...THEME_CLASSES);
+        element.classList.add(DARK_THEME_CLASS_NAME);
+      } else {
+        element.classList.remove(...THEME_CLASSES);
+        element.classList.add(DEFAULT_THEME_CLASS_NAME);
+      }
+    },
+    [darkMode] // Only re-call effect when value changes
+  );
 
   return (
     <>
@@ -35,7 +62,7 @@ const Layout: React.FC<LayoutProps> = ({ children, footer, ...rest }) => {
         so I can enhance the user experience. Hope thats cool with you!
       </CookieConsent>
     */}
-      <Container {...rest}>
+      <Container>
         {children}
         <Footer className={className} />
       </Container>

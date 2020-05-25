@@ -4,7 +4,7 @@ require("ts-node").register({ files: true });
 exports.siteMetadata = {
   siteName: `Hails`,
   title: `Daniel Hails | hails.info`,
-  description: `Daniel Hails ...`, // TODO: Update site description
+  description: `Daniel Hails ...`, // TODO(DJRHails): Update site description
   author: `Daniel Hails`,
   keywords: [`technology`],
   siteUrl: `https://hails.info`,

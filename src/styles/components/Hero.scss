@@ -14,8 +14,10 @@
     min-height: 80vh;
     position: relative;
     padding-top: 20vh;
-    color: black;
-    background: $body-bg;
+    @include themed() {
+      background: t($bg);
+      color: t($text-color);
+    }
     overflow: hidden;
 
     .background {
@@ -53,7 +55,10 @@
         width: 24px;
         margin: -12px;
         height: 50px;
-        border: 2px solid $body-bg-inverse;
+        @include themed() {
+          border: 2px solid t($text-color);
+        }
+
         border-radius: 30px;
         @include opacity(30);
 
@@ -66,7 +71,9 @@
           width: 3px;
           height: 4px;
           margin-left: -3px;
-          background-color: $body-bg-inverse;
+          @include themed() {
+            background-color: t($text-color);
+          }
           border-radius: 2px;
           animation: mouse-wheel 5s cubic-bezier(0.77, 0, 0.175, 1) infinite;
         }
@@ -93,7 +100,9 @@
             @include font-size(10rem);
             letter-spacing: -2px;
             font-family: "Jaapokki Enchance", $font-family-base;
-            color: $primary;
+            @include themed() {
+              color: t($pop);
+            }
 
             @media (max-width: 991px) {
                 display: block;
@@ -102,7 +111,9 @@
             .small {
               font-family: $font-family-base;
               font-weight: lighter;
-              color: $body-bg-inverse;
+              @include themed() {
+                color: t($text-color);
+              }
             }
         }
         p {

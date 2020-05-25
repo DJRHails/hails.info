@@ -41,7 +41,7 @@ export const experienceFragment = graphql`
           fluid(
             maxWidth: 700
             quality: 90
-            traceSVG: { color: "rgb(255, 255, 255)" }
+            traceSVG: { color: "currentColor" }
           ) {
             tracedSVG
           }

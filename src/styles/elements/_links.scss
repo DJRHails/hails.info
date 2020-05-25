@@ -55,22 +55,35 @@
   }
 }
 
+%link-color {
+  @include themed {
+    color: t($link-color);
+  }
+}
+
+%link-color-w-hover {
+  @extend %link-color;
+  &:hover {
+    @include themed {
+      color: t($link-hover-color);
+    }
+  }
+}
 
 a {
-  color: $link-color;
+  @extend %link-color-w-hover;
   text-decoration: none;
   @include transition(unquote("color 0.25s, background 0.25s"));
   &:hover {
-    color: $link-hover-color;
     text-decoration: none;
   }
 }
 
 %boxed-link {
+  @extend %link-color;
   position: relative;
   overflow: hidden;
   text-decoration: none;
-  color: $link-color;
   font-weight: bold;
 
   // Can't work over multiple lines
@@ -79,8 +92,11 @@ a {
   overflow: hidden;
 
   &:after {
+    @include themed {
+      background: rgba(t($link-color), 0.25);
+    }
+
     content: "";
-    background: rgba($link-color, 0.25);
     position: absolute;
     left: 12px;
     bottom: -6px;
