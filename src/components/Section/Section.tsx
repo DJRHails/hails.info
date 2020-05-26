@@ -11,7 +11,13 @@ interface SectionProps {
   containerClass?: string;
   skew?: boolean;
   arrow?: boolean;
-  orientation?: string[];
+  l2d?: true;
+  orientation?: {
+    top?: true;
+    left?: true;
+    right?: true;
+    bottom?: true;
+  };
 }
 
 const Section: React.FC<SectionProps> = ({
@@ -22,23 +28,32 @@ const Section: React.FC<SectionProps> = ({
   containerClass,
   skew,
   arrow,
+  l2d,
   orientation,
   children,
 }) => {
-  const orientationModifier =
-    orientation && orientation.filter(Boolean).join("-");
   const sectionClass = classNames("section", className, {
-    [`separator-skew-${orientationModifier}`]: skew && orientation,
     [`separator-arrow`]: arrow,
   });
 
+  const separatorClass = classNames("separator-diagonal", {
+    [`-reverse`]: orientation?.left,
+    [`-l2d`]: l2d,
+    [`-top`]: orientation?.top,
+    [`-bottom`]: orientation?.bottom,
+  });
+
   return (
-    <section id={id} className={sectionClass}>
-      <div className={classNames("container", containerClass)}>
-        <EntryTitle id={id} title={title} subtitle={subtitle} />
-        {children}
-      </div>
-    </section>
+    <>
+      {skew && orientation?.top && <div className={separatorClass} />}
+      <section id={id} className={sectionClass}>
+        <div className={classNames("container", containerClass)}>
+          <EntryTitle id={id} title={title} subtitle={subtitle} />
+          {children}
+        </div>
+      </section>
+      {skew && orientation?.bottom && <div className={separatorClass} />}
+    </>
   );
 };
 

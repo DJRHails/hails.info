@@ -25,7 +25,8 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({
       title={title}
       className="dark"
       skew
-      orientation={["top", "left"]}
+      l2d
+      orientation={{ top: true, left: true }}
     >
       <ul className="experience">{experienceElements}</ul>
     </Section>

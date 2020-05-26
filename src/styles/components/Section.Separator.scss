@@ -37,55 +37,50 @@
 }
 
 // Skew //
-@mixin separator-skew
-{
-    @include separator;
-    background: inherit;
-    width: 100%;
-    height: 40vh; // Sections have padding of 10vh, 40 assumes some content
-    z-index: 1;
-    left: 0;
-    right: 0;
+@mixin svg($from, $to, $reverse: false, $width: 100%, $height: 100px) {
+  $filter: '<filter xmlns="http://www.w3.org/2000/svg" id="shadow" height="150%"><feGaussianBlur in="SourceAlpha" stdDeviation="2"/><feOffset dx="1" dy="1" result="offsetblur"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+  $polygons: '<polygon fill="#{$from}" points="0 100 0 0 100 0"/><polygon fill="#{$to}" points="100 0 100 100 0 100"/>';
+
+  @if $reverse == true {
+    $polygons: '<polygon fill="#{$from}" points="0 0 100 0 100 100"/><polygon fill="#{$to}" points="0 0 0 100 100 100" filter="url(#shadow)"/>';
+  }
+
+  $svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">#{$filter}#{$polygons}</svg>';
+
+  $svg: str-replace($svg, '#', '%23');
+  $svg: str-replace($svg, '<', '%3C');
+  $svg: str-replace($svg, '>', '%3E');
+
+  width: $width;
+  height: $height;
+  background-image: url('data:image/svg+xml,#{$svg}');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.separator-skew-top-left, .separator-skew-top-right {
-  margin-top: 10vh;
-}
+.separator-diagonal {
+  @include themed() {
+    @include svg(t($bg-secondary), t($bg));
 
-.separator-skew-top-left::before
-{
-  @include separator-skew;
-  z-index: -1;
-  top:0;
-  transform-origin: right top;
-  transform: skewY(3deg);
-}
-.separator-skew-top-right::before
-{
-  @include separator-skew;
-  z-index: -1;
-  top:0;
-  transform-origin: left top;
-  transform: skewY(-3deg);
-}
+    // Small fixes for decimal errors leading to a thin line in bg colour
+    &.-top {
+      margin-bottom: -2px;
+    }
+    &.-bottom {
+      margin-top: -2px;
+    }
 
-.separator-skew-bottom-left, .separator-skew-bottom-right {
-  margin-bottom: 10vh;
-}
+    &.-reverse {
+      @include svg(t($bg), t($bg), true);
+    }
 
-.separator-skew-bottom-left::after{
-  @include separator-skew;
-  z-index: -1;
-  bottom: 0;
-  transform-origin: right bottom;
-  transform: skewY(-3deg);
+    &.-l2d {
+      @include svg(t($bg), t($bg-secondary));
+      &.-reverse {
+        @include svg(t($bg), t($bg-secondary), true);
+      }
+    }
+  }
 
-}
 
-.separator-skew-bottom-right:after{
-  @include separator-skew;
-  z-index: -1;
-  bottom: 0;
-  transform-origin: left bottom;
-  transform: skewY(3deg);
 }
