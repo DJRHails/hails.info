@@ -1,5 +1,5 @@
 // Increased specififity section footer
-.section.footer {
+.section.conversation {
   @include themed() {
     color: t($text-color);
   }
@@ -8,9 +8,22 @@
     padding-bottom: 15vh;
   }
 }
-.footer {
+.conversation {
   &__line {
     font-weight: 600;
+    @include themed() {
+      color: t($muted-color);
+    }
+  }
+}
+
+
+footer {
+  text-align: center;
+  padding-bottom: 2rem;
+
+  .logo {
+    padding-top: 2rem;
     @include themed() {
       color: t($muted-color);
     }

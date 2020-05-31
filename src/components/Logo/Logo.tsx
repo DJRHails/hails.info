@@ -2,12 +2,21 @@ import React from "react";
 
 import classNames from "classnames";
 
-const Logo: React.FC = ({ size, className }) => {
+interface LogoProps {
+  url?: true;
+  size?: "lg"|"md";
+}
+
+const Logo: React.FC<LogoProps> = ({ url, size }) => {
+  const styles = classNames("logo", {
+    "display-1": size == "lg"
+  });
+  const WrappingElem = size == "lg" ? `h1` : size == "md" ? `h3` : `p`
   return (
-    <h1 className={classNames("logo", className)}>
+    <WrappingElem className={styles}>
       HAILS
-      <span className="small">.info</span>
-    </h1>
+      {url && <span className="small">.info</span>}
+    </WrappingElem>
   );
 };
 

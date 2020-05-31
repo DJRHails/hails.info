@@ -1,15 +1,32 @@
+import React from "react";
+
+import classNames from "classnames";
+
 import ConversationInvite from "@components/Footer/Footer.ConversationInvite";
 import Section from "@components/Section";
-import classNames from "classnames";
-import React from "react";
+import Logo from "@components/Logo";
+
+const BottomNav: React.FC = () => {
+  return (
+    <footer>
+      <div className="container">
+        <hr/>
+        <Logo size="md"/>
+      </div>
+    </footer>
+  );
+}
 
 const Footer: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
   return (
-    <Section id="footer" className={classNames("footer", className)}>
-      <ConversationInvite />
-    </Section>
+    <>
+      <Section id="conversation" className={classNames("conversation", className)}>
+        <ConversationInvite />
+      </Section>
+      <BottomNav />
+    </>
   );
 };
 

@@ -22,7 +22,7 @@ const HeroUnit: React.FC = ({ children }) => {
         <div className="row">
           <div className="p-0 col-sm-12 col-md-6">
             <div className="hero-unit">
-              <Logo className="display-1" />
+              <Logo size="lg" url />
               {children}
             </div>
           </div>

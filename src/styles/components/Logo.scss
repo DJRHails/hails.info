@@ -1,5 +1,8 @@
-.logo {
+h1.logo {
   @include font-size(10rem);
+}
+
+.logo {
   letter-spacing: -2px;
   font-family: "Jaapokki Enchance", $font-family-base;
   @include themed() {
