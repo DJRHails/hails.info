@@ -3,7 +3,7 @@ date: 2020-01-10
 title: ARRtistry
 github: artistic-cryptids/ARRtistry
 external: https://arrtistry.hails.info
-cover: ./rinkeby-4x4.png
+cover: ./arrtistry-tall-dark.png
 recognition:
   - Future of Blockchain
   - The Arweave Project
