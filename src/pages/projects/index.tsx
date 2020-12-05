@@ -79,22 +79,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          frontmatter {
-            title
-            date(formatString: "MMMM YYYY")
-            github
-            external
-            description
-            company
-            tech
-            cover {
-              childImageSharp {
-                fluid(maxWidth: 700, quality: 90) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-          }
+          ...ProjectFrontmatter
         }
       }
     }

@@ -1,5 +1,14 @@
 {
   "prettier.prettierPath": ".vscode/pnpify/prettier/index.js",
   "typescript.tsdk": ".vscode/pnpify/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "spellright.language": [
+    "en_GB",
+    "en_US"
+  ],
+  "spellright.documentTypes": [
+    "markdown",
+    "latex",
+    "plaintext"
+  ]
 }

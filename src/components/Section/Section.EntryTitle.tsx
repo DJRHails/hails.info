@@ -7,7 +7,6 @@ const EntryTitle: React.FC<{
 }> = ({ id, title, subtitle }) => {
   return title ? (
     <header className="entry-title">
-      <a id={id} />
       {title && <h1>{title}</h1>}
       {subtitle && <h3 className="subtitle">{subtitle}</h3>}
     </header>

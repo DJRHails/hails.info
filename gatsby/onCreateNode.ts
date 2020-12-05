@@ -1,5 +1,4 @@
 import { GatsbyNode } from "gatsby";
-import { createFilePath } from "gatsby-source-filesystem";
 import _ from "lodash";
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, getNode, actions }) => {
@@ -7,7 +6,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, getNode, action
   if (node.internal.type === `MarkdownRemark`) {
     // Get the parent node
     // This is different from frontmatter.parent below
-    const parent = getNode(_.get(node, 'parent'));
+    const parent = getNode(_.get(node, 'parent')!);
 
     // adds a "collection" field to distinguish between md folders
     createNodeField({

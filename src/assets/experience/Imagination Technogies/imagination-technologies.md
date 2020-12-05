@@ -9,7 +9,6 @@ period:
     to: 2015-07
 tags:
   - Fuzzer
-  - Technical
   - Compilers
 tech:
   - MIPS
@@ -17,7 +16,7 @@ tech:
 highlight: true
 ---
 
-Went deeply technical with the Compilers and Tools Team.
+Went deeply technical with the Compilers and Tools Team to create a fuzzer for MIPS.
 
 <!-- end -->
 

@@ -90,58 +90,79 @@
         padding-top: 100px;
         padding-bottom: 170px;
     }
-    .hero-unit {
-        margin: 0;
-        padding: 0;
-        background: transparent;
-        text-align: left;
+}
 
-        h1 {
-            @include font-size(10rem);
-            letter-spacing: -2px;
-            font-family: "Jaapokki Enchance", $font-family-base;
-            @include themed() {
-              color: t($pop);
-            }
+.hero-unit {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    text-align: left;
 
-            @media (max-width: 991px) {
-                display: block;
-            }
-
-            .small {
-              font-family: $font-family-base;
-              font-weight: lighter;
-              @include themed() {
-                color: t($text-color);
-              }
-            }
-        }
-        p {
-          @include font-size(1.5em);
-          letter-spacing: -1px;
-          text-align: left;
-          font-weight: 300;
-          margin: 0 auto;
-          margin-bottom: .5em;
-          line-height: 1.3em;
-
-          @media (max-width: 767px) {
-              width: 80%;
-          }
-
-          @media (max-width: 991px) {
-              display: block;
-          }
-        }
-
-        a {
-          @extend %boxed-link;
-        }
+    h1 {
         @media (max-width: 991px) {
-            text-align: center;
+            display: block;
         }
-        @media (max-width: 375px) {
-            margin-top: 50px;
+
+        .small {
+          font-family: $font-family-base;
+          font-weight: 300;
+          @include themed() {
+            color: t($text-color);
+          }
         }
     }
+    p {
+      @include font-size(1.5em);
+      letter-spacing: -1px;
+      text-align: left;
+      font-weight: 300;
+      margin: 0 auto;
+      margin-bottom: .5em;
+      line-height: 1.3em;
+
+      @media (max-width: 767px) {
+          width: 80%;
+      }
+
+      @media (max-width: 991px) {
+          display: block;
+      }
+    }
+
+    a {
+      @extend %boxed-link;
+    }
+    @media (max-width: 991px) {
+        text-align: center;
+    }
+    @media (max-width: 375px) {
+        margin-top: 50px;
+    }
+}
+
+%hero-unit__brand {
+  @include themed() {
+    color: t($pop);
+  }
+  @include font-size(10rem);
+}
+
+.hero-unit h1 {
+  @extend %hero-unit__brand;
+  font-family: Helvetica, $font-family-base;
+  line-height: 1.4;
+  font-weight: 800;
+  visibility: visible;
+  letter-spacing: 0.6px;
+  word-spacing: 2px;
+}
+
+.wf-jaapokkienchance-n4-active .hero-unit h1 {
+  @extend %hero-unit__brand;
+  font-family: "Jaapokki Enchance", $font-family-base;
+
+  line-height: 1.2;
+  font-weight: 300;
+  letter-spacing: -2px;
+  visibility: visible;
 }

@@ -1,6 +1,6 @@
-import { Link } from "gatsby";
 import React from "react";
 
+import DiagonalButton from "@components/DiagonalButton";
 import ProjectCard from "@components/ProjectCard";
 import Section from "@components/Section";
 import { Frontmatter, GraphqlNode } from "@queries";
@@ -27,11 +27,7 @@ const Projects: React.FC<ProjectsProps> = ({ title, subtitle, projects }) => {
       <Section id="projects" title={title} subtitle={subtitle}>
         {projectCards}
         <div className="col-12">
-          <Link to="/projects">
-            <button type="button" className="btn btn--outline btn--diagonal">
-              <span>See More</span>
-            </button>
-          </Link>
+          <DiagonalButton to="/projects">See More</DiagonalButton>
         </div>
       </Section>
     </>

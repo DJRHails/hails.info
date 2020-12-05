@@ -13,9 +13,10 @@ import {
 import useShortcut from "@utils/useShortcut";
 
 interface LayoutProps {
-  footer: {
+  footer?: {
     className?: string;
   };
+  children?: React.ReactNode;
 }
 
 /**
@@ -23,8 +24,7 @@ interface LayoutProps {
  * and the main structure of each page. Within Layout we have the <Container />
  * which hides a lot of the mess we need to create our Desktop and Mobile experiences.
  */
-const Layout: React.FC<LayoutProps> = ({ children, footer }) => {
-  const { className } = footer;
+const Layout: React.FC<LayoutProps> = ({ children, footer }: LayoutProps) => {
   const [darkMode, setDarkMode] = useDarkMode();
 
   useShortcut(
@@ -64,7 +64,7 @@ const Layout: React.FC<LayoutProps> = ({ children, footer }) => {
     */}
       <Container>
         {children}
-        <Footer className={className} />
+        {footer && <Footer className={footer?.className} />}
       </Container>
     </>
   );

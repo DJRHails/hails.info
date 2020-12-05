@@ -23,21 +23,17 @@ const ExperienceElement: React.FC<ExperienceElementProps> = ({ data }) => {
       <div className="container">
         <div className="row">
           <div className="experience__info row">
-            {cover && (
+            {cover?.childImageSharp.fluid.tracedSVG && (
               <a
                 href={external ? external : "#"}
                 className="experience__img"
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-              >
-                {cover.childImageSharp.fluid.tracedSVG && (
-                  <div
-                    dangerouslySetInnerHTML={escapeDataURI(
-                      cover.childImageSharp.fluid.tracedSVG
-                    )}
-                  />
+                aria-label={`Visit ${company} site`}
+                dangerouslySetInnerHTML={escapeDataURI(
+                  cover.childImageSharp.fluid.tracedSVG
                 )}
-              </a>
+              />
             )}
             <div className="col-xs-12 col-md-8">
               <h5>{company}</h5>

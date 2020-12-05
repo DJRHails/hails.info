@@ -1,12 +1,7 @@
 import React from "react";
 
 const Palantir = () => (
-  <svg
-    version="1.1"
-    id="Layer_1"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 300 400"
-  >
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
     <title>Palantir</title>
     <path
       fill="currentColor"

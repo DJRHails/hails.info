@@ -1,7 +1,7 @@
 ---
 date: 2018-06-00
 title: Flint Programming Language
-github: flintlang/fint
+github: flintlang/flint
 external: https://arxiv.org/abs/1904.06534
 cover: ./dao_state.png
 tech:

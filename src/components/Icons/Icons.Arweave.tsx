@@ -3,7 +3,6 @@ import React from "react";
 const Arweave = () => (
   <svg
     version="1.1"
-    id="Layer_1"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 134.9 135.4"
   >

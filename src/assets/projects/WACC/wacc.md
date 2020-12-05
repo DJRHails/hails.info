@@ -8,7 +8,8 @@ tech:
   - ANTLR
   - x86
 description: >
-  Lexer, Parser and Semantic Analyser for WACC.
+  Lexer, Parser and Semantic Analyser for WACC using Kotlin.
+cover: ./wacc-example.png
 highlight: false
 ---
 
