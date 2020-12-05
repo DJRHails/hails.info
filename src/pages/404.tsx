@@ -62,7 +62,7 @@ export default FourZeroFourPage;
 export const pageQuery = graphql`
   {
     allSitePage(
-      filter: { path: { nin: ["/dev-404-page", "/404", "/404.html"] } }
+      filter: { path: { nin: ["/dev-404-page/", "/404/", "/404.html"] } }
     ) {
       nodes {
         path
