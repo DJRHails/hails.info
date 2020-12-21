@@ -13,13 +13,14 @@
     z-index: 3;
     min-height: 80vh;
     position: relative;
-    padding-top: 20vh;
+    padding-top: 10vh;
+    overflow: hidden;
+
     @include themed() {
       background: t($bg);
       color: t($text-color);
     }
-    overflow: hidden;
-
+    
     .background {
         position: absolute;
         z-index: 0;
@@ -112,7 +113,7 @@
         }
     }
     p {
-      @include font-size(1.5em);
+      @include font-size(1.5rem);
       letter-spacing: -1px;
       text-align: left;
       font-weight: 300;

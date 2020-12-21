@@ -3,9 +3,11 @@ import { FluidObject } from "gatsby-image";
 import { Frontmatter } from ".";
 import { Award } from "./awards";
 
-export interface Project {
+export interface ProjectFrontmatter {
   title: string;
+  slug: string;
   date: string;
+  machineDate: string;
   github: string;
   external: string;
   description: string;
@@ -21,9 +23,14 @@ export interface Project {
 
 export const projectFragment = graphql`
   fragment ProjectFrontmatter on MarkdownRemark {
+    fields {
+      collection
+    }
     frontmatter {
       title
+      slug
       date(formatString: "MMMM YYYY")
+      machineDate: date(formatString: "YYYY-MM-DD")
       github
       external
       description

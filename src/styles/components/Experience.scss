@@ -4,7 +4,7 @@
 
 
 // Support for "dark" sections
-section.dark .experience {
+section.-dark .experience {
   &__elem {
     @include themed() {
       border-top: 1px solid rgba(t($text-color-secondary), 0.2);
@@ -54,7 +54,7 @@ section.dark .experience {
     @include make-col(4);
     margin-top: .45em;
     text-align: right;
-    @include font-size(1.15em);
+    @include font-size(1.15rem);
     font-weight: 700;
     @include themed() {
       color: rgba(t($text-color), 0.7);
@@ -88,12 +88,12 @@ section.dark .experience {
     }
 
     h5 {
-      @include font-size(1.5em);
+      @include font-size(1.5rem);
       line-height: 1.5;
       font-weight: 700;
     }
     h6 {
-      @include font-size(0.9em);
+      @include font-size(0.9rem);
       @include themed() {
         color: rgba(t($text-color), 0.5);
       }
@@ -109,7 +109,7 @@ section.dark .experience {
     }
   }
   p {
-    @include font-size(1em);
+    @include font-size(1rem);
     font-weight: 500;
     margin-top: 0.3em;
     line-height: 1.5;

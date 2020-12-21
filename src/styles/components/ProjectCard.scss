@@ -91,7 +91,7 @@
 
   &__subtitle {
     @extend .card-subtitle;
-    @include font-size(1em);
+    @include font-size(1rem);
     @include themed() {
       color: t($muted-color);
     }

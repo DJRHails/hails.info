@@ -3,8 +3,11 @@
   @include themed() {
     color: t($text-color);
   }
+
+  text-align: center;
+
   .container {
-    padding-top: 30vh;
+    padding-top: 20vh;
     padding-bottom: 15vh;
   }
 }

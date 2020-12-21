@@ -10,7 +10,7 @@ import rehypeReact from "rehype-react";
 import { Frontmatter, MarkdownMetadata, MarkdownRemark } from "@queries";
 import { Experience } from "@queries/experience";
 import { Hero } from "@queries/hero";
-import { Project } from "@queries/projects";
+import { ProjectFrontmatter } from "@queries/projects";
 import "@styles/main.scss";
 
 const renderAst = new rehypeReact({
@@ -21,13 +21,14 @@ interface IndexPageProps {
   data: {
     hero: MarkdownRemark<Frontmatter<Hero> & { htmlAst: any }>;
     projectSection: MarkdownMetadata<{ title: string; description: string }>;
-    featuredProjects: MarkdownMetadata<Project>;
+    featuredProjects: MarkdownMetadata<ProjectFrontmatter>;
     experienceSection: MarkdownMetadata<{ title: string }>;
     experiences: MarkdownRemark<Frontmatter<Experience> & { excerpt: string }>;
   };
+  location: string;
 }
 
-const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
+const IndexPage: React.FC<IndexPageProps> = ({ data, location }) => {
   const heroNode = data.hero.edges[0].node;
 
   const projectEdges = data.featuredProjects.edges;
@@ -37,7 +38,12 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const experiences = data.experiences.edges;
 
   return (
-    <Layout footer={{ className: "" }}>
+    <Layout
+      nav={{
+        active: "home",
+      }}
+      footer={{ className: "" }}
+    >
       <>
         <SEO pathname="/" contentType="website" />
         <div className="page-wrapper">
@@ -85,7 +91,7 @@ export const pageQuery = graphql`
     }
     featuredProjects: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/assets.projects.[^_]/" }
+        fileAbsolutePath: { regex: "/content.projects.[^_]/" }
         frontmatter: { highlight: { ne: false } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
@@ -99,7 +105,7 @@ export const pageQuery = graphql`
     }
 
     experienceSection: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/experience._index/" } }
+      filter: { fileAbsolutePath: { regex: "/content.experience._index/" } }
     ) {
       edges {
         node {
@@ -111,7 +117,7 @@ export const pageQuery = graphql`
     }
     experiences: allMarkdownRemark(
       filter: {
-        fileAbsolutePath: { regex: "/assets.experience.[^_]/" }
+        fileAbsolutePath: { regex: "/content.experience.[^_]/" }
         frontmatter: { highlight: { ne: false } }
       }
       sort: { fields: [frontmatter___period___to], order: DESC }

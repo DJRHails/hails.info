@@ -31,7 +31,7 @@
       "@styles/*": ["./src/styles/*"],
       "@utils": ["./src/utils/index"],
       "@utils/*": ["./src/utils/*"],
-      "@assets/*": ["./src/assets/*"],
+      "@content/*": ["./content/*"],
       "@typings": ["./src/types/index"],
       "@typings/*": ["./src/types/*"],
       "@queries": ["./src/queries/index"],

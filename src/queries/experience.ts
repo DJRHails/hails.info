@@ -4,6 +4,8 @@ import { FluidObject } from "gatsby-image";
 export interface Period {
   from: string;
   to: string;
+  machineFrom: string;
+  machineTo: string;
 }
 
 export interface Experience {
@@ -30,8 +32,10 @@ export const experienceFragment = graphql`
       location
       external
       period {
-        from(formatString: "MMM YY")
-        to(formatString: "MMM YY")
+        from(formatString: "MMMM YYYY")
+        to(formatString: "MMMM YYYY")
+        machineTo: to(formatString: "YYYY-MM-DD")
+        machineFrom: from(formatString: "YYYY-MM-DD")
       }
       tags
       tech

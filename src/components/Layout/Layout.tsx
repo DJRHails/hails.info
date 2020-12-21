@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import CookieConsent from "@components/CookieConsent";
 import Footer from "@components/Footer";
 import Container from "@components/Layout/Layout.Container";
+import Navigation from "@components/Navigation";
 import { useDarkMode } from "@utils";
 import { controlOrMetaKey } from "@utils/keyboard";
 import {
@@ -13,9 +14,14 @@ import {
 import useShortcut from "@utils/useShortcut";
 
 interface LayoutProps {
+  nav?: {
+    active: string;
+  };
   footer?: {
     className?: string;
   };
+  page?: true;
+  content?: true;
   children?: React.ReactNode;
 }
 
@@ -24,7 +30,12 @@ interface LayoutProps {
  * and the main structure of each page. Within Layout we have the <Container />
  * which hides a lot of the mess we need to create our Desktop and Mobile experiences.
  */
-const Layout: React.FC<LayoutProps> = ({ children, footer }: LayoutProps) => {
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  footer,
+  page,
+  content,
+}: LayoutProps) => {
   const [darkMode, setDarkMode] = useDarkMode();
 
   useShortcut(
@@ -53,6 +64,7 @@ const Layout: React.FC<LayoutProps> = ({ children, footer }: LayoutProps) => {
 
   return (
     <>
+      <Navigation />
       {/* Removed till I actually use cookies for something
       <CookieConsent acceptOnScroll>
         This website uses cookies{" "}
@@ -62,10 +74,10 @@ const Layout: React.FC<LayoutProps> = ({ children, footer }: LayoutProps) => {
         so I can enhance the user experience. Hope thats cool with you!
       </CookieConsent>
     */}
-      <Container>
+      <Container page={page} content={content}>
         {children}
-        {footer && <Footer className={footer?.className} />}
       </Container>
+      {footer && <Footer className={footer?.className} />}
     </>
   );
 };

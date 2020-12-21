@@ -10,6 +10,7 @@ export interface Award {
   type: string;
   ribbon: Ribbon;
   date: string;
+  machineDate: string;
   external: string;
 }
 
@@ -23,6 +24,7 @@ export const awardsFragment = graphql`
         theme
       }
       date(formatString: "MMMM YYYY")
+      machineDate: date(formatString: "YYYY-MM-DD")
       external
     }
   }

@@ -4,12 +4,12 @@ import DiagonalButton from "@components/DiagonalButton";
 import ProjectCard from "@components/ProjectCard";
 import Section from "@components/Section";
 import { Frontmatter, GraphqlNode } from "@queries";
-import { Project } from "@queries/projects";
+import { ProjectFrontmatter } from "@queries/projects";
 
 interface ProjectsProps {
   title: string;
   subtitle: string;
-  projects: [GraphqlNode<Frontmatter<Project>>];
+  projects: [GraphqlNode<Frontmatter<ProjectFrontmatter>>];
 }
 
 const Projects: React.FC<ProjectsProps> = ({ title, subtitle, projects }) => {
@@ -23,14 +23,12 @@ const Projects: React.FC<ProjectsProps> = ({ title, subtitle, projects }) => {
       return <ProjectCard key={i} data={frontmatter} />;
     });
   return (
-    <>
-      <Section id="projects" title={title} subtitle={subtitle}>
-        {projectCards}
-        <div className="col-12">
-          <DiagonalButton to="/projects">See More</DiagonalButton>
-        </div>
-      </Section>
-    </>
+    <Section id="projects" title={title} subtitle={subtitle} spaced>
+      {projectCards}
+      <div className="col-12 text-center">
+        <DiagonalButton to="/projects">See More</DiagonalButton>
+      </div>
+    </Section>
   );
 };
 

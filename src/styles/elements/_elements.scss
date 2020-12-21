@@ -7,12 +7,6 @@ html {
   scroll-behavior: smooth;
 }
 
-// TODO(DJRHails): Popper.js is causing overflow-x when not visible initially
-// https://github.com/popperjs/popper-core/issues/630
-.page-wrapper {
-  overflow-x: hidden;
-}
-
 // Custom styling to remove separator exposing body bg.
 @each $theme, $map in $themes {
   body.-t-#{$theme} {
@@ -69,5 +63,47 @@ html {
       }
     }
 
+  }
+}
+
+// TODO(DJRHails): Popper.js is causing overflow-x when not visible initially
+// https://github.com/popperjs/popper-core/issues/630
+.page-wrapper {
+  overflow-x: hidden;
+  padding-top: 8rem;
+}
+
+.content-wrapper {
+  @extend .page-wrapper;
+
+  display: grid;
+  grid-template-columns: 1fr min(700px, 100%) 1fr;
+  font-size: $font-size-base * 1.25;
+
+  & > * {
+    grid-column: 2;
+    padding: 0 2rem;
+  }
+
+  & > h2, & > h3 {
+    margin-top: 3rem;
+  }
+
+  .full-bleed {
+    width: 100%;
+    grid-column: 1 / 4;
+  }
+
+  pre {
+    position: relative;
+    display: flex;
+    font-size: 18px;
+    outline-offset: 2px;
+    overflow: auto;
+    background: hsl(225deg, 25%, 97%);
+    width: min(100%, 90ch);
+    grid-column: 1 / 4;
+    padding: 4ch;
+    margin: 1rem auto;
   }
 }

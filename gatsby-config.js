@@ -16,7 +16,7 @@ const sourceCollection = (name) => {
     resolve: `gatsby-source-filesystem`,
     options: {
       name: name,
-      path: path.join(__dirname, `src`, `assets`, name),
+      path: path.join(__dirname, `content`, name),
     },
   };
 };
@@ -55,7 +55,7 @@ exports.plugins = [
       },
       custom: {
         families: ["Jaapokki Enchance"],
-        urls: ["fonts/fonts.css"],
+        urls: ["/fonts/fonts.css"],
       },
     },
   },

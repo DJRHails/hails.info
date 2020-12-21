@@ -43,16 +43,14 @@ const FourZeroFourPage: React.FC<FourZeroFourPageProps> = ({
     );
 
   return (
-    <Layout>
-      <>
-        <SEO title="404 | hails.info" pathname="/404" contentType="website" />
-        <div className="page-wrapper">
-          <Section id="404" title="404 Page Not Found">
-            <h3 className="subtitle">{subtitle}</h3>
-            <DiagonalButton to="/">Go Back</DiagonalButton>
-          </Section>
+    <Layout content>
+      <SEO title="404 | hails.info" pathname="/404" contentType="website" />
+      <Section id="404" title="Page Not Found" subtitle="404">
+        <h3 className="subtitle">{subtitle}</h3>
+        <div className="p-3 text-center">
+          <DiagonalButton to="/">Go Back</DiagonalButton>
         </div>
-      </>
+      </Section>
     </Layout>
   );
 };

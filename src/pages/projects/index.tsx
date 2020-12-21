@@ -9,7 +9,7 @@ import SEO from "@components/SEO";
 import rehypeReact from "rehype-react";
 
 import { Frontmatter, MarkdownMetadata, MarkdownRemark } from "@queries";
-import { Project } from "@queries/projects";
+import { ProjectFrontmatter } from "@queries/projects";
 import "@styles/main.scss";
 
 const renderAst = new rehypeReact({
@@ -21,7 +21,7 @@ interface ProjectsPageProps {
     section: MarkdownRemark<
       Frontmatter<{ title: string; description: string }> & { htmlAst: any }
     >;
-    projects: MarkdownMetadata<Project>;
+    projects: MarkdownMetadata<ProjectFrontmatter>;
   };
 }
 
@@ -34,26 +34,16 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
     ));
   const { frontmatter, htmlAst } = data.section.edges[0].node;
   return (
-    <Layout footer={{}}>
-      <>
-        <SEO
-          pathname="/projects"
-          title="Projects | hails.info"
-          contentType="website"
-        />
-        <div className="page-wrapper">
-          <Section id="projects">
-            <h1>
-              <Link to="/#experience">
-                <span className="p-3">‹</span>
-              </Link>
-              {frontmatter.title}
-            </h1>
-            {renderAst(htmlAst)}
-            {projectCards}
-          </Section>
-        </div>
-      </>
+    <Layout nav={{ active: "projects" }} footer={{}} page>
+      <SEO
+        pathname="/projects"
+        title="Projects | hails.info"
+        contentType="website"
+      />
+      <Section id="projects" className="section__first" title="Projects">
+        {renderAst(htmlAst)}
+        {projectCards}
+      </Section>
     </Layout>
   );
 };
@@ -61,7 +51,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ data }) => {
 export const pageQuery = graphql`
   {
     section: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/projects._index/" } }
+      filter: { fileAbsolutePath: { regex: "/content.projects._index/" } }
     ) {
       edges {
         node {
@@ -74,7 +64,7 @@ export const pageQuery = graphql`
       }
     }
     projects: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/assets.projects.[^_]/" } }
+      filter: { fileAbsolutePath: { regex: "/content.projects.[^_]/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {

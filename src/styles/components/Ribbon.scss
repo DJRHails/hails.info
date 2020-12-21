@@ -22,6 +22,7 @@ $tooltip-time: 0.2s;
     color: t($text-color);
   }
 
+  text-align: center;
   padding: 10px;
   border-radius: 3px;
   box-shadow: 0 2px 8px rgba(25, 25, 25, 0.3);
@@ -46,7 +47,7 @@ $tooltip-time: 0.2s;
       color: t($muted-color);
     }
     font-family: inherit;
-    font-size: 11px;
+    @include font-size(0.75rem);
     font-weight: bold;
     line-height: 2;
     padding: 5px 0;

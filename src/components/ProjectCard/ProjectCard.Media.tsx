@@ -1,18 +1,20 @@
+import classNames from "classnames";
+import { Link } from "gatsby";
+import Img from "gatsby-image";
+import _ from "lodash";
 import React from "react";
 
 import Flags from "@components/ProjectCard/ProjectCard.Flags";
-import { Project } from "@queries/projects";
-import classNames from "classnames";
-import Img from "gatsby-image";
-import _ from "lodash";
+import { ProjectFrontmatter } from "@queries/projects";
 
-const Media: React.FC<{ data: Project; alternate?: true }> = ({
+const Media: React.FC<{ data: ProjectFrontmatter; alternate?: true }> = ({
   data,
   alternate,
 }) => {
   const {
     date,
     title,
+    slug,
     github,
     external,
     tech,
@@ -28,21 +30,16 @@ const Media: React.FC<{ data: Project; alternate?: true }> = ({
 
   const recognitionFrontmatter =
     recognition && recognition.map((r) => r.frontmatter);
+
+  const img = <Img fluid={cover.childImageSharp.fluid} alt={title} />;
+
   return (
     <div className="project-card__media">
       <div className={assetClassName}>
         {recognitionFrontmatter && (
           <Flags recognition={recognitionFrontmatter} alternate={alternate} />
         )}
-        <a
-          href={
-            external ? external : github ? `https://github.com/${github}` : "#"
-          }
-          target="_blank"
-          rel="nofollow noopener noreferrer"
-        >
-          <Img fluid={cover.childImageSharp.fluid} alt={title} />
-        </a>
+        {slug ? <Link to={`/${slug}`}>{img}</Link> : img}
       </div>
     </div>
   );

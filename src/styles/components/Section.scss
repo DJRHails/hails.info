@@ -6,14 +6,13 @@
     color: t($text-color);
   }
 
-  > .container {
+  &__spaced > .container {
     padding-top: 10vh;
     padding-bottom: 10vh;
-    text-align: center;
   }
-
+  
   // Colors //
-  &.dark {
+  &.-dark {
     @include themed() {
       color: t($text-color-secondary);
       background: t($bg-secondary);
@@ -22,7 +21,7 @@
 
   h2 {
       letter-spacing: -2px;
-      &.dark {
+      &.-dark {
         @include themed() {
           color: t($bg);
         }
@@ -49,7 +48,7 @@
       }
   }
   .btn {
-      @include font-size(22px);
+      @include font-size(1.5rem);
       font-weight: 500;
       margin: 0 0 55px;
       padding: 15px 46px;

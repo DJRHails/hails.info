@@ -1,16 +1,19 @@
-import * as Icons from "@components/Icons";
-import Media from "@components/ProjectCard/ProjectCard.Media";
-import { Project } from "@queries/projects";
+import { Link } from "gatsby";
 import _ from "lodash";
 import React from "react";
 
-const ProjectCard: React.FC<{ data: Project; alternate?: true }> = ({
+import * as Icons from "@components/Icons";
+import Media from "@components/ProjectCard/ProjectCard.Media";
+import { ProjectFrontmatter } from "@queries/projects";
+
+const ProjectCard: React.FC<{ data: ProjectFrontmatter; alternate?: true }> = ({
   data,
   alternate,
 }) => {
   const {
     date,
     title,
+    slug,
     github,
     external,
     tech,
@@ -19,18 +22,8 @@ const ProjectCard: React.FC<{ data: Project; alternate?: true }> = ({
     cover,
   } = data;
 
-  const linkedTitle = external ? (
-    <a
-      href={external}
-      target="_blank"
-      rel="nofollow noopener noreferrer"
-      aria-label="External Link"
-    >
-      {title}
-    </a>
-  ) : (
-    title
-  );
+  const linkedTitle = slug ? <Link to={`/${slug}`}>{title}</Link> : title;
+
   const githubLink = (
     <a
       href={`https://github.com/${github}`}
@@ -52,7 +45,7 @@ const ProjectCard: React.FC<{ data: Project; alternate?: true }> = ({
     </a>
   );
   return (
-    <div id={_.kebabCase(title)} className="project-card">
+    <div id={_.kebabCase(slug)} className="project-card">
       <div className="project-card__wrapper">
         <div className="project-card__body">
           <h6 className="project-card__subtitle">

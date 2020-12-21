@@ -2,9 +2,6 @@
   "defaultSeverity": "error",
   "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
   "jsRules": {},
-  "linterOptions": {
-    "exclude": ["gatsby/**/*.js"]
-  },
   "rules": {
     "prettier": true,
     "interface-name": [false],
@@ -24,7 +21,7 @@
         "@styles",
         "@utils",
         "@icons",
-        "@assets",
+        "@content",
         "@queries",
         "@typings"
       ]

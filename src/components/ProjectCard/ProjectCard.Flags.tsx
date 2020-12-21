@@ -18,6 +18,7 @@ const Flag: React.FC<FlagProps> = ({
   title,
   external,
   date,
+  machineDate,
   type,
   ribbon,
   alternate,
@@ -89,7 +90,7 @@ const Flag: React.FC<FlagProps> = ({
             {external ? <a href={external}>{title}</a> : title}
             <span>
               {" "}
-              — <time dateTime="07/05/2020">{date}</time>
+              — <time dateTime={machineDate}>{date}</time>
             </span>
           </div>
         </div>

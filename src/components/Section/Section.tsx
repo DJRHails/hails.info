@@ -1,7 +1,7 @@
 import React from "react";
 
+import Title from "@components/Title";
 import classNames from "classnames";
-import EntryTitle from "./Section.EntryTitle";
 
 interface SectionProps {
   id: string;
@@ -12,6 +12,8 @@ interface SectionProps {
   skew?: boolean;
   arrow?: boolean;
   l2d?: true;
+  center?: true;
+  spaced?: true;
   orientation?: {
     top?: true;
     left?: true;
@@ -29,11 +31,15 @@ const Section: React.FC<SectionProps> = ({
   skew,
   arrow,
   l2d,
+  center,
+  spaced,
   orientation,
   children,
 }) => {
   const sectionClass = classNames("section", className, {
     [`separator-arrow`]: arrow,
+    [`section__spaced`]: spaced,
+    [`text-center`]: center,
   });
 
   const separatorClass = classNames("separator-diagonal", {
@@ -48,7 +54,7 @@ const Section: React.FC<SectionProps> = ({
       {skew && orientation?.top && <div className={separatorClass} />}
       <section id={id} className={sectionClass}>
         <div className={classNames("container", containerClass)}>
-          <EntryTitle id={id} title={title} subtitle={subtitle} />
+          <Title.Entry title={title} subtitle={subtitle} />
           {children}
         </div>
       </section>

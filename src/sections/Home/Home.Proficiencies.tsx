@@ -9,16 +9,15 @@ interface ProficienciesProps {
 
 const Proficiencies: React.FC<ProficienciesProps> = ({ skills }) => {
   return (
-    <>
-      <Section
-        id="proficiencies"
-        className="dark"
-        skew
-        orientation={{ bottom: true }}
-      >
-        <AdaptText list={skills} />
-      </Section>
-    </>
+    <Section
+      id="proficiencies"
+      className="-dark"
+      skew
+      spaced
+      orientation={{ bottom: true }}
+    >
+      <AdaptText list={skills} />
+    </Section>
   );
 };
 
